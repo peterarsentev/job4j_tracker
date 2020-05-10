@@ -30,6 +30,6 @@ public class Item {
     }
 
     public static void main(String[] args) {
-        Bug bug = new Bug();
+        Bug bug = new Bug("jjj");
     }
 }
