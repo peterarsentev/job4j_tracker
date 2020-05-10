@@ -1,10 +1,10 @@
 package ru.job4j.oop.task3;
 
 public class Profession {
-    String name;
-    String surname;
-    String education;
-    String birthday;
+    private String name;
+    private String surname;
+    private String education;
+    private String birthday;
 
     public String getName(){
         return name;
@@ -20,5 +20,21 @@ public class Profession {
 
     public String getBirthday(){
         return birthday;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 }
