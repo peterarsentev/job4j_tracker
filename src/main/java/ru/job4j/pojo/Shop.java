@@ -38,8 +38,6 @@ public class Shop {
         //записываем в ячейку значение следующей ячейки.
         for (int i = index; i < products.length - 1; i++) {
             products[i] = products[i + 1];
-            //удаляем значение из следующей ячейки
-            products[i + 1] = null;
         }
         products[products.length - 1] = null;
 
