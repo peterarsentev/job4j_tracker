@@ -45,11 +45,10 @@ public class Tracker {
         return rsl;
     }
 
-    public Item findAll(){
-        Item rsl = null;
+    public Item[] findAll(){
         Item[] itemsWithoutNull = new Item[size];
         int size1 = 0;
-        for (int index = 0; index < items.length; index++) {
+        for (int index = 0; index < size; index++) {
             Item item = items[index];
             if (item != null) {
                 itemsWithoutNull[size1] = item;
@@ -59,21 +58,4 @@ public class Tracker {
         itemsWithoutNull = Arrays.copyOf(itemsWithoutNull, size);
         return itemsWithoutNull;
     }
-    public static void main(String[] args) {
-        String[] names = {"Petr", null, "Ivan", "Stepan", null};
-        String[] namesWithoutNull = new String[names.length];
-        int size = 0;
-        for (int index = 0; index < names.length; index++) {
-            String name = names[index];
-            if (name != null) {
-                namesWithoutNull[size] = name;
-                size++;
-            }
-        }
-        namesWithoutNull = Arrays.copyOf(namesWithoutNull, size);
-        for (int index = 0; index < namesWithoutNull.length; index++) {
-            System.out.println(namesWithoutNull[index]);
-        }
-    }
-
 }

@@ -22,15 +22,18 @@ public class TrackerTest {
         Item result = tracker.findByName(item.getName());
         assertThat(result.getName(), is(item.getName()));
     }
-
-    public void testFindByName() {
+    @Test
+    public void whenAddnewItenThenFindItemFromAllItems() {
         Tracker tracker = new Tracker();
         Item item = new Item("test123", "123");
         tracker.add(item);
-        Item result = tracker.findAll();
-        assertThat(result.getName(), is(item.getName()));
-    }
-
-    public void testFindAll() {
+        Item[] result = tracker.findAll();
+        int i = 0;
+        for (int index = 0; index < result.length ; index++) {
+            if(result[index].equals(item)) {
+                i = index;
+            }
+        }
+         assertThat(result[i], is(item));
     }
 }
