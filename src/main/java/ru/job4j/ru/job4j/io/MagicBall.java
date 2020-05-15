@@ -1,7 +1,7 @@
 package ru.job4j.ru.job4j.io;
 
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 
 public class MagicBall {
     public static void main(String[] args) {
@@ -11,6 +11,9 @@ public class MagicBall {
         int answer = new Random().nextInt(3);
         String predict = "Может быть";
         if (answer == 0) {
+            predict = "Да";
+        }
+        if (answer == 1) {
             predict = "Нет";
         }
         System.out.println(predict);
