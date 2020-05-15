@@ -13,7 +13,6 @@ public class LicenseTest {
         License second = new License();
         second.setCode("audio");
         assertThat(first, is(second));
-        first.equals(second);
     }
 
     @Test
@@ -23,7 +22,6 @@ public class LicenseTest {
         License second = new License();
         second.setModel("122333");
         assertThat(first, is(second));
-        first.equals(second);
     }
 
     @Test
@@ -33,6 +31,5 @@ public class LicenseTest {
         License second = new License();
         second.setOwner("Mike");
         assertThat(first, is(second));
-        first.equals(second);
     }
 }
