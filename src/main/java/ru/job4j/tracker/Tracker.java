@@ -5,7 +5,6 @@ import java.util.Random;
 
 public class Tracker {
     private final Item[] items = new Item[100];
-    private int ids = 1;
     private int size = 0;
 
     private String generateId() {
@@ -68,6 +67,7 @@ public class Tracker {
         boolean rsl = false;
         int index = indexOf(id);
         if (index != -1) {
+            items[index].setId(id);
             items[index].setName(item.getName());
             rsl = true;
         }
