@@ -38,31 +38,22 @@ public class Tracker {
         return index != -1 ? items[index] : null;
     }
 
-    public Item findByName(String name){
-        Item rsl = null;
+    public Item[] findByName(String name) {
+        int sizeNew = 1;
+        Item[] result = Arrays.copyOf(items, sizeNew);
         for (int index = 0; index < size; index++) {
             Item item = items[index];
             if (item.getName().equals(name)) {
-                rsl = item;
-                break;
+                result[sizeNew-1] = items[index];
             }
         }
-        return rsl;
+        return result;
     }
 
     public Item[] findAll(){
-        Item[] itemsWithoutNull = new Item[size];
-        int size1 = 0;
-        for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item != null) {
-                itemsWithoutNull[size1] = item;
-                size1++;
-            }
-        }
-        itemsWithoutNull = Arrays.copyOf(itemsWithoutNull, size);
-        return itemsWithoutNull;
+        return Arrays.copyOf(items, size);
     }
+
     public boolean replace(String id, Item item) {
         boolean rsl = false;
         int index = indexOf(id);
