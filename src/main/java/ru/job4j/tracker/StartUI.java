@@ -46,7 +46,7 @@ public class StartUI {
     public static void deteleItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ====");
         String id = input.askStr("Enter id: ");
-        if (tracker.delete(id) == true) {
+        if (tracker.delete(id)) {
             System.out.println("Success");
         } else {
             System.out.println("Fail");
@@ -58,7 +58,7 @@ public class StartUI {
         String id = input.askStr("Enter id: ");
         String name = input.askStr("Enter name: ");
         Item item = new Item(id, name);
-        if (tracker.replace(id, item) == true) {
+        if (tracker.replace(id, item)) {
             System.out.println("Success");
         } else {
             System.out.println("Fail");
@@ -69,7 +69,7 @@ public class StartUI {
         System.out.println("=== Show all items ====");
         Item[] rsl = tracker.findAll();
         for (Item item : rsl) {
-            System.out.println("Id заявки = " + item.getId() + " name заявки = " + item.getName());
+            System.out.println(item);
         }
     }
 
@@ -87,7 +87,9 @@ public class StartUI {
     public static void findIdItem(Input input, Tracker tracker) {
         System.out.println("=== Show items by id ====");
         String id = input.askStr("Enter id: ");
-        System.out.println("Id заявки" + tracker.findById(id));
+        if (tracker.findById(id) != null) {
+            System.out.println("Id заявки" + tracker.findById(id));
+        }
     }
 
 
