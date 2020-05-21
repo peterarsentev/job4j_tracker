@@ -13,13 +13,16 @@ public class Matches {
             String player = first ? "первый" : "второй";
             System.out.println("Игрок "+ player + " возьмите от 1 до 3 спичек");
             matchersPlayer = input.nextInt();
-            matches = matches - matchersPlayer;
-            System.out.println("На столе осталось " + matches + " спичек");
-            if (matches < 1) {
-                System.out.println("Победил игрок " + player);
+            if (matchersPlayer > 0 && matchersPlayer < 4){
+                matches = matches - matchersPlayer;
+                System.out.println("На столе осталось " + matches + " спичек");
+                if (matches < 1) {
+                    System.out.println("Победил игрок " + player);
+                }
+                first = !first;
+            } else {
+                System.out.println("Вы ввели неверное число.");
             }
-            first = !first;
-
         }
     }
 }
