@@ -7,16 +7,19 @@ public class Matches {
         Scanner input = new Scanner(System.in);
         int matches = 11;
         System.out.println("Игрa 11");
-        int count = 1;
-        while (matches > 3) {
-            System.out.println("Игрок "+ (count % 2 == 0 ? 2 : 1) + " возьмите от 1 до 3 спичек");
-            int matchersPlayer = input.nextInt();
+        boolean first = true;
+        int matchersPlayer;
+        while (matches > 0) {
+            String player = first ? "первый" : "второй";
+            System.out.println("Игрок "+ player + " возьмите от 1 до 3 спичек");
+            matchersPlayer = input.nextInt();
             matches = matches - matchersPlayer;
             System.out.println("На столе осталось " + matches + " спичек");
-            if (matches < 4) {
-                System.out.println("Победил игрок " + (count % 2 != 0 ? 2 : 1));
+            if (matches < 1) {
+                System.out.println("Победил игрок " + player);
             }
-            count++;
+            first = !first;
+
         }
     }
 }
