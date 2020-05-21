@@ -35,6 +35,7 @@ public class StartUI {
         System.out.println("5. Find items by name");
         System.out.println("6. Exit Program");
     }
+
     public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ====");
         String name = input.askStr("Enter name: ");
@@ -42,7 +43,7 @@ public class StartUI {
         tracker.add(item);
     }
 
-    public static void deteleItem (Input input, Tracker tracker) {
+    public static void deteleItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ====");
         String id = input.askStr("Enter id: ");
         if (tracker.delete(id) == true) {
@@ -52,7 +53,7 @@ public class StartUI {
         }
     }
 
-    public static void replaceItem (Input input, Tracker tracker) {
+    public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("=== Edit item ====");
         String id = input.askStr("Enter id: ");
         String name = input.askStr("Enter name: ");
@@ -64,7 +65,7 @@ public class StartUI {
         }
     }
 
-    public static void allItems (Tracker tracker) {
+    public static void allItems(Tracker tracker) {
         System.out.println("=== Show all items ====");
         Item[] rsl = tracker.findAll();
         for (Item item : rsl) {
@@ -72,16 +73,18 @@ public class StartUI {
         }
     }
 
-    public static void findNameItems (Input input, Tracker tracker) {
+    public static void findNameItems(Input input, Tracker tracker) {
         System.out.println("=== Show items by name ====");
         String name = input.askStr("Enter name: ");
         Item[] rsl = tracker.findByName(name);
         for (Item item : rsl) {
-            System.out.println("Id заявки = " + item.getId() + " name заявки = " + item.getName());
+            if (item != null) {
+                System.out.println("Id заявки = " + item.getId() + " name заявки = " + item.getName());
+            }
         }
     }
 
-    public static void findIdItem (Input input, Tracker tracker) {
+    public static void findIdItem(Input input, Tracker tracker) {
         System.out.println("=== Show items by id ====");
         String id = input.askStr("Enter id: ");
         System.out.println("Id заявки" + tracker.findById(id));
