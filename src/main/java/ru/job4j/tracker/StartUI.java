@@ -79,7 +79,7 @@ public class StartUI {
         Item[] rsl = tracker.findByName(name);
         for (Item item : rsl) {
             if (item != null) {
-                System.out.println("Id заявки = " + item.getId() + " name заявки = " + item.getName());
+                System.out.println(item);
             }
         }
     }
