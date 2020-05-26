@@ -48,7 +48,7 @@ public class Tracker {
                 sizeNew++;
             }
         }
-        return result;
+        return Arrays.copyOf(result, sizeNew);
     }
 
     public Item[] findAll() {
