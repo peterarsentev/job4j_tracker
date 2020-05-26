@@ -77,19 +77,21 @@ public class StartUI {
         System.out.println("=== Show items by name ====");
         String name = input.askStr("Enter name: ");
         Item[] rsl = tracker.findByName(name);
-        for (Item item : rsl) {
-            if (item != null) {
+        if (rsl.length > 0) {
+            for (Item item : rsl) {
                 System.out.println(item);
             }
-        }
+        } else System.out.println("Заявки с данным именем отсутствуют");
+
     }
 
     public static void findIdItem(Input input, Tracker tracker) {
         System.out.println("=== Show items by id ====");
         String id = input.askStr("Enter id: ");
-        if (tracker.findById(id) != null) {
-            System.out.println("Id заявки" + tracker.findById(id));
-        }
+        Item idItem = tracker.findById(id);
+        if (idItem != null) {
+            System.out.println("Id заявки" + idItem);
+        } else System.out.println("Заявка с данным id отсутствует");
     }
 
 
