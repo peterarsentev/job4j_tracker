@@ -10,13 +10,11 @@ public class FindNameAction implements UserAction{
     public boolean execute(Input input, Tracker tracker) {
         String name = input.askStr("Enter name: ");
         Item[] rsl = tracker.findByName(name);
-        boolean status = false;
         if (rsl.length > 0) {
             for (Item item : rsl) {
                 System.out.println(item);
-                status = true;
             }
         } else System.out.println("Заявки с данным именем отсутствуют");
-        return status;
+        return true;
     }
 }
