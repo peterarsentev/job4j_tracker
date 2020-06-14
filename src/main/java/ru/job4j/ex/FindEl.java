@@ -10,10 +10,24 @@ public class FindEl {
         }
         return rsl;
     }
+    public static boolean sent(String value, String[] abuses) throws ElementAbuseException {
+        // if contains throw ElementAbuseException
+        return true;
+    }
+
+    public static void process(String[] values, String key, String[] abuses) {
+        try {
+            if (indexOf(values, key) != -1) {
+                sent(key, abuses);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         try{
             System.out.println(indexOf(new String[] {"Winter", "Spring", "Summer", "Autumn"}, "78"));
-            System.out.println(indexOf(new String[] {"Winter", "Spring", "Summer", "Autumn"}, "Summer"));
         } catch (ElementNotFoundException e){
             e.printStackTrace();
         }
