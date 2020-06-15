@@ -11,9 +11,9 @@ public class Matches {
         int matchersPlayer;
         while (matches > 0) {
             String player = first ? "первый" : "второй";
-            System.out.println("Игрок "+ player + " возьмите от 1 до 3 спичек");
+            System.out.println("Игрок " + player + " возьмите от 1 до 3 спичек");
             matchersPlayer = input.nextInt();
-            if (matchersPlayer > 0 && matchersPlayer < 4){
+            if (matchersPlayer > 0 && matchersPlayer < 4) {
                 matches = matches - matchersPlayer;
                 System.out.println("На столе осталось " + matches + " спичек");
                 if (matches < 1) {

@@ -22,12 +22,12 @@ public class Bus implements Transport {
         this.oil = oil;
     }
 
-    public Bus (int passengers, int oil) {
+    public Bus(int passengers, int oil) {
         this.passengers = passengers;
         this.oil = oil;
     }
 
-    public Bus (int passengers) {
+    public Bus(int passengers) {
         this.passengers = passengers;
     }
 
@@ -44,6 +44,6 @@ public class Bus implements Transport {
 
     @Override
     public int fillUp(int oil) {
-        return price*oil ;
+        return price * oil;
     }
 }

@@ -140,6 +140,7 @@ public class StartUITest {
 
         ));
     }
+
     @Test
     public void whenAllList() {
         Output out = new StubOutput();

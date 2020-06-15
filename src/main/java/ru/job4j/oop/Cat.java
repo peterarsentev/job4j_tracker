@@ -5,15 +5,15 @@ public class Cat {
     private String food;
     private String name;
 
-    public void show(){
+    public void show() {
         System.out.println(this.name + " " + this.food);
     }
 
-    public void eat(String meat){
+    public void eat(String meat) {
         this.food = meat;
     }
 
-    public void giveNick(String nick){
+    public void giveNick(String nick) {
         this.name = nick;
     }
 

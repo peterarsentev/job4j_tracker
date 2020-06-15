@@ -1,6 +1,6 @@
 package ru.job4j.oop.task3;
 
-public class Engineer extends Profession{
+public class Engineer extends Profession {
     private String taskCount;
 
     public String getTaskCount() {
@@ -11,7 +11,7 @@ public class Engineer extends Profession{
         this.taskCount = taskCount;
     }
 
-    public String taskDone(){
+    public String taskDone() {
         return taskCount;
     }
 }

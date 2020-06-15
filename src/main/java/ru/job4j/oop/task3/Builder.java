@@ -11,7 +11,7 @@ public class Builder extends Engineer {
         this.countBuilding = countBuilding;
     }
 
-    public int built(int building){
+    public int built(int building) {
         return countBuilding;
     }
 

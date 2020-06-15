@@ -1,6 +1,6 @@
 package ru.job4j.oop.task31;
 
-public class College extends Freshman{
+public class College extends Freshman {
     public static void main(String[] args) {
         Freshman freshman = new Freshman();
         Student student = freshman;

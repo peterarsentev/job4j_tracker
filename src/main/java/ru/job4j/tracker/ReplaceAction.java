@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 public class ReplaceAction implements UserAction {
     private final Output out;
 
-    public ReplaceAction(Output out){
+    public ReplaceAction(Output out) {
         this.out = out;
     }
 

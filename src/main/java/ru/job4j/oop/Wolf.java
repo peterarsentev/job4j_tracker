@@ -4,7 +4,7 @@ public class Wolf {
     public void eat(Girl girl) {
     }
 
-    public void runFromTryEat(Ball ball){
+    public void runFromTryEat(Ball ball) {
 
     }
 }

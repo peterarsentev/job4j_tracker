@@ -4,11 +4,11 @@ public class Battery {
 
     private int load;
 
-    private Battery(int value){
+    private Battery(int value) {
         this.load = value;
     }
 
-    private void exchange(Battery another){
+    private void exchange(Battery another) {
         another.load = this.load + another.load;
         this.load = 0;
     }

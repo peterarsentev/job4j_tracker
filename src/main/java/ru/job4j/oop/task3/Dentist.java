@@ -12,7 +12,7 @@ public class Dentist extends Doctor {
         this.healthyTooth = healthyTooth;
     }
 
-    public boolean treatmentTooth(){
+    public boolean treatmentTooth() {
         return true;
     }
 }

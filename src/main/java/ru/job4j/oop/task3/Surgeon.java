@@ -20,7 +20,7 @@ public class Surgeon extends Doctor {
         this.countSuccess = countSuccess;
     }
 
-    public int countSuccess (){
+    public int countSuccess() {
         return countSuccess;
     }
 }
