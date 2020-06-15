@@ -112,8 +112,8 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. === Exit Program ====" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. === Exit Program ====" + System.lineSeparator()
         ));
     }
 
@@ -130,13 +130,13 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Create" + System.lineSeparator() +
-                        "1. === Exit Program ====" + System.lineSeparator() +
-                        "=== Create a new Item ====" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. Create" + System.lineSeparator() +
-                        "1. === Exit Program ====" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. Create" + System.lineSeparator()
+                        + "1. === Exit Program ====" + System.lineSeparator()
+                        + "=== Create a new Item ====" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. Create" + System.lineSeparator()
+                        + "1. === Exit Program ====" + System.lineSeparator()
 
         ));
     }
@@ -154,12 +154,12 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. === Show all items ====" + System.lineSeparator() +
-                        "1. === Exit Program ====" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. === Show all items ====" + System.lineSeparator() +
-                        "1. === Exit Program ====" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. === Show all items ====" + System.lineSeparator()
+                        + "1. === Exit Program ====" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. === Show all items ====" + System.lineSeparator()
+                        + "1. === Exit Program ====" + System.lineSeparator()
 
         ));
     }
@@ -177,13 +177,15 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. === Show items by id ====" + System.lineSeparator() +
-                        "1. === Exit Program ====" + System.lineSeparator() +
-                        "Заявка с данным id отсутствует" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. === Show items by id ====" + System.lineSeparator() +
-                        "1. === Exit Program ====" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        +
+                        "0. === Show items by id ====" + System.lineSeparator()
+                        + "1. === Exit Program ====" + System.lineSeparator()
+                        +
+                        "Заявка с данным id отсутствует" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. === Show items by id ====" + System.lineSeparator()
+                        + "1. === Exit Program ====" + System.lineSeparator()
         ));
     }
 
@@ -200,13 +202,13 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. === Show items by name ====" + System.lineSeparator() +
-                        "1. === Exit Program ====" + System.lineSeparator() +
-                        "Заявки с данным именем отсутствуют" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. === Show items by name ====" + System.lineSeparator() +
-                        "1. === Exit Program ====" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. === Show items by name ====" + System.lineSeparator()
+                        + "1. === Exit Program ====" + System.lineSeparator()
+                        + "Заявки с данным именем отсутствуют" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. === Show items by name ====" + System.lineSeparator()
+                        + "1. === Exit Program ====" + System.lineSeparator()
         ));
     }
 

@@ -18,7 +18,9 @@ public class FindIdAction implements UserAction {
         Item idItem = tracker.findById(id);
         if (idItem != null) {
             out.println("Id заявки" + idItem);
-        } else out.println("Заявка с данным id отсутствует");
+        } else {
+            out.println("Заявка с данным id отсутствует");
+        }
         return true;
     }
 }
