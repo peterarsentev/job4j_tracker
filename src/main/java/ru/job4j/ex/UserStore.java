@@ -9,6 +9,8 @@ public class UserStore {
                 rsl = user;
                 break;
             }
+        }
+        if (rsl == null) {
             throw new UserNotFoundException("User not found.");
         }
         return rsl;
@@ -27,11 +29,14 @@ public class UserStore {
 
     public static void main(String[] args) {
         User[] users = {
-                new User("Pe7", true)
+                new User("Pe7", true),
+                new User("Pet", true),
+                new User("Petr", true),
+                new User("Petr A", true),
         };
         User user;
         try {
-            user = findUser(users, "Pe7");
+            user = findUser(users, "Petr");
             if (validate(user)) {
                 System.out.println("This user has an access");
             }
