@@ -1,18 +1,14 @@
 package ru.job4j.tracker;
 
 public class Item {
-    private String id;
+    private int id;
     private String name;
 
-    public Item(String name) {
-        this.name = name;
-    }
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -6,20 +6,16 @@ public class Tracker {
     private int size = 0;
 
     public Item add(Item item) {
-        item.setId(generateId());
+        item.setId(ids++);
         items[size++] = item;
         return item;
     }
 
-    private String generateId() {
-        return String.valueOf(ids++);
-    }
-
-    public Item findById(String id) {
+    public Item findById(int id) {
         Item rsl = null;
         for (int index = 0; index < size; index++) {
             Item item = items[index];
-            if (item.getId().equals(id)) {
+            if (item.getId() == id) {
                 rsl = item;
                 break;
             }
