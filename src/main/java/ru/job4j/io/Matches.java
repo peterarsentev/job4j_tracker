@@ -11,36 +11,22 @@ public class Matches {
         String gamer2 = input.nextLine();
         int fires = 21;
         while (true) {
-            int carry1;
-            int carry2;
-            System.out.println("Ход игрока: " + gamer1);
-            if (fires > 0){
-                System.out.println("Игрок " + gamer1 + " берет спички: ");
+            int carry;
+            String mainGamer = gamer2;
+            gamer2 = gamer1;
+            gamer1 = mainGamer;
+
+            System.out.println("Ход игрока: " + mainGamer);
+                System.out.println("Игрок " + mainGamer + " берет спички: ");
                 do {
-                    carry1 = input.nextInt();
-                } while ((carry1 <= 0) || (carry1 > 3));
-                fires -= carry1;
+                    carry = input.nextInt();
+                } while ((carry <= 0) || (carry > 3));
+                fires -= carry;
                 System.out.println("Осталось спичек: " + fires);
-            }
-            else {
-                System.out.println("Выиграл игрок " + gamer2);
+            if (fires <= 0) {
+                System.out.println("Выиграл игрок " + mainGamer);
                 break;
             }
-
-            if (fires > 0){
-                System.out.println("Игрок " + gamer2 + " берет спички: ");
-                do {
-                    carry2 = input.nextInt();
-                } while ((carry2 <= 0) || (carry2 > 3));
-                fires -= carry2;
-                System.out.println("Осталось спичек: " + fires);
-            }
-            else {
-                System.out.println("Выиграл игрок " + gamer1);
-                break;
-            }
-
-
         }
 
     }
