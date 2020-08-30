@@ -1,6 +1,70 @@
 package ru.job4j.tracker;
 
 public class StartUI {
+    public static void createItem(Input input, Tracker tracker) {
+        System.out.println("Для добавления введите id и название: ");
+        int id = input.askInt("Введите id: ");
+        String name = input.askStr("Введите название: ");
+        Item item = new Item(name, id);
+        tracker.add(item);
+        System.out.println("Объект добавлен в трекер!");
+    }
+
+    public static void showAll(Input input, Tracker tracker) {
+        System.out.println("~~~Вывод всех элементов трекера~~~");
+        Item[] all = tracker.findAll();
+        for (Item iter
+                : all) {
+            System.out.println(iter.toString());
+        }
+    }
+
+    public static void replaceItem(Input input, Tracker tracker) {
+        String name = input.askStr("Для добавления введите название: ");
+        int id2 = input.askInt("Введите id заменяемого элемента");
+        Item item = new Item();
+        item.setName(name);
+        boolean valid = tracker.replace(id2, item);
+        if (valid) {
+            System.out.println("Объект добавлен в трекер!");
+        } else {
+            System.out.println("Ошибка добавления");
+        }
+    }
+
+    public static void deleteItem(Input input, Tracker tracker) {
+        int id = input.askInt("Введите id удаляемого элемента");
+        boolean valid = tracker.delete(id);
+        if (valid) {
+            System.out.println("Заявка была удалена!");
+        } else {
+            System.out.println("Ошибка удаления");
+        }
+    }
+
+    public static void searchIdItem(Input input, Tracker tracker) {
+        int id = input.askInt("input id");
+        Item item = tracker.findById(id);
+        if (item != null) {
+            System.out.println("searched: " + item.toString());
+        } else {
+            System.out.println("was not found");
+        }
+    }
+
+    public static void nameSearch(Input input, Tracker tracker) {
+        String name = input.askStr("input name: ");
+        Item[] searched = tracker.findByName(name);
+        if (searched.length > 0) {
+            for (Item iter
+                    : searched) {
+                System.out.println(iter.toString());
+            }
+        } else {
+            System.out.println("0 objects with same name");
+        }
+    }
+
     /**
      * метод запукает работу CLI
      * */
@@ -13,59 +77,17 @@ public class StartUI {
                 choice = input.askInt("введите номер из меню");
             } while ((choice > 6) || (choice < 0));
                 if (choice == 0) {
-                    System.out.println("Для добавления введите id и название: ");
-                    int id = input.askInt("Введите id: ");
-                    String name = input.askStr("Введите название: ");
-                    Item item = new Item(name, id);
-                    tracker.add(item);
-                    System.out.println("Объект добавлен в трекер!");
+                    StartUI.createItem(input, tracker);
                 } else if (choice == 1) {   //+
-                    System.out.println("~~~Вывод всех элементов трекера~~~");
-                    Item[] all = tracker.findAll();
-                    for (Item iter
-                            : all) {
-                        System.out.println(iter.toString());
-                    }
+                    StartUI.showAll(input, tracker);
                 } else if (choice == 2) {
-                    String name = input.askStr("Для добавления введите название: ");
-                    int id2 = input.askInt("Введите id заменяемого элемента");
-                    Item item = new Item();
-                    item.setName(name);
-                    boolean valid = tracker.replace(id2, item);
-                    if (valid) {
-                        System.out.println("Объект добавлен в трекер!");
-                    } else {
-                        System.out.println("Ошибка добавления");
-                    }
-
+                    StartUI.replaceItem(input, tracker);
                 } else if (choice == 3) {
-                    int id = input.askInt("Введите id удаляемого элемента");
-                    boolean valid = tracker.delete(id);
-                    if (valid) {
-                        System.out.println("Заявка была удалена!");
-                    } else {
-                        System.out.println("Ошибка удаления");
-                    }
+                    StartUI.deleteItem(input, tracker);
                 } else if (choice == 4) {
-                    int id = input.askInt("input id");
-                    Item item = tracker.findById(id);
-                    if (item != null) {
-                        System.out.println("searched: " + item.toString());
-                    } else {
-                        System.out.println("was not found");
-                    }
-
+                    StartUI.searchIdItem(input, tracker);
                 } else if (choice == 5) {
-                    String name = input.askStr("input name: ");
-                    Item[] searched = tracker.findByName(name);
-                    if (searched.length > 0) {
-                        for (Item iter
-                                : searched) {
-                            System.out.println(iter.toString());
-                        }
-                    } else {
-                        System.out.println("0 objects with same name");
-                    }
+                    StartUI.nameSearch(input, tracker);
                 } else {
                     System.out.println("Exit...");
                     break;
