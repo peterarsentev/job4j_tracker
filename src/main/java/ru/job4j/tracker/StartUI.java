@@ -20,16 +20,12 @@ public class StartUI {
     }
 
     public static void replaceItem(Input input, Tracker tracker) {
-        String name = input.askStr("Для добавления введите название: ");
-        int id2 = input.askInt("Введите id заменяемого элемента");
-        Item item = new Item();
-        item.setName(name);
-        boolean valid = tracker.replace(id2, item);
-        if (valid) {
-            System.out.println("Объект добавлен в трекер!");
-        } else {
-            System.out.println("Ошибка добавления");
-        }
+        System.out.println(" === Update item ====");
+        int id = input.askInt("Enter id:");
+        String name = input.askStr("Enter a new name of item: ");
+        Item item = new Item(name);
+        item.setId(id);
+        tracker.replace(id, item);
     }
 
     public static void deleteItem(Input input, Tracker tracker) {
