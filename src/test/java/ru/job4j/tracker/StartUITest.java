@@ -14,18 +14,21 @@ public class StartUITest {
     public void findAll() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0","1" }
+                new String[] {"0", "1" }
         );
         Tracker tracker = new Tracker();
-        Item item = new Item("New");
-        tracker.add(item);
+        /*Item item = new Item("New");
+        tracker.add(item);*/
         UserAction[] actions = {
                 new FindAllAction(out),
                 new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "[null]" + System.lineSeparator()
+                "Menu." + System.lineSeparator() + "0. Find all" + System.lineSeparator() + "1. Exit" +
+                        System.lineSeparator() + "== Find all ==" + System.lineSeparator() + "0 objects with same name" +
+                        System.lineSeparator() + "Menu." + System.lineSeparator() + "0. Find all" + System.lineSeparator() + "1. Exit" +
+                        System.lineSeparator() + "== Exit! ==" + System.lineSeparator()
         ));
     }
 
@@ -44,7 +47,10 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "1" + System.lineSeparator()
+                "Menu." + System.lineSeparator() + "0. Find by id" + System.lineSeparator() + "1. Exit" +
+                        System.lineSeparator() + "searched: Item{id=1, name='New'}" + System.lineSeparator() +
+                        "Menu." + System.lineSeparator() + "0. Find by id" + System.lineSeparator() + "1. Exit" +
+                        System.lineSeparator() + "== Exit! ==" + System.lineSeparator()
         ));
     }
 
@@ -63,7 +69,10 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Item{id=1, name='ddd'}" + System.lineSeparator()
+                "Menu." + System.lineSeparator() + "0. Find by name" + System.lineSeparator() + "1. Exit" +
+                        System.lineSeparator() + "Item{id=1, name='ddd'}" + System.lineSeparator() +
+                        "Menu." + System.lineSeparator() + "0. Find by name" + System.lineSeparator() + "1. Exit" +
+                        System.lineSeparator() + "== Exit! ==" + System.lineSeparator()
         ));
     }
 
