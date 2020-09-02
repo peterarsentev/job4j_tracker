@@ -9,24 +9,65 @@ import static org.junit.Assert.*;
 import static org.hamcrest.core.IsNull.nullValue;
 
 public class StartUITest {
+
     @Test
-    public void whenExit() {
+    public void findAll() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0"}
+                new String[] {"0","1" }
         );
         Tracker tracker = new Tracker();
+        Item item = new Item("New");
+        tracker.add(item);
         UserAction[] actions = {
+                new FindAllAction(out),
                 new Exit()
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Exit" + System.lineSeparator()
+                "[null]" + System.lineSeparator()
         ));
     }
 
-    /*@Test
+    @Test
+    public void findById() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"0", "1", "1" }
+        );
+        Tracker tracker = new Tracker();
+        Item item = new Item("New");
+        tracker.add(item);
+        UserAction[] actions = {
+                new FindByIdAction(out),
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                "1" + System.lineSeparator()
+        ));
+    }
+
+    @Test
+    public void findByName() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"0","ddd", "1" }
+        );
+        Tracker tracker = new Tracker();
+        Item item = new Item("ddd");
+        tracker.add(item);
+        UserAction[] actions = {
+                new FindByNameAction(out),
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                "Item{id=1, name='ddd'}" + System.lineSeparator()
+        ));
+    }
+
+/*    @Test
     public void whenCreateItem() {
         Input in = new StubInput(
                 new String[] {"0", "Item name", "1" }
@@ -43,9 +84,9 @@ public class StartUITest {
     @Test
     public void whenReplaceItem() {
         Tracker tracker = new Tracker();
-        *//* Добавим в tracker новую заявку *//*
+         Добавим в tracker новую заявку
         Item item = tracker.add(new Item("Replaced item"));
-        *//* Входные данные должны содержать ID добавленной заявки item.getId() *//*
+         Входные данные должны содержать ID добавленной заявки item.getId()
         String replacedName = "New item name";
         Input in = new StubInput(
                 new String[] {"0", valueOf(item.getId()), replacedName, "1"}
@@ -61,9 +102,9 @@ public class StartUITest {
     @Test
     public void whenDeleteItem() {
         Tracker tracker = new Tracker();
-        *//* Добавим в tracker новую заявку *//*
+         Добавим в tracker новую заявку
         Item item = tracker.add(new Item("Deleted item"));
-        *//* Входные данные должны содержать ID добавленной заявки item.getId() *//*
+         Входные данные должны содержать ID добавленной заявки item.getId()
         Input in = new StubInput(
                 new String[] {"0", valueOf(item.getId()), "1"}
         );
