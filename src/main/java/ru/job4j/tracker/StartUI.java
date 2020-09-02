@@ -1,6 +1,13 @@
 package ru.job4j.tracker;
 
 public class StartUI {
+
+    private final Output out;
+
+    public StartUI(Output out) {
+        this.out = out;
+    }
+
     public static void createItem(Input input, Tracker tracker) {
         System.out.println("Для добавления введите id и название: ");
         int id = input.askInt("Введите id: ");
@@ -85,11 +92,14 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
+        Output output = new ConsoleOutput();
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction()
+                new CreateAction(output),
+                new Exit()
+                /* another actions */
         };
-        new StartUI().init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, actions);
     }
 }
