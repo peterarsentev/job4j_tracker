@@ -14,7 +14,7 @@ public class Exit implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("== Exit ==");
+        out.println("== Exit! ==");
         return false;
     }
 }
