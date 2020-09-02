@@ -8,29 +8,6 @@ public class StartUI {
         this.out = out;
     }
 
-    public static void searchIdItem(Input input, Tracker tracker) {
-        int id = input.askInt("input id");
-        Item item = tracker.findById(id);
-        if (item != null) {
-            System.out.println("searched: " + item.toString());
-        } else {
-            System.out.println("was not found");
-        }
-    }
-
-    public static void nameSearch(Input input, Tracker tracker) {
-        String name = input.askStr("input name: ");
-        Item[] searched = tracker.findByName(name);
-        if (searched.length > 0) {
-            for (Item iter
-                    : searched) {
-                System.out.println(iter.toString());
-            }
-        } else {
-            System.out.println("0 objects with same name");
-        }
-    }
-
     /**
      * метод запукает работу CLI
      * */
@@ -48,9 +25,9 @@ public class StartUI {
      * Вывод меню
      * */
     private void showMenu(UserAction[] actions) {
-        System.out.println("Menu.");
+        out.println("Menu.");
         for (int index = 0; index < actions.length; index++) {
-            System.out.println(index + ". " + actions[index].name());
+            out.println(index + ". " + actions[index].name());
         }
     }
 
