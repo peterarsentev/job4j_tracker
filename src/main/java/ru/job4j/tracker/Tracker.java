@@ -3,6 +3,11 @@ package ru.job4j.tracker;
 import java.util.Arrays;
 
 public class Tracker {
+    @Override
+    public String toString() {
+        return "Tracker{" + "items=" + Arrays.toString(items) + '}';
+    }
+
     private final Item[] items = new Item[100];
     private int ids = 1;
     private int size = 0;

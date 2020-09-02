@@ -8,43 +8,6 @@ public class StartUI {
         this.out = out;
     }
 
-    public static void createItem(Input input, Tracker tracker) {
-        System.out.println("Для добавления введите id и название: ");
-        int id = input.askInt("Введите id: ");
-        String name = input.askStr("Введите название: ");
-        Item item = new Item(name, id);
-        tracker.add(item);
-        System.out.println("Объект добавлен в трекер!");
-    }
-
-    public static void showAll(Input input, Tracker tracker) {
-        System.out.println("~~~Вывод всех элементов трекера~~~");
-        Item[] all = tracker.findAll();
-        for (Item iter
-                : all) {
-            System.out.println(iter.toString());
-        }
-    }
-
-    public static void replaceItem(Input input, Tracker tracker) {
-        System.out.println(" === Update item ====");
-        int id = input.askInt("Enter id:");
-        String name = input.askStr("Enter a new name of item: ");
-        Item item = new Item(name);
-        item.setId(id);
-        tracker.replace(id, item);
-    }
-
-    public static void deleteItem(Input input, Tracker tracker) {
-        int id = input.askInt("Введите id удаляемого элемента");
-        boolean valid = tracker.delete(id);
-        if (valid) {
-            System.out.println("Заявка была удалена!");
-        } else {
-            System.out.println("Ошибка удаления");
-        }
-    }
-
     public static void searchIdItem(Input input, Tracker tracker) {
         int id = input.askInt("input id");
         Item item = tracker.findById(id);
@@ -97,8 +60,13 @@ public class StartUI {
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
-                new Exit()
-                /* another actions */
+                new DeleteAction(output),
+                new FindAllAction(output),
+                new FindByNameAction(output),
+                new FindByIdAction(output),
+                new ReplaceAction(output),
+                new Exit(output)
+
         };
         new StartUI(output).init(input, tracker, actions);
     }

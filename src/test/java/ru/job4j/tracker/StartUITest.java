@@ -21,7 +21,7 @@ public class StartUITest {
         tracker.add(item);
         UserAction[] actions = {
                 new FindAllAction(out),
-                new Exit()
+                new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
@@ -40,7 +40,7 @@ public class StartUITest {
         tracker.add(item);
         UserAction[] actions = {
                 new FindByIdAction(out),
-                new Exit()
+                new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
@@ -59,7 +59,7 @@ public class StartUITest {
         tracker.add(item);
         UserAction[] actions = {
                 new FindByNameAction(out),
-                new Exit()
+                new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(

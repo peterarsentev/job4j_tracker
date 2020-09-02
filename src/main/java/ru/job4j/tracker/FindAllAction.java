@@ -18,7 +18,14 @@ public class FindAllAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         out.println("== Find all ==");
         Item[] items = tracker.findAll();
-        out.println(Arrays.toString(items));
+        if (items.length > 0) {
+            for (Item iter
+                    : items) {
+                out.println(iter.toString());
+            }
+        } else {
+            out.println("0 objects with same name");
+        }
         return true;
     }
 }

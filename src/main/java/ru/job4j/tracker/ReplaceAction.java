@@ -9,7 +9,7 @@ public class ReplaceAction implements UserAction {
 
     @Override
     public String name() {
-        return "=== Replace ====";
+        return "Replace";
     }
 
     @Override
@@ -20,7 +20,7 @@ public class ReplaceAction implements UserAction {
         Item item = new Item(name);
         item.setId(id);
        if (tracker.replace(id, item)) {
-           out.println("замена окончена");
+           out.println("замена окончена ");
        } else {
            out.println("замена не была выполнена!");
        }
