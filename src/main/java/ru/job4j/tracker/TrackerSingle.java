@@ -1,12 +1,12 @@
 package ru.job4j.tracker;
 
 public class TrackerSingle {
-    private static final TrackerSingle INSTANCE = new TrackerSingle();
+    private static final Tracker INSTANCE = new Tracker();
 
     private TrackerSingle() {
     }
 
-    public static TrackerSingle getInstance() {
+    public static Tracker getInstance() {
         return INSTANCE;
     }
 
@@ -15,7 +15,6 @@ public class TrackerSingle {
     }
 
     public static void main(String[] args) {
-        TrackerSingle tracker = TrackerSingle.getInstance();
     }
 }
 

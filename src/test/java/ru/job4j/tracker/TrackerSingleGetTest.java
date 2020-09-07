@@ -8,8 +8,8 @@ public class TrackerSingleGetTest {
 
     @Test
     public void getInstance() {
-        TrackerSingleGet tracker = TrackerSingleGet.getInstance();
-        TrackerSingleGet tracker2 = TrackerSingleGet.getInstance();
+        Tracker tracker = TrackerSingleGet.getInstance();
+        Tracker tracker2 = TrackerSingleGet.getInstance();
         assertTrue(tracker.equals(tracker2));
     }
 }

@@ -10,8 +10,8 @@ public class TrackerSingleNewTest {
 
     @Test
     public void getInstanceTest() {
-        TrackerSingleNew tracker = TrackerSingleNew.getInstance();
-        TrackerSingleNew tracker2 = TrackerSingleNew.getInstance();
+        Tracker tracker = TrackerSingleNew.getInstance();
+        Tracker tracker2 = TrackerSingleNew.getInstance();
         assertThat(tracker, is(tracker2));
     }
 }

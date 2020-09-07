@@ -8,8 +8,8 @@ public class TrackerSingleEnumTest {
 
     @Test
     public void singleTest() {
-        TrackerSingleEnum single1 = TrackerSingleEnum.SINGLE_ENUM;
-        TrackerSingleEnum single2 = TrackerSingleEnum.SINGLE_ENUM;
+        Tracker single1 = TrackerSingleEnum.SINGLE_ENUM.showTracker();
+        Tracker single2 = TrackerSingleEnum.SINGLE_ENUM.showTracker();
         assertEquals(single1, single2);
     }
 }
