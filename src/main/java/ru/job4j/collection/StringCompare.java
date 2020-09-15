@@ -9,9 +9,8 @@ public class StringCompare implements Comparator<String> {
     }
 
     private int comp1(String left, String right) {
-        int len = Math.max(left.length(), right.length());
+        int len = Math.min(left.length(), right.length());
         int rsl = 0;
-        try {
             for (int i = 0; i < len; i++) {
                 int choice = Character.compare(left.charAt(i), right.charAt(i));
                 if (choice != 0) {
@@ -19,9 +18,10 @@ public class StringCompare implements Comparator<String> {
                     break;
                 }
             }
-        } catch (StringIndexOutOfBoundsException ex) {
-            rsl = Integer.compare(left.length(), right.length());
-        }
+            int temp = Integer.compare(left.length(), right.length());
+            if (rsl == 0) {
+                rsl = temp;
+            }
         return rsl;
     }
 }
