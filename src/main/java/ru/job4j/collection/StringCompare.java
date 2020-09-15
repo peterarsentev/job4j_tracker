@@ -13,20 +13,14 @@ public class StringCompare implements Comparator<String> {
         int rsl = 0;
         try {
             for (int i = 0; i < len; i++) {
-                if (left.charAt(i) > right.charAt(i)) {
-                    rsl = 1;
-                    break;
-                } else if (left.charAt(i) < right.charAt(i)) {
-                    rsl = -1;
+                int choice = Character.compare(left.charAt(i), right.charAt(i));
+                if (choice != 0) {
+                    rsl = choice;
                     break;
                 }
             }
         } catch (StringIndexOutOfBoundsException ex) {
-            if (left.length() > right.length()) {
-                rsl = 1;
-            } else {
-                rsl = -1;
-            }
+            rsl = Integer.compare(left.length(), right.length());
         }
         return rsl;
     }
