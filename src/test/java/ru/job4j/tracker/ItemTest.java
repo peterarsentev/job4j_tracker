@@ -24,11 +24,8 @@ public class ItemTest {
                 new Item(4),
                 new Item(5)
         );
-        System.out.println(items);
         Collections.sort(items, new SortById());
-        System.out.println(items);
-        System.out.println(items2);
-        assertEquals(items.toString(), items2.toString());
+        assertEquals(items, items2);
     }
 
     @Test
@@ -46,10 +43,7 @@ public class ItemTest {
                 new Item(2),
                 new Item(1)
         );
-        System.out.println(items);
         Collections.sort(items, new InvSortById());
-        System.out.println(items);
-        System.out.println(items2);
-        assertEquals(items.toString(), items2.toString());
+        assertEquals(items, items2);
     }
 }
