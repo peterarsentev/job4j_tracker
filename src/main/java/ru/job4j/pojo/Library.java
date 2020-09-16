@@ -14,23 +14,21 @@ public class Library {
         for (int i = 0; i < 4; i++) {
             System.out.println(shelf[i].toString());
         }
-        Book temp = new Book("",0);
+        Book temp = new Book("", 0);
         temp = shelf[0];
         shelf[0] = shelf[3];
         shelf[3] = temp;
         temp = null;
 
-        for (Book i:
-                shelf) {
+        for (Book i
+                : shelf) {
             System.out.println(i.toString());
         }
-        for (Book i:
-                shelf) {
+        for (Book i
+                : shelf) {
             if (i.getSign().equals("Clean code")) {
                 System.out.println(i.toString());
             }
         }
-
-
     }
 }

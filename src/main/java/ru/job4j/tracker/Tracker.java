@@ -5,13 +5,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Tracker {
+    private int ids = 1;
+    private final List<Item> items = new ArrayList<Item>();
+
     @Override
     public String toString() {
         return "Tracker{" + "items=" + items.toString() + '}';
     }
-
-    private int ids = 1;
-    private final List<Item> items = new ArrayList<Item>();
 
     public Item add(Item item) {
         item.setId(ids++);

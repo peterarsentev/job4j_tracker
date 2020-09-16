@@ -40,19 +40,19 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Item{" + "id=" + id + ", name='" + name + '\'' + '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Item item = (Item) o;
-        return getId() == item.getId() &&
-                Objects.equals(getName(), item.getName());
+        return getId() == item.getId() && Objects.equals(getName(), item.getName());
     }
 
     @Override

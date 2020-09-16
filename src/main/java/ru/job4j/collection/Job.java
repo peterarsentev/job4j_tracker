@@ -21,17 +21,19 @@ public class Job {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Job job = (Job) o;
-        return getPriority() == job.getPriority() &&
-                Objects.equals(getName(), job.getName());
+        return getPriority() == job.getPriority() && Objects.equals(getName(), job.getName());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getName(), getPriority());
     }
-
 
 }

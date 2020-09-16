@@ -24,7 +24,8 @@ public class Profession {
         return date;
     }
 }
-enum Education{
+
+enum Education {
     MUSIC,
     TECH,
     HUMANITARY

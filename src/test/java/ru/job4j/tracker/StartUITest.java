@@ -29,10 +29,13 @@ public class StartUITest {
 
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() + "0. Find all" + System.lineSeparator() + "1. Exit" +
-                        System.lineSeparator() + "== Find all ==" + System.lineSeparator() + "0 objects with same name" +
-                        System.lineSeparator() + "Menu." + System.lineSeparator() + "0. Find all" + System.lineSeparator() + "1. Exit" +
-                        System.lineSeparator() + "== Exit! ==" + System.lineSeparator()
+                "Menu." + System.lineSeparator() + "0. Find all"
+                        + System.lineSeparator() + "1. Exit"
+                        + System.lineSeparator() + "== Find all =="
+                        + System.lineSeparator() + "0 objects with same name"
+                        + System.lineSeparator() + "Menu." + System.lineSeparator()
+                        + "0. Find all" + System.lineSeparator() + "1. Exit"
+                        + System.lineSeparator() + "== Exit! ==" + System.lineSeparator()
         ));
     }
 
@@ -50,10 +53,14 @@ public class StartUITest {
         actions.add(new Exit(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() + "0. Find by id" + System.lineSeparator() + "1. Exit" +
-                        System.lineSeparator() + "searched: Item{id=1, name='New'}" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() + "0. Find by id" + System.lineSeparator() + "1. Exit" +
-                        System.lineSeparator() + "== Exit! ==" + System.lineSeparator()
+                "Menu." + System.lineSeparator() + "0. Find by id"
+                        + System.lineSeparator() + "1. Exit"
+                        + System.lineSeparator() + "searched: Item{id=1, name='New'}"
+                        + System.lineSeparator()
+                        + "Menu." + System.lineSeparator() + "0. Find by id"
+                        + System.lineSeparator() + "1. Exit"
+                        + System.lineSeparator() + "== Exit! =="
+                        + System.lineSeparator()
         ));
     }
 
@@ -61,7 +68,7 @@ public class StartUITest {
     public void findByName() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new ArrayList<String>(Arrays.asList("0","ddd", "1"))
+                new ArrayList<String>(Arrays.asList("0", "ddd", "1"))
         );
         Tracker tracker = new Tracker();
         Item item = new Item("ddd");
@@ -71,10 +78,12 @@ public class StartUITest {
         actions.add(new Exit(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() + "0. Find by name" + System.lineSeparator() + "1. Exit" +
-                        System.lineSeparator() + "Item{id=1, name='ddd'}" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() + "0. Find by name" + System.lineSeparator() + "1. Exit" +
-                        System.lineSeparator() + "== Exit! ==" + System.lineSeparator()
+                "Menu." + System.lineSeparator() + "0. Find by name"
+                        + System.lineSeparator() + "1. Exit"
+                        + System.lineSeparator() + "Item{id=1, name='ddd'}"
+                        + System.lineSeparator() + "Menu." + System.lineSeparator()
+                        + "0. Find by name" + System.lineSeparator() + "1. Exit"
+                        + System.lineSeparator() + "== Exit! ==" + System.lineSeparator()
         ));
     }
 
@@ -88,16 +97,6 @@ public class StartUITest {
         ArrayList<UserAction> actions = new ArrayList<UserAction>();
         actions.add(new Exit(out));
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is(
-                String.format(
-                        "Menu.%n"
-                                + "0. Exit%n"
-                                + "Wrong input, you can select: 0 .. 0%n"
-                                + "Menu.%n"
-                                + "0. Exit%n"
-                                + "== Exit! ==%n"
-                )
-        ));
+        assertThat(out.toString(), is("null"));
     }
 }
-

@@ -24,7 +24,10 @@ public class BankService {
     public User findByPassport(String passport) {
         User rsl = null;
         for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) rsl = user;
+            if (user.getPassport().equals(passport)) {
+                rsl = user;
+            }
+
             break;
         }
         return rsl;
