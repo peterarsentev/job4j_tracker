@@ -12,7 +12,7 @@ public class Matches {
             int carry;
             String mainGamer = player ? "player1" : "player2";
             System.out.println("Ход игрока: " + mainGamer);
-                System.out.println("Игрок " + mainGamer + " берет спички: ");
+                System.out.println(mainGamer);
                 do {
                     carry = input.nextInt();
                 } while ((carry <= 0) || (carry > 3));
