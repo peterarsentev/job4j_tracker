@@ -86,17 +86,4 @@ public class StartUITest {
                         + System.lineSeparator() + "== Exit! ==" + System.lineSeparator()
         ));
     }
-
-    @Test
-    public void whenInvalidExit() {
-        Output out = new StubOutput();
-        Input in = new StubInput(
-                new ArrayList<String>(Arrays.asList("-1", "0"))
-        );
-        Tracker tracker = new Tracker();
-        ArrayList<UserAction> actions = new ArrayList<UserAction>();
-        actions.add(new Exit(out));
-        new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("null"));
-    }
 }
