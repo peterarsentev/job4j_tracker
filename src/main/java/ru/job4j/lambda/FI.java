@@ -12,8 +12,8 @@ public class FI {
             return Integer.compare(o1.getGroup(), o2.getGroup());
         };
 
-        Function<Student, Mark> func = (value) -> Mark.markof(value);
+        /*Function<Student, Mark> func = (value) -> Mark.markof(value);
 
-        System.out.println(func.apply(new Student()));
+        System.out.println(func.apply(new Student()));*/
     }
 }
