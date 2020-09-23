@@ -8,12 +8,14 @@ import java.util.stream.Collectors;
 public class School {
 
     List<Student> collect(List<Student> students, Predicate<Student> predict) {
-        return students.stream().filter(predict).collect(Collectors.toList());
+        return students.stream()
+                .filter(predict)
+                .collect(Collectors
+                        .toList());
     }
 
-    Map<String, Student> collect2(List<Student> students) { // этот метод
+   public static Map<String, Student> collect2(List<Student> students) { // этот метод
         return  students.stream()
-                .distinct()
-                .collect(Collectors.toMap(Student::getSurname, e -> e));
+                .collect(Collectors.toMap(Student::getSurname, e -> e, (e1, e2) -> e1));
     }
 }
