@@ -27,12 +27,13 @@ public class PhoneDictionary {
         return result;
     }
 
-    /*public ArrayList<Person> findNew(String key) {
+    public ArrayList<Person> findNew(String key) {
         Predicate<Person> combine1 = (Person person) -> person.getAddress().contains(key);
         Predicate<Person> combine2 = (Person person) -> person.getName().contains(key);
         Predicate<Person> combine3 = (Person person) -> person.getPhone().contains(key);
         Predicate<Person> combine4 = (Person person) -> person.getSurname().contains(key);
-        Predicate<Person> combine = (Person person) -> combine1.or(combine2.or(combine3.or(combine4.test(person))));
+        Predicate<Person> combine = (person) -> combine1.or(combine2.or(combine3.or(combine4)));
+
         ArrayList<Person> result = new ArrayList<Person>();
         for (Person person : persons) {
             if (combine.test(person)) {
@@ -40,5 +41,5 @@ public class PhoneDictionary {
             }
         }
         return result;
-    }*/
+    }
 }
