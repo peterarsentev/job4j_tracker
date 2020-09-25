@@ -27,7 +27,7 @@ public class BankService {
                 .filter(e -> e.getPassport()
                         .equals(passport))
                 .findFirst()
-                .get();
+                .orElse(null);
     }
 
     public Account findByRequisite(String passport, String requisite) {
@@ -38,7 +38,8 @@ public class BankService {
                             .getRequisite()
                             .equals(requisite))
                     .findFirst()
-                    .get();
+                   .orElse(null);
+
         }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
