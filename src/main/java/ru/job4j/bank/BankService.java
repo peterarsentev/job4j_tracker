@@ -3,6 +3,7 @@ package ru.job4j.bank;
 import java.util.*;
 import java.util.stream.Collectors;
 
+// предыдущем задании поправил
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
