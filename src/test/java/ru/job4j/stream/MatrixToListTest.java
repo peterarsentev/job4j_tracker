@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class MatrixToListTest {
 
     @Test
-    public void test1() {
+    public void test1() { //се впорядке
         int[][] in = {{1, 2}, {1, 2}};
         List<Integer> exp = List.of(1, 2, 1, 2);
         assertEquals(exp, MatrixToList.recycle(in));

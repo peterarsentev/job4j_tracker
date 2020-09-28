@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class ProfilesTest {
 
     @Test
-    public void dis() {
+    public void dis() { //все впорядке
         List<Profile> add = List.of(new Profile(new Address("Adler")),
                 new Profile(new Address("Sochi")),
                 new Profile(new Address("Adler")));
