@@ -8,6 +8,10 @@ public class Address {
     private int home;
     private int apartment;
 
+    public Address(String city) {
+        this.city = city;
+    }
+
     public String getCity() {
         return city;
     }
