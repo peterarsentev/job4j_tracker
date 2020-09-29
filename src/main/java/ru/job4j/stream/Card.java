@@ -17,12 +17,11 @@ public class Card {
 
     public static List<Card> createSet() {
         List<Card> in = new ArrayList<>();
-        Stream.of(Suit.values()).forEach(e -> {
-            Arrays.stream(Value.values()).forEach(a -> {
-                in.add(new Card(e, a));
-            });
-        });
-        return in;
+        return Arrays.stream(Suit.values())
+                .flatMap(e -> {
+                   return Arrays.stream(Value.values())
+                            .map(a -> new Card(e, a));
+                }).collect(Collectors.toList());
     }
 
     @Override
