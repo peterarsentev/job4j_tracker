@@ -16,9 +16,9 @@ public class EvenIt {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
-        int temp = data[iter(point)];
-        point = iter(point) + 1;
-        return temp;
+        int temp = point;
+        point++;
+        return data[temp];
     }
 
     public boolean hasNext() {
@@ -32,6 +32,9 @@ public class EvenIt {
                 peso = i;
                 break;
             }
+        }
+        if (peso != -1) {
+            point = peso;
         }
         return peso;
     }
