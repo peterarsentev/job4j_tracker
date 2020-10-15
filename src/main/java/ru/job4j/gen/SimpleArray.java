@@ -1,28 +1,23 @@
 package ru.job4j.gen;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.Objects;
+import java.util.*;
 
-public class SimpleArray<T> implements Iterable<T> {
+public class SimpleArray<T> implements Iterable<T>, Cloneable {
 
     private T[] list;
     private int count;
 
-    public SimpleArray(T[] arr) {
-        this.count = arr.length;
-        list = arr;
+    public SimpleArray(int value) {
+        list = (T[]) new Object[value];
+        count = value;
     }
 
-    public boolean add(T model) {
-        for (T t : list) {
-            if (t == null) {
-                t = model;
-                return true;
-            }
-        }
-        return false;
+    public void add(T model) {
+        T[] list2 = (T[]) new Object[count++];
+        System.arraycopy(list, 0, list2, 0, count);
+        list2[count] = model;
+        count++;
+        list = list2;
     }
 
     public boolean set(int index, T model) {
@@ -36,10 +31,12 @@ public class SimpleArray<T> implements Iterable<T> {
     public boolean remove(int index) {
         if (Objects.checkIndex(index, count) == count - 1) {
            list[index] = null;
+           count--;
            return true;
         } else if (Objects.checkIndex(index, count) == index) {
             System.arraycopy(list, index + 1, list, index, count - index - 1);
             list[count - 1] = null;
+            count--;
             return true;
         } else {
             return false;
@@ -59,12 +56,21 @@ public class SimpleArray<T> implements Iterable<T> {
     }
 
     @Override
+    protected T[] clone() throws CloneNotSupportedException {
+        return (T[]) super.clone();
+    }
+
+    @Override
     public Iterator<T> iterator() {
         return new Iterator<T>() {
             private int point = 0;
+            private T[] temp = list.clone();
 
             @Override
             public boolean hasNext() {
+                if (!temp.equals(list)) {
+                    throw new ConcurrentModificationException();
+                }
                 return point < count;
             }
 
@@ -79,7 +85,7 @@ public class SimpleArray<T> implements Iterable<T> {
     }
 
     public static void main(String[] args) {
-        SimpleArray<Integer> list = new SimpleArray<Integer>(new Integer[]{1, 2, 3, 4});
+        SimpleArray<Integer> list = new SimpleArray<Integer>(10);
         list.add(2);
         list.remove(1);
         System.out.println(list.toString());
