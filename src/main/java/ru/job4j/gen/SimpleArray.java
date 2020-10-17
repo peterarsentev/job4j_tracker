@@ -13,11 +13,28 @@ public class SimpleArray<T> implements Iterable<T>, Cloneable {
     }
 
     public void add(T model) {
-        T[] list2 = (T[]) new Object[count++];
-        System.arraycopy(list, 0, list2, 0, count);
-        list2[count] = model;
-        count++;
-        list = list2;
+        int temp = searchFree();
+        if (temp != -1) {
+            list[temp] = model;
+        } else {
+            list = extend();
+            list[count - 1] = model;
+        }
+    }
+
+    private T[] extend() {
+        T[] list2 = (T[]) new Object[++count];
+        System.arraycopy(list, 0, list2, 0, list.length);
+        return list2;
+    }
+
+    private int searchFree() {
+        for (int i = 0; i < list.length; i++) {
+            if (list[i] == null) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public boolean set(int index, T model) {
@@ -85,13 +102,11 @@ public class SimpleArray<T> implements Iterable<T>, Cloneable {
     }
 
     public static void main(String[] args) {
-        SimpleArray<Integer> list = new SimpleArray<Integer>(10);
+        SimpleArray<Integer> list = new SimpleArray<Integer>(3);
         list.add(2);
-        list.remove(1);
+        list.add(2);
+        list.add(2);
+        list.add(4);
         System.out.println(list.toString());
-        Iterator it = list.iterator();
-        System.out.println(it.hasNext());
-        System.out.println(it.next());
-        System.out.println(it.next());
     }
 }
