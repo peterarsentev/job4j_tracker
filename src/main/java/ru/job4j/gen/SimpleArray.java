@@ -13,13 +13,8 @@ public class SimpleArray<T> implements Iterable<T>, Cloneable {
     }
 
     public void add(T model) {
-        int temp = searchFree();
-        if (temp != -1) {
-            list[temp] = model;
-        } else {
             list = extend();
             list[count - 1] = model;
-        }
     }
 
     private T[] extend() {
@@ -107,6 +102,7 @@ public class SimpleArray<T> implements Iterable<T>, Cloneable {
         list.add(2);
         list.add(2);
         list.add(4);
+        list.add(null);
         System.out.println(list.toString());
     }
 }
