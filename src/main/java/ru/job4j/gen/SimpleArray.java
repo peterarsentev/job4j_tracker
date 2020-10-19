@@ -2,7 +2,7 @@ package ru.job4j.gen;
 
 import java.util.*;
 
-public class SimpleArray<T> implements Iterable<T>, Cloneable {
+public class SimpleArray<T> implements Iterable<T> {
 
     private T[] list;
     private int count;
@@ -14,20 +14,18 @@ public class SimpleArray<T> implements Iterable<T>, Cloneable {
         modcount = 0;
     }
 
-    public void add(T model) {
+    public void add(T model) { //если больше нет свободных мест, то расширяем
         if (count == list.length) {
-            list = extend();
-            list[count - 1] = model;
+            extend();
+            list[count++] = model;
         } else {
             list[count++] = model;
         }
         modcount++;
     }
 
-    private T[] extend() {
-        T[] list2 = (T[]) new Object[++count];
-        System.arraycopy(list, 0, list2, 0, list.length);
-        return list2;
+    private void extend() {
+        list = Arrays.copyOf(list, count + 1);
     }
 
     public boolean set(int index, T model) {
@@ -41,10 +39,10 @@ public class SimpleArray<T> implements Iterable<T>, Cloneable {
 
     public boolean remove(int index) {
         if (Objects.checkIndex(index, count) == count - 1) {
-           list[index] = null;
-           count--;
-           modcount++;
-           return true;
+            list[index] = null;
+            count--;
+            modcount++;
+            return true;
         } else if (Objects.checkIndex(index, count) == index) {
             System.arraycopy(list, index + 1, list, index, count - index - 1);
             list[count - 1] = null;
@@ -72,7 +70,6 @@ public class SimpleArray<T> implements Iterable<T>, Cloneable {
     public Iterator<T> iterator() {
         return new Iterator<T>() {
             private int point = 0;
-            private T[] temp = list.clone();
             private int expModCount = modcount;
 
             @Override
