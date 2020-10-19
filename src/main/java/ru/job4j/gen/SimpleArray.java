@@ -17,15 +17,13 @@ public class SimpleArray<T> implements Iterable<T> {
     public void add(T model) { //если больше нет свободных мест, то расширяем
         if (count == list.length) {
             extend();
-            list[count++] = model;
-        } else {
-            list[count++] = model;
         }
+        list[count++] = model;
         modcount++;
     }
 
     private void extend() {
-        list = Arrays.copyOf(list, count + 1);
+        list = Arrays.copyOf(list, count * 2);
     }
 
     public boolean set(int index, T model) {
