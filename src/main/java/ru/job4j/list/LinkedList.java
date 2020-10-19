@@ -17,23 +17,19 @@ public class LinkedList<T> implements Iterable<T> {
         Node nodeNew = new Node(value);
         if (head != null) {
             sign.setNext(nodeNew);
-            sign = nodeNew;
-            count++;
-            modcount++;
         } else {
             head = nodeNew;
-            sign = head;
-            count++;
-            modcount++;
         }
-
+        sign = nodeNew;
+        count++;
+        modcount++;
     }
 
     public T get(int index) {
         T rsl = null;
         if (Objects.checkIndex(index, count) == index) {
             Node tmp = head;
-            for (int i = 0; i <= index; i++) {
+            for (int i = 0; i < index; i++) {
                 rsl = (T) tmp.getData();
                 tmp = tmp.getNext();
             }
