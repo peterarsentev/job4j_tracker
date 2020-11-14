@@ -45,8 +45,7 @@ public class ListUtils {
         while (i.hasNext()) {
             T nextValue = i.next();
             if (filter.test(nextValue)) {
-                i.remove();
-                i.add(value);
+                i.set(value);
             }
         }
         return list;
