@@ -4,74 +4,82 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class Hashmas<T> implements Iterable<T> {
-    private T[] hashmas;
-    private String[] keys = new String[6];
-    private int m;
+public class Hashmas<K, T> implements Iterable<Hashmas.Entry<K, T>> {
     private int n;
+    private Entry<K, T>[] hashmas;
+
+    public static class Entry<K, T> {
+        private T value;
+        private K key;
+
+        public Entry(K key, T value) {
+            this.value = value;
+            this.key = key;
+        }
+
+        public T getValue() {
+            return value;
+        }
+
+        public K getKey() {
+            return key;
+        }
+    }
 
     public Hashmas(int n) {
         if (n < 1) {
             this.n = 10;
         }
         this.n = n;
-        hashmas = (T[]) new Object[n];
+        hashmas = new Entry[n];
     }
 
-    boolean insert(String key, T value) { //вставка
+    boolean insert(K key, T value) { //вставка
         int place = Math.abs(key.hashCode() % n);
-        if (hashmas[place] == null && m < n) {
-            hashmas[place] = value;
-            keys[m++] = key;
+        if (hashmas[place] == null) {
+            hashmas[place] = new Entry(key, value);
             return true;
         }
         up();
         return false;
     }
 
-    private void insert(String key, T value, T[] mas) { //вставка для рехеша
+    private void insert(K key, T value, Entry<K, T>[] mas) { //вставка для рехеша
         int place = Math.abs(key.hashCode() % mas.length);
         if (mas[place] == null) {
-            mas[place] = value;
+            mas[place] = new Entry<>(key, value);
         }
     }
 
     T get(String key) { //получение по ключу
         int place = Math.abs(key.hashCode() % n);
-        return hashmas[place];
+        return hashmas[place].value;
     }
 
-    boolean delete(String key) { //удаление по ключу + удаление самого ключа
+    boolean delete(K key) { //удаление по ключу + удаление самого ключа
         int place = Math.abs(key.hashCode() % n);
         if (hashmas[place] != null) {
             hashmas[place] = null;
-            for (int i = 0; i < keys.length; i++) {
-                if (keys[i].equals(key)) {
-                    keys[i] = null;
-                    m--;
-                    break;
-                }
-            }
             return true;
         }
-
         return false;
     }
 
-    void up() { //расширение и рехеш
+    private void up() { //расширение и рехеш
         int m = n * 2;
-        T[] hashmas2 = (T[]) new Object[m];
-        for (int i = 0; i < this.m; i++) {
-            String key = keys[i];
-            insert(key, get(key), hashmas2);
+        Entry<K, T>[] hashmas2 = new Entry[m];
+        Iterator<Entry<K, T>> it = iterator();
+        while(it.hasNext()) {
+            Entry hashma = it.next();
+            insert((K) hashma.key,(T) hashma.value, hashmas2);
         }
         n = m;
         hashmas = hashmas2;
     }
 
     @Override
-    public Iterator<T> iterator() {
-        class IteratorCustom implements Iterator<T> {
+    public Iterator<Entry<K, T>> iterator() {
+        class IteratorCustom implements Iterator<Entry<K, T>> {
 
             private int point;
 
@@ -81,7 +89,7 @@ public class Hashmas<T> implements Iterable<T> {
             }
 
             @Override
-            public T next() {
+            public Entry<K, T> next() {
                 if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
@@ -112,8 +120,6 @@ public class Hashmas<T> implements Iterable<T> {
     public String toString() {
         return "Hashmas{" +
                 "hashmas=" + Arrays.toString(hashmas) +
-                ", keys=" + Arrays.toString(keys) +
-                ", m=" + m +
                 ", n=" + n +
                 '}';
     }
