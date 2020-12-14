@@ -19,11 +19,7 @@ public class Cat {
     }
 
     public static void main(String[] args) {
-        Cat polkan = new Cat();
-        Cat sharik = new Cat();
-        Cat zhychka = new Cat();
 
-        //1.5. Поля объекта [#409211]
         System.out.println("There are gav's food.");
         Cat gav = new Cat();
         gav.eat("kotleta");
