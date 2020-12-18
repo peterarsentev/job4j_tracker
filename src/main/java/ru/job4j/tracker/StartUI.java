@@ -11,6 +11,6 @@ public class StartUI {
         Tracker tracker = new Tracker();
         item.setName("name1");
         tracker.add(item);
-        System.out.println(tracker.findByld(1).getName());
+        System.out.println(tracker.findById(1).getName());
     }
 }
