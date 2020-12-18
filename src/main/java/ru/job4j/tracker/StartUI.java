@@ -7,5 +7,10 @@ public class StartUI {
         Item item = new Item();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
         System.out.println(item.getCreated().format(formatter));
+
+        Tracker tracker = new Tracker();
+        item.setName("name1");
+        tracker.add(item);
+        System.out.println(tracker.findByld(1).getName());
     }
 }
