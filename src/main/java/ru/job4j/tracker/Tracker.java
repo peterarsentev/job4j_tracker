@@ -35,15 +35,6 @@ public class Tracker {
         return Arrays.copyOf(rsl, size);
     }
 
-    public Item findByld(int id) {
-        Item[] rsl = new Item[items.length];
-        for (int index = 0; index < rsl.length; index++) {
-            if (items[index].getId() == id) {
-                return items[index];
-            }
-        }
-        return null;
-    }
 
     public Item findById(int id) {
         Item rsl = null;
