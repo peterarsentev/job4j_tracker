@@ -44,6 +44,8 @@ public class Tracker {
         return index != -1 ? items[index] : null;
     }
 
+
+    // 8. Что такое валидация? [#409236]
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         if (index > -1) {
