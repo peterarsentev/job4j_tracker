@@ -19,10 +19,11 @@ public class Tracker {
 
     public Item[] findByName(String key) {
         Item[] rsl = new Item[items.length];
+        int sizeFindByName = 0;
         for (int index = 0; index < size; index++) {
             if (items[index].getName().equals(key)) {
-                rsl[index] = items[index];
-                size++;
+                rsl[sizeFindByName] = items[index];
+                sizeFindByName++;
             }
         }
         return Arrays.copyOf(rsl, size);
@@ -44,8 +45,6 @@ public class Tracker {
         return index != -1 ? items[index] : null;
     }
 
-
-    // 8. Что такое валидация? [#409236]
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         if (index > -1) {
@@ -66,5 +65,4 @@ public class Tracker {
         }
         return false;
     }
-
 }
