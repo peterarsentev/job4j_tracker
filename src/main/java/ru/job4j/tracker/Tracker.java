@@ -26,7 +26,7 @@ public class Tracker {
                 sizeFindByName++;
             }
         }
-        return Arrays.copyOf(rsl, size);
+        return Arrays.copyOf(rsl, sizeFindByName);
     }
 
     private int indexOf(int id) {
