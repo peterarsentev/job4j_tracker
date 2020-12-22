@@ -84,21 +84,21 @@ public class StartUI {
 
     private static void showItems(Item[] items) {
         for (Item item : items) {
-            System.out.println("ID: " + item.getId() + "\n" +
-                    "Name: " + item.getName() + "\n" +
+            System.out.println("ID: " + item.getId() + System.lineSeparator() +
+                    "Name: " + item.getName() + System.lineSeparator() +
                     "Date of creation: " + item.getCreated());
         }
     }
 
     private void showMenu() {
-        System.out.println("\nMenu.\n" +
-                "0. Add new Item\n" +
-                "1. Show all items\n" +
-                "2. Edit item\n" +
-                "3. Delete item\n" +
-                "4. Find item by Id\n" +
-                "5. Find items by name\n" +
-                "6. Exit Program\n");
+        System.out.println(System.lineSeparator() + "Menu." + System.lineSeparator() +
+                "0. Add new Item" + System.lineSeparator() +
+                "1. Show all items" + System.lineSeparator() +
+                "2. Edit item" + System.lineSeparator() +
+                "3. Delete item" + System.lineSeparator() +
+                "4. Find item by Id" + System.lineSeparator() +
+                "5. Find items by name" + System.lineSeparator() +
+                "6. Exit Program" + System.lineSeparator());
     }
 
     public static void main(String[] args) {
