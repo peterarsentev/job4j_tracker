@@ -72,7 +72,6 @@ public class TrackerTest {
         };
         StartUI.deleteItem(new StubInput(answer), tracker);
         Item deleted = tracker.findById(item.getId());
-//        assertThat(deleted, null);
-        Assert.assertEquals(deleted, null);
+        Assert.assertNull(deleted);
     }
 }
