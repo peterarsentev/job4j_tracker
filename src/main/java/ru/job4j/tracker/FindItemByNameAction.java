@@ -18,7 +18,7 @@ public class FindItemByNameAction implements UserAction {
         return false;
     }
 
-    public void showItems(Item[] items) {
+    private void showItems(Item[] items) {
         for (Item item : items) {
             System.out.println("ID: " + item.getId() + System.lineSeparator() +
                     "Name: " + item.getName() + System.lineSeparator() +
