@@ -1,9 +1,11 @@
 package ru.job4j.tracker;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class TrackerTest {
@@ -39,49 +41,49 @@ public class TrackerTest {
 
     @Test
     public void whenCreateItem() {
+        Output output = new StubOutput();
         Input in = new StubInput(
                 new String[]{"0", "Item name", "1"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-//                new CreateAction(),
-//                new Exit()
+                new CreateAction(output),
+                new Exit(output)
         };
-//        new StartUI().init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), is("Item name"));
     }
 
     @Test
     public void whenReplaceItem() {
+        Output output = new StubOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Replaced item"));
-        /* Входные данные должны содержать ID добавленной заявки item.getId() */
         String replacedName = "New item name";
         Input in = new StubInput(
                 new String[]{"0", "1", replacedName, "1"}
         );
         UserAction[] actions = {
-//                new EditAction(),
-//                new Exit()
+                new EditAction(output),
+                new Exit(output)
         };
-//        new StartUI().init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
     }
 
     @Test
     public void whenDeleteItem() {
+        Output output = new StubOutput();
         Tracker tracker = new Tracker();
-        /* Добавим в tracker новую заявку */
         Item item = tracker.add(new Item("Deleted item"));
-        /* Входные данные должны содержать ID добавленной заявки item.getId() */
         Input in = new StubInput(
                 new String[]{"0", "1", "1"}
         );
         UserAction[] actions = {
-//                new DeleteAction(),
-//                new Exit()
+                new DeleteAction(output),
+                new Exit(output)
         };
-//        new StartUI().init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
 
@@ -99,4 +101,65 @@ public class TrackerTest {
         assertThat(out.toString(), is(System.lineSeparator() + "=== Quit item ====" + System.lineSeparator()));
 
     }
+
+    @Test
+    public void whenFindAllAction() {
+        Output output = new StubOutput();
+
+        Input in = new StubInput(
+                new String[]{"0", "1", "1"}
+        );
+        Tracker tracker = new Tracker();
+        String findAll1 = "FindAll1";
+        String findAll2 = "FindAll2";
+        String findAll3 = "FindAll3";
+        Item item1 = tracker.add(new Item(findAll1));
+        Item item2 = tracker.add(new Item(findAll2));
+        Item item3 = tracker.add(new Item(findAll3));
+        UserAction[] actions = {
+                new FindAllAction(output),
+                new Exit(output)
+        };
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(tracker.findById(1).getName(), is(findAll1));
+        assertThat(tracker.findById(2).getName(), is(findAll2));
+        assertThat(tracker.findById(3).getName(), is(findAll3));
+    }
+
+    @Test
+    public void whenFindItemByID() {
+        Output output = new StubOutput();
+        String findByID = "FindByID";
+        Input in = new StubInput(
+                new String[]{"0", "1", "1"}
+        );
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item(findByID));
+        UserAction[] actions = {
+                new FindItemByIDAction(output),
+                new Exit(output)
+        };
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId()).getName(), is(findByID));
+
+    }
+
+    @Test
+    public void whenFindItemByName() {
+        Output output = new StubOutput();
+        String findByName = "FindByName";
+        Input in = new StubInput(
+                new String[]{"0", "1", "1"}
+        );
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item(findByName));
+        UserAction[] actions = {
+                new FindItemByNameAction(output),
+                new Exit(output)
+        };
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId()).getName(), is(findByName));
+
+    }
+
 }
