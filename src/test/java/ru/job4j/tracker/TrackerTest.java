@@ -1,11 +1,9 @@
 package ru.job4j.tracker;
 
-import org.junit.Assert;
 import org.junit.Test;
 
-import static org.hamcrest.core.IsNull.nullValue;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class TrackerTest {
@@ -105,25 +103,27 @@ public class TrackerTest {
     @Test
     public void whenFindAllAction() {
         Output output = new StubOutput();
-
         Input in = new StubInput(
-                new String[]{"0", "1", "1"}
+                new String[]{"0", "1"}
         );
         Tracker tracker = new Tracker();
         String findAll1 = "FindAll1";
         String findAll2 = "FindAll2";
-        String findAll3 = "FindAll3";
         Item item1 = tracker.add(new Item(findAll1));
         Item item2 = tracker.add(new Item(findAll2));
-        Item item3 = tracker.add(new Item(findAll3));
         UserAction[] actions = {
                 new FindAllAction(output),
                 new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findById(1).getName(), is(findAll1));
-        assertThat(tracker.findById(2).getName(), is(findAll2));
-        assertThat(tracker.findById(3).getName(), is(findAll3));
+        assertThat(output.toString(), is("=== Show all items ====" + System.lineSeparator() +
+                "ID: " + item1.getId() + System.lineSeparator() +
+                "Name: " + item1.getName() + System.lineSeparator() +
+                "Date of creation: " + item1.getCreated() + System.lineSeparator() +
+                "ID: " + item2.getId() + System.lineSeparator() +
+                "Name: " + item2.getName() + System.lineSeparator() +
+                "Date of creation: " + item2.getCreated() + System.lineSeparator() +
+                System.lineSeparator() + "=== Quit item ====" + System.lineSeparator()));
     }
 
     @Test
@@ -140,8 +140,10 @@ public class TrackerTest {
                 new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName(), is(findByID));
-
+        assertThat(output.toString(), is(System.lineSeparator() +
+                "=== Find item by Id ====" + System.lineSeparator() +
+                "Item " + item.getId() + " found" + System.lineSeparator() +
+                System.lineSeparator() + "=== Quit item ====" + System.lineSeparator()));
     }
 
     @Test
@@ -149,7 +151,7 @@ public class TrackerTest {
         Output output = new StubOutput();
         String findByName = "FindByName";
         Input in = new StubInput(
-                new String[]{"0", "1", "1"}
+                new String[]{"0", findByName, "1"}
         );
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item(findByName));
@@ -158,8 +160,12 @@ public class TrackerTest {
                 new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName(), is(findByName));
-
+        assertThat(output.toString(), is(System.lineSeparator() +
+                "=== Find items by name ====" + System.lineSeparator() + "ID: "
+                + item.getId() + System.lineSeparator() +
+                "Name: " + item.getName() + System.lineSeparator() +
+                "Date of creation: " + item.getCreated() + System.lineSeparator() +
+                System.lineSeparator() + "=== Quit item ====" + System.lineSeparator()));
     }
 
 }
