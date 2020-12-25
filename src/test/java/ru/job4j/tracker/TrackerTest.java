@@ -96,7 +96,7 @@ public class TrackerTest {
                 new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is(System.lineSeparator() + "=== Quit item ====" + System.lineSeparator()));
+        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. Exit" + System.lineSeparator() + System.lineSeparator() + "=== Quit item ====" + System.lineSeparator()));
 
     }
 
@@ -116,14 +116,15 @@ public class TrackerTest {
                 new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(output.toString(), is("=== Show all items ====" + System.lineSeparator() +
-                "ID: " + item1.getId() + System.lineSeparator() +
-                "Name: " + item1.getName() + System.lineSeparator() +
+        assertThat(output.toString(), is("Menu." + System.lineSeparator() + "0. " + actions[0].name() + System.lineSeparator() +
+                "1. Exit" + System.lineSeparator() + "=== Show all items ====" + System.lineSeparator() +
+                "ID: " + item1.getId() + System.lineSeparator() + "Name: " + item1.getName() + System.lineSeparator() +
                 "Date of creation: " + item1.getCreated() + System.lineSeparator() +
                 "ID: " + item2.getId() + System.lineSeparator() +
                 "Name: " + item2.getName() + System.lineSeparator() +
-                "Date of creation: " + item2.getCreated() + System.lineSeparator() +
-                System.lineSeparator() + "=== Quit item ====" + System.lineSeparator()));
+                "Date of creation: " + item2.getCreated() + System.lineSeparator() + "Menu." + System.lineSeparator() + "0. " +
+                actions[0].name() + System.lineSeparator() + "1. Exit" + System.lineSeparator() + System.lineSeparator() +
+                "=== Quit item ====" + System.lineSeparator()));
     }
 
     @Test
@@ -140,9 +141,11 @@ public class TrackerTest {
                 new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(output.toString(), is(System.lineSeparator() +
-                "=== Find item by Id ====" + System.lineSeparator() +
-                "Item " + item.getId() + " found" + System.lineSeparator() +
+        assertThat(output.toString(), is("Menu." + System.lineSeparator() +
+                "0. " + actions[0].name() + System.lineSeparator() + "1. Exit" + System.lineSeparator() +
+                System.lineSeparator() + "=== Find item by Id ====" + System.lineSeparator() +
+                "Item " + item.getId() + " found" + System.lineSeparator() + "Menu." + System.lineSeparator() +
+                "0. " + actions[0].name() + System.lineSeparator() + "1. Exit" + System.lineSeparator() +
                 System.lineSeparator() + "=== Quit item ====" + System.lineSeparator()));
     }
 
@@ -160,11 +163,12 @@ public class TrackerTest {
                 new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(output.toString(), is(System.lineSeparator() +
-                "=== Find items by name ====" + System.lineSeparator() + "ID: "
-                + item.getId() + System.lineSeparator() +
-                "Name: " + item.getName() + System.lineSeparator() +
-                "Date of creation: " + item.getCreated() + System.lineSeparator() +
+        assertThat(output.toString(), is("Menu." + System.lineSeparator() + "0. " +
+                actions[0].name() + System.lineSeparator() + "1. Exit" + System.lineSeparator() +
+                System.lineSeparator() + "=== Find items by name ====" + System.lineSeparator() + "ID: "
+                + item.getId() + System.lineSeparator() + "Name: " + item.getName() + System.lineSeparator() +
+                "Date of creation: " + item.getCreated() + System.lineSeparator() + "Menu." + System.lineSeparator() +
+                "0. " + actions[0].name() + System.lineSeparator() + "1. Exit" + System.lineSeparator() +
                 System.lineSeparator() + "=== Quit item ====" + System.lineSeparator()));
     }
 
