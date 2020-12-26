@@ -40,7 +40,7 @@ public class StartUI {
                 new FindItemByIDAction(output),
                 new FindItemByNameAction(output),
                 new FindAllAction(output),
-                new Exit(output)
+                new Exit()
         };
         new StartUI(output).init(input, tracker, actions);
     }

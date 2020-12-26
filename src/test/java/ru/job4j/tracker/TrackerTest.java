@@ -46,7 +46,7 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
-                new Exit(output)
+                new Exit()
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), is("Item name"));
@@ -63,7 +63,7 @@ public class TrackerTest {
         );
         UserAction[] actions = {
                 new EditAction(output),
-                new Exit(output)
+                new Exit()
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
@@ -79,7 +79,7 @@ public class TrackerTest {
         );
         UserAction[] actions = {
                 new DeleteAction(output),
-                new Exit(output)
+                new Exit()
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
@@ -93,10 +93,11 @@ public class TrackerTest {
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new Exit(out)
+                new Exit()
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. Exit" + System.lineSeparator() + System.lineSeparator() + "=== Quit item ====" + System.lineSeparator()));
+        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. Exit" + System.lineSeparator() +
+                System.lineSeparator() + "=== Quit item ====" + System.lineSeparator()));
 
     }
 
@@ -113,18 +114,17 @@ public class TrackerTest {
         Item item2 = tracker.add(new Item(findAll2));
         UserAction[] actions = {
                 new FindAllAction(output),
-                new Exit(output)
+                new Exit()
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(output.toString(), is("Menu." + System.lineSeparator() + "0. " + actions[0].name() + System.lineSeparator() +
-                "1. Exit" + System.lineSeparator() + "=== Show all items ====" + System.lineSeparator() +
-                "ID: " + item1.getId() + System.lineSeparator() + "Name: " + item1.getName() + System.lineSeparator() +
-                "Date of creation: " + item1.getCreated() + System.lineSeparator() +
+        assertThat(output.toString(), is("Menu." + System.lineSeparator() + "0. " + actions[0].name() +
+                System.lineSeparator() + "1. Exit" + System.lineSeparator() + "=== Show all items ====" +
+                System.lineSeparator() + "ID: " + item1.getId() + System.lineSeparator() + "Name: " + item1.getName() +
+                System.lineSeparator() + "Date of creation: " + item1.getCreated() + System.lineSeparator() +
                 "ID: " + item2.getId() + System.lineSeparator() +
                 "Name: " + item2.getName() + System.lineSeparator() +
-                "Date of creation: " + item2.getCreated() + System.lineSeparator() + "Menu." + System.lineSeparator() + "0. " +
-                actions[0].name() + System.lineSeparator() + "1. Exit" + System.lineSeparator() + System.lineSeparator() +
-                "=== Quit item ====" + System.lineSeparator()));
+                "Date of creation: " + item2.getCreated() + System.lineSeparator() + "Menu." + System.lineSeparator() +
+                "0. " +  actions[0].name() + System.lineSeparator() + "1. Exit" + System.lineSeparator()));
     }
 
     @Test
@@ -138,15 +138,14 @@ public class TrackerTest {
         Item item = tracker.add(new Item(findByID));
         UserAction[] actions = {
                 new FindItemByIDAction(output),
-                new Exit(output)
+                new Exit()
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(output.toString(), is("Menu." + System.lineSeparator() +
                 "0. " + actions[0].name() + System.lineSeparator() + "1. Exit" + System.lineSeparator() +
                 System.lineSeparator() + "=== Find item by Id ====" + System.lineSeparator() +
                 "Item " + item.getId() + " found" + System.lineSeparator() + "Menu." + System.lineSeparator() +
-                "0. " + actions[0].name() + System.lineSeparator() + "1. Exit" + System.lineSeparator() +
-                System.lineSeparator() + "=== Quit item ====" + System.lineSeparator()));
+                "0. " + actions[0].name() + System.lineSeparator() + "1. Exit" + System.lineSeparator()));
     }
 
     @Test
@@ -160,7 +159,7 @@ public class TrackerTest {
         Item item = tracker.add(new Item(findByName));
         UserAction[] actions = {
                 new FindItemByNameAction(output),
-                new Exit(output)
+                new Exit()
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(output.toString(), is("Menu." + System.lineSeparator() + "0. " +
@@ -168,8 +167,28 @@ public class TrackerTest {
                 System.lineSeparator() + "=== Find items by name ====" + System.lineSeparator() + "ID: "
                 + item.getId() + System.lineSeparator() + "Name: " + item.getName() + System.lineSeparator() +
                 "Date of creation: " + item.getCreated() + System.lineSeparator() + "Menu." + System.lineSeparator() +
-                "0. " + actions[0].name() + System.lineSeparator() + "1. Exit" + System.lineSeparator() +
-                System.lineSeparator() + "=== Quit item ====" + System.lineSeparator()));
+                "0. " + actions[0].name() + System.lineSeparator() + "1. Exit" + System.lineSeparator()));
     }
 
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"8", "0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                String.format(
+                        "Menu.%n"
+                                + "0. Exit%n"
+                                + "Wrong input, you can select: 0 .. 0%n"
+                                + "Menu.%n"
+                                + "0. Exit%n"
+                )
+        ));
+    }
 }
