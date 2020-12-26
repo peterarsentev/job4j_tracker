@@ -1,6 +1,6 @@
 package ru.job4j.oop;
 
-public class Wolf {
+public class WolfFirst {
 
     public void eat(Girl girl) {
     }
