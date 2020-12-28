@@ -30,6 +30,11 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
+        TrackerSingle1 trackerSingle1 = TrackerSingle1.INSTANCE;
+        TrackerSingle2 trackerSingle2 = TrackerSingle2.getInstance();
+        TrackerSingle3 trackerSingle3 = TrackerSingle3.getInstance();
+        TrackerSingle4 trackerSingle4 = TrackerSingle4.getInstance();
+
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
         Tracker tracker = new Tracker();
