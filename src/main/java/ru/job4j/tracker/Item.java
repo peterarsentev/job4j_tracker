@@ -4,7 +4,16 @@ public class Item {
     private int id;
     private String name;
 
-    public int getId() {
+    public Item() {
+    }
+
+    public Item(int id) {
+    }
+
+    public Item(int id, String name) {
+    }
+
+/*    public int getId() {
         return id;
     }
 
@@ -18,5 +27,5 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
-    }
+    }*/
 }
