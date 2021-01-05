@@ -9,8 +9,28 @@ public class Engineer extends Profession {
     public Engineer() {
     }
 
-    public String name() {
+    public String getName(String name) {
         return super.getName();
+    }
+
+    public String setName(String name) {
+        return super.setName();
+    }
+
+    public String getSurname(String surname) {
+        return super.setSurname();
+    }
+
+    public String setSurname(String surname) {
+        return super.setSurname();
+    }
+
+    public String getEducation(String education) {
+        return super.getEducation();
+    }
+
+    public String setEducation(String education) {
+        return super.setEducation();
     }
 
     public String getProject() {

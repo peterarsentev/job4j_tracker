@@ -15,8 +15,12 @@ public class Teacher extends Profession {
         return null;
     }
 
-    public String name() {
+    public String getName(String name) {
         return super.getName();
+    }
+
+    public String setName(String name) {
+        return super.setName();
     }
 
     public String getEducationAgency() {

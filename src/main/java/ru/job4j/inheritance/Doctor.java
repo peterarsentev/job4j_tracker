@@ -9,11 +9,28 @@ public class Doctor extends Profession {
     public Doctor() {
     }
 
-    public Doctor(String category, int experience) {
+    public String getName(String name) {
+        return super.getName();
     }
 
-    public String name() {
-        return super.getName();
+    public String setName(String name) {
+        return super.setName();
+    }
+
+    public String getSurname(String surname) {
+        return super.getSurname();
+    }
+
+    public String setSurname(String surname) {
+        return super.setSurname();
+    }
+
+    public String getEducation(String education) {
+        return super.getEducation();
+    }
+
+    public String setEducation(String education) {
+        return super.setEducation();
     }
 
     public Diagnosis heal(Patient patient) {

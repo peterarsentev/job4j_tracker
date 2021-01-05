@@ -13,6 +13,17 @@ public class Profession {
     }
 
     public Profession(String name, String surname, int birthday, int salary) {
+        this.name = name;
+        this.surname = surname;
+        this.birthday = birthday;
+        this.salary = salary;
+    }
+
+    public Profession(String name, String education, byte specialization, byte experience) {
+        this.name = name;
+        this.education = education;
+        this.specialization = specialization;
+        this.experience = experience;
     }
 
     public void setExperience(byte experience) {
@@ -35,12 +46,9 @@ public class Profession {
         return salary;
     }
 
-    public String getName() {
+    public String getName(String name) {
+        this.name = name;
         return name;
-    }
-
-    public String getSurname() {
-        return surname;
     }
 
     public String getEducation() {
@@ -51,16 +59,19 @@ public class Profession {
         return birthday;
     }
 
-    public void setName(String name) {
+    public String setName(String name) {
         this.name = name;
+        return name;
     }
 
-    public void setSurname(String surname) {
+    public String setSurname(String surname) {
         this.surname = surname;
+        return surname;
     }
 
-    public void setEducation(String education) {
+    public String setEducation(String education) {
         this.education = education;
+        return education;
     }
 
     public void setBirthday(int birthday) {
@@ -71,4 +82,23 @@ public class Profession {
         this.salary = salary;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String setName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String setSurname() {
+        return surname;
+    }
+
+    protected String setEducation() {
+        return education;
+    }
 }
