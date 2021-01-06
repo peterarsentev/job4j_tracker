@@ -12,7 +12,13 @@ public class Diagnosis {
     public Diagnosis() {
     }
 
-    public Diagnosis(int numberOfDocument, byte day, byte month, byte year) {
+    public Diagnosis(int numberOfDocument, byte day, byte month, byte year, String heal, String aspectDiagnosis) {
+        this.numberOfDocument = numberOfDocument;
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.heal = heal;
+        this.aspectDiagnosis = aspectDiagnosis;
     }
 
     public void setNumberOfDocument(int numberOfDocument) {

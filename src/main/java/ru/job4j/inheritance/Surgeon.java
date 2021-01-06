@@ -8,8 +8,24 @@ public class Surgeon extends Doctor {
     public Surgeon() {
     }
 
-    public String name() {
+    public Surgeon(String nurse, String drugs, String uniform, String tooling) {
+        super(nurse, drugs, uniform, tooling);
+    }
+
+    @Override
+    public String getName() {
         return super.getName();
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    public Surgeon(String anesthesia, String operatingRoom, String kindSurgery) {
+        this.anesthesia = anesthesia;
+        this.operatingRoom = operatingRoom;
+        this.kindSurgery = kindSurgery;
     }
 
     public String getAnesthesia() {

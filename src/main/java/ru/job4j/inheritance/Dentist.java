@@ -8,8 +8,24 @@ public class Dentist extends Doctor {
     public Dentist() {
     }
 
-    public String name() {
+    public Dentist(String nurse, String drugs, String uniform, String tooling) {
+        super(nurse, drugs, uniform, tooling);
+    }
+
+    @Override
+    public String getName() {
         return super.getName();
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    public Dentist(String citizen, String teeth, String mouthCavity) {
+        this.citizen = citizen;
+        this.teeth = teeth;
+        this.mouthCavity = mouthCavity;
     }
 
     public String getCitizen() {

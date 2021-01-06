@@ -9,32 +9,19 @@ public class Doctor extends Profession {
     public Doctor() {
     }
 
-    public String getName(String name) {
-        return super.getName();
+    public Doctor(String name, String surname, int birthday, int salary) {
+        super(name, surname, birthday, salary);
     }
 
-    public String setName(String name) {
-        return super.setName();
+    public Doctor(String education, byte specialization, byte experience) {
+        super(education, specialization, experience);
     }
 
-    public String getSurname(String surname) {
-        return super.getSurname();
-    }
-
-    public String setSurname(String surname) {
-        return super.setSurname();
-    }
-
-    public String getEducation(String education) {
-        return super.getEducation();
-    }
-
-    public String setEducation(String education) {
-        return super.setEducation();
-    }
-
-    public Diagnosis heal(Patient patient) {
-        return null;
+    public Doctor(String nurse, String drugs, String uniform, String tooling) {
+        this.nurse = nurse;
+        this.drugs = drugs;
+        this.uniform = uniform;
+        this.tooling = tooling;
     }
 
     public String getNurse() {
@@ -67,5 +54,75 @@ public class Doctor extends Profession {
 
     public void setTooling(String tooling) {
         this.tooling = tooling;
+    }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    @Override
+    public String getSurname() {
+        return super.getSurname();
+    }
+
+    @Override
+    public void setSurname(String surname) {
+        super.setSurname(surname);
+    }
+
+    @Override
+    public String getEducation() {
+        return super.getEducation();
+    }
+
+    @Override
+    public void setEducation(String education) {
+        super.setEducation(education);
+    }
+
+    @Override
+    public int getBirthday() {
+        return super.getBirthday();
+    }
+
+    @Override
+    public void setBirthday(int birthday) {
+        super.setBirthday(birthday);
+    }
+
+    @Override
+    public int getSalary() {
+        return super.getSalary();
+    }
+
+    @Override
+    public void setSalary(int salary) {
+        super.setSalary(salary);
+    }
+
+    @Override
+    public byte getSpecialization() {
+        return super.getSpecialization();
+    }
+
+    @Override
+    public void setSpecialization(byte specialization) {
+        super.setSpecialization(specialization);
+    }
+
+    @Override
+    public byte getExperience() {
+        return super.getExperience();
+    }
+
+    @Override
+    public void setExperience(byte experience) {
+        super.setExperience(experience);
     }
 }

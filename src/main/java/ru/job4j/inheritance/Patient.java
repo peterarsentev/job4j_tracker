@@ -9,6 +9,13 @@ public class Patient {
     public Patient() {
     }
 
+    public Patient(String sex, String origin, byte age, byte health) {
+        this.sex = sex;
+        this.origin = origin;
+        this.age = age;
+        this.health = health;
+    }
+
     public String getSex() {
         return sex;
     }

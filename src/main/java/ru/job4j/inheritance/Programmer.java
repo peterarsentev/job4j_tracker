@@ -8,6 +8,26 @@ public class Programmer extends Engineer {
     public Programmer() {
     }
 
+    public Programmer(String project, String customer, String technicalAssignment, String contractorToOutsource) {
+        super(project, customer, technicalAssignment, contractorToOutsource);
+    }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    public Programmer(String programmingLanguage, String computerLaptop, String internet) {
+        this.programmingLanguage = programmingLanguage;
+        this.computerLaptop = computerLaptop;
+        this.internet = internet;
+    }
+
     public String getProgrammingLanguage() {
         return programmingLanguage;
     }
