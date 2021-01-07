@@ -8,8 +8,11 @@ public class Programmer extends Engineer {
     public Programmer() {
     }
 
-    public Programmer(String project, String customer, String technicalAssignment, String contractorToOutsource) {
-        super(project, customer, technicalAssignment, contractorToOutsource);
+    public Programmer(String name, String surname, String education, int birthday, int salary, byte specialization, byte experience, String project, String customer, String technicalAssignment, String contractorToOutsource, String programmingLanguage, String computerLaptop, String internet) {
+        super(name, surname, education, birthday, salary, specialization, experience, project, customer, technicalAssignment, contractorToOutsource);
+        this.programmingLanguage = programmingLanguage;
+        this.computerLaptop = computerLaptop;
+        this.internet = internet;
     }
 
     @Override
@@ -20,12 +23,6 @@ public class Programmer extends Engineer {
     @Override
     public void setName(String name) {
         super.setName(name);
-    }
-
-    public Programmer(String programmingLanguage, String computerLaptop, String internet) {
-        this.programmingLanguage = programmingLanguage;
-        this.computerLaptop = computerLaptop;
-        this.internet = internet;
     }
 
     public String getProgrammingLanguage() {

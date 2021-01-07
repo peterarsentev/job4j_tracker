@@ -13,15 +13,12 @@ public class Profession {
     public Profession() {
     }
 
-    public Profession(String name, String surname, int birthday, int salary) {
+    public Profession(String name, String surname, String education, int birthday, int salary, byte specialization, byte experience) {
         this.name = name;
         this.surname = surname;
+        this.education = education;
         this.birthday = birthday;
         this.salary = salary;
-    }
-
-    public Profession(String education, byte specialization, byte experience) {
-        this.education = education;
         this.specialization = specialization;
         this.experience = experience;
     }

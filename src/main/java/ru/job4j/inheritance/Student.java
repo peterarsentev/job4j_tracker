@@ -8,6 +8,12 @@ public class Student {
     public Student() {
     }
 
+    public Student(byte age, byte sex, byte formOfYear) {
+        this.age = age;
+        this.sex = sex;
+        this.formOfYear = formOfYear;
+    }
+
     public byte getAge() {
         return age;
     }

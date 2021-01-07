@@ -14,6 +14,18 @@ public class SubjectOfStudy {
     public SubjectOfStudy() {
     }
 
+    public SubjectOfStudy(String detailDrawing, String accessories, String example, String numerals, String theorem, String prose, String poetry, String biography, String essay) {
+        this.detailDrawing = detailDrawing;
+        this.accessories = accessories;
+        this.example = example;
+        this.numerals = numerals;
+        this.theorem = theorem;
+        this.prose = prose;
+        this.poetry = poetry;
+        this.biography = biography;
+        this.essay = essay;
+    }
+
     public String getDetailDrawing() {
         return detailDrawing;
     }

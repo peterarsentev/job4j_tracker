@@ -11,15 +11,8 @@ public class Teacher extends Profession {
     public Teacher() {
     }
 
-    public Teacher(String name, String surname, int birthday, int salary) {
-        super(name, surname, birthday, salary);
-    }
-
-    public Teacher(String education, byte specialization, byte experience) {
-        super(education, specialization, experience);
-    }
-
-    public Teacher(String educationAgency, String educationalBoard, String shorthandDictation, String textbook, String trainingTechnique, String notebook) {
+    public Teacher(String name, String surname, String education, int birthday, int salary, byte specialization, byte experience, String educationAgency, String educationalBoard, String shorthandDictation, String textbook, String trainingTechnique, String notebook) {
+        super(name, surname, education, birthday, salary, specialization, experience);
         this.educationAgency = educationAgency;
         this.educationalBoard = educationalBoard;
         this.shorthandDictation = shorthandDictation;

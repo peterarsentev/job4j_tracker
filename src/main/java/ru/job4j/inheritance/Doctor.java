@@ -9,19 +9,17 @@ public class Doctor extends Profession {
     public Doctor() {
     }
 
-    public Doctor(String name, String surname, int birthday, int salary) {
-        super(name, surname, birthday, salary);
-    }
-
-    public Doctor(String education, byte specialization, byte experience) {
-        super(education, specialization, experience);
-    }
-
-    public Doctor(String nurse, String drugs, String uniform, String tooling) {
+    public Doctor(String name, String surname, String education, int birthday, int salary, byte specialization, byte experience, String nurse, String drugs, String uniform, String tooling) {
+        super(name, surname, education, birthday, salary, specialization, experience);
         this.nurse = nurse;
         this.drugs = drugs;
         this.uniform = uniform;
         this.tooling = tooling;
+    }
+
+    public Diagnosis heal(Patient patient) {
+
+        return null;
     }
 
     public String getNurse() {

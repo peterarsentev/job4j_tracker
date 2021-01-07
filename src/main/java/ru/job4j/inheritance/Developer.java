@@ -7,6 +7,10 @@ public class Developer extends Programmer {
         super();
     }
 
+    public Developer(String interfaceFrontOrBack) {
+        this.interfaceFrontOrBack = interfaceFrontOrBack;
+    }
+
     @Override
     public String getName() {
         return super.getName();
@@ -15,10 +19,6 @@ public class Developer extends Programmer {
     @Override
     public void setName(String name) {
         super.setName(name);
-    }
-
-    public Developer(String interfaceFrontOrBack) {
-        this.interfaceFrontOrBack = interfaceFrontOrBack;
     }
 
     public String getInterfaceFrontOrBack() {
