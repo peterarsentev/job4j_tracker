@@ -5,7 +5,8 @@ public class Dentist extends Doctor {
     private String teeth;
     private String mouthCavity;
 
-    public Dentist() {
+    public Dentist(String nurse, String drugs, String uniform, String tooling) {
+        super(nurse, drugs, uniform, tooling);
     }
 
     public Dentist(String nurse, String drugs, String uniform, String tooling, String citizen, String teeth, String mouthCavity) {

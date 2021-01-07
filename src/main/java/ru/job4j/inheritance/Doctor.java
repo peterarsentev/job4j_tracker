@@ -6,7 +6,7 @@ public class Doctor extends Profession {
     private String uniform;
     private String tooling;
 
-    public Doctor() {
+    public Doctor(String nurse, String drugs, String uniform, String tooling) {
     }
 
     public Doctor(String name, String surname, String education, int birthday, int salary, byte specialization, byte experience, String nurse, String drugs, String uniform, String tooling) {

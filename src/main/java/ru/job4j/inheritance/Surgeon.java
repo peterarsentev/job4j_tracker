@@ -5,7 +5,8 @@ public class Surgeon extends Doctor {
     private String operatingRoom;
     private String kindSurgery;
 
-    public Surgeon() {
+    public Surgeon(String nurse, String drugs, String uniform, String tooling) {
+        super(nurse, drugs, uniform, tooling);
     }
 
     public Surgeon(String nurse, String drugs, String uniform, String tooling, String anesthesia, String operatingRoom, String kindSurgery) {
