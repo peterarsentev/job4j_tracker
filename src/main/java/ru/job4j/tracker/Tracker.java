@@ -46,11 +46,11 @@ public class Tracker {
     }
 
     public boolean replace(int id, Item bugWithDesc) {
-        boolean rsl = false;
             if (indexOf(id) > -1) {
                 items[indexOf(id)].setName(bugWithDesc.getName());
-                rsl = true;
+                return true;
+            } else {
+                return false;
             }
-            return rsl;
     }
 }
