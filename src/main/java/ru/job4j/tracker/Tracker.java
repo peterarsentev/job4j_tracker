@@ -51,7 +51,12 @@ public class Tracker {
         return rsl;
     }
 
-    public void replace(int id, Item bugWithDesc) {
-
+    public boolean replace(int id, Item bugWithDesc) {
+        boolean rsl = false;
+            if (indexOf(id) > -1) {
+                items[indexOf(id)].setName(bugWithDesc.getName());
+                rsl = true;
+            }
+            return rsl;
     }
 }
