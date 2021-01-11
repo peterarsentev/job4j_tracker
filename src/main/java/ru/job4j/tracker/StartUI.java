@@ -14,5 +14,9 @@ public class StartUI {
         int temp = 5;
         Item findId = track.findById(temp);
         System.out.println(findId);
+        Item user = new Item(1, "Gordon");
+        System.out.println("Item: "
+                        + user.getId() + " "
+                        + user.getName() + " ");
     }
 }
