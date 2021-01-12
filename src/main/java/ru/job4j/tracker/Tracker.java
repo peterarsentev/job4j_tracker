@@ -48,8 +48,10 @@ public class Tracker {
     public boolean replace(int id, Item bugWithDesc) {
         int finder = indexOf(id);
         if (finder > -1) {
-            items[finder].setId(id);
-            items[finder].setName(bugWithDesc.getName());
+//            items[finder].setId(id);
+//            items[finder].setName(bugWithDesc.getName());
+            bugWithDesc.setId(id);
+            items[finder] = bugWithDesc;
                 return true;
             }
                 return false;
