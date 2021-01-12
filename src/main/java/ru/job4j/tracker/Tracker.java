@@ -47,18 +47,19 @@ public class Tracker {
 
     public boolean replace(int id, Item bugWithDesc) {
         int finder = indexOf(id);
+        boolean rsl = finder != -1;
         if (finder > -1) {
 //            items[finder].setId(id);
 //            items[finder].setName(bugWithDesc.getName());
             bugWithDesc.setId(id);
             items[finder] = bugWithDesc;
-                return true;
             }
-                return false;
+                return rsl;
     }
 
     public boolean delete(int id) {
         int index = indexOf(id);
+        boolean rsl = index != -1;
         if (index > -1) {
             items[index] = null;
             int startPos = index + 1;
@@ -66,8 +67,7 @@ public class Tracker {
             System.arraycopy(items, startPos, items, index, length);
             items[size - 1] = null;
             size--;
-            return true;
         }
-            return false;
+            return rsl;
     }
 }
