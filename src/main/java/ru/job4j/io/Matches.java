@@ -3,17 +3,11 @@ package ru.job4j.io;
 import java.util.Scanner;
 
 public class Matches {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+    public void game(Scanner input) {
         boolean exitMenu = true;
         while (exitMenu) {
+            this.showMenu();
             boolean exitGame = true;
-            System.out.println("\nВыберите пункт меню + <Enter> чтобы начать: ");
-            System.out.println("1. Против другого игрока");
-            System.out.println("2. Против компьютера");
-            System.out.println("3. Правила");
-            System.out.println("4. Выйти");
-            System.out.print("Ваш выбор: ");
             int answer = Integer.parseInt(input.nextLine());
             int count = 1;
             int gamer = 1;
@@ -60,5 +54,19 @@ public class Matches {
                 System.out.println("\nВведите от 1 до 4");
             }
         }
+    }
+
+    private void showMenu() {
+        System.out.println("\nВыберите пункт меню + <Enter> чтобы начать: ");
+        System.out.println("1. Против другого игрока");
+        System.out.println("2. Против компьютера");
+        System.out.println("3. Правила");
+        System.out.println("4. Выйти");
+        System.out.print("Ваш выбор: ");
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        new Matches().game(scanner);
     }
 }
