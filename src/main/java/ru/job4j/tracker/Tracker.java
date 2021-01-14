@@ -49,8 +49,6 @@ public class Tracker {
         int finder = indexOf(id);
         boolean rsl = finder != -1;
         if (rsl) {
-//            items[finder].setId(id);
-//            items[finder].setName(bugWithDesc.getName());
             bugWithDesc.setId(id);
             items[finder] = bugWithDesc;
             }
@@ -60,7 +58,7 @@ public class Tracker {
     public boolean delete(int id) {
         int index = indexOf(id);
         boolean rsl = index != -1;
-        if (index > -1) {
+        if (index != -1) {
             items[index] = null;
             int startPos = index + 1;
             int length = size - startPos;
