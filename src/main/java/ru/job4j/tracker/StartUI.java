@@ -25,8 +25,8 @@ public class StartUI {
             } else if (select == 2) {
                 System.out.print("Enter id for edit request: ");
                 int id = scanner.nextInt();
-                Item nameRequest = tracker.findById(id);
-                System.out.println(nameRequest);
+                //Item nameRequest = tracker.findById(id);
+                //System.out.println(nameRequest);
                 System.out.print("Enter new name: ");
                 String newName = scanner.nextLine();
                 Item newItem = new Item(scanner.nextLine());
@@ -38,7 +38,7 @@ public class StartUI {
             } else if (select == 3) {
                 System.out.print("Enter id for delete request: ");
                 int id = scanner.nextInt();
-                Item newItem = new Item(scanner.nextLine());
+                //Item newItem = new Item(scanner.nextLine());
                 if (tracker.delete(id)) {
                     System.out.println("Good. Deleted id: " + id);
                 } else {
@@ -47,7 +47,7 @@ public class StartUI {
             } else if (select == 4) {
                 System.out.print("Enter id for find request: ");
                 int id = scanner.nextInt();
-                Item newItem = new Item(scanner.nextLine());
+                //Item newItem = new Item(scanner.nextLine());
                 Item resultFind = tracker.findById(id);
                 if (tracker.findById(id) != null) {
                     System.out.println("Result find by id: " + resultFind);
@@ -59,7 +59,9 @@ public class StartUI {
                 String newName = scanner.nextLine();
                 Item[] resultFind = tracker.findByName(newName);
                 if (resultFind.length > 0) {
-                    System.out.println("Result find by name: " + 1);
+                    for (Item item : resultFind) {
+                        System.out.println("Result find by name: " + item);
+                    }
                 } else {
                     System.out.println("Error. Not found name: " + newName);
                 }
