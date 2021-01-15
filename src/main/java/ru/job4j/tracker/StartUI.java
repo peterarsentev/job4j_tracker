@@ -24,11 +24,8 @@ public class StartUI {
                 }
             } else if (select == 2) {
                 System.out.print("Enter id for edit request: ");
-                int id = scanner.nextInt();
-                //Item nameRequest = tracker.findById(id);
-                //System.out.println(nameRequest);
+                int id = Integer.parseInt(scanner.nextLine());
                 System.out.print("Enter new name: ");
-                String newName = scanner.nextLine();
                 Item newItem = new Item(scanner.nextLine());
                 if (tracker.replace(id, newItem)) {
                     System.out.println("Good. Edit end");
@@ -37,8 +34,7 @@ public class StartUI {
                 }
             } else if (select == 3) {
                 System.out.print("Enter id for delete request: ");
-                int id = scanner.nextInt();
-                //Item newItem = new Item(scanner.nextLine());
+                int id = Integer.parseInt(scanner.nextLine());
                 if (tracker.delete(id)) {
                     System.out.println("Good. Deleted id: " + id);
                 } else {
@@ -46,8 +42,7 @@ public class StartUI {
                 }
             } else if (select == 4) {
                 System.out.print("Enter id for find request: ");
-                int id = scanner.nextInt();
-                //Item newItem = new Item(scanner.nextLine());
+                int id = Integer.parseInt(scanner.nextLine());
                 Item resultFind = tracker.findById(id);
                 if (tracker.findById(id) != null) {
                     System.out.println("Result find by id: " + resultFind);
