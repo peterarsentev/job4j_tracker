@@ -15,7 +15,7 @@ public class ItemSorted {
         Collections.sort(items, new AscendingItem());
         System.out.println(items);
 
-        Collections.sort(items, new DiscendingItem());
+//        Collections.sort(items, new DiscendingItem());
     }
 
 }
