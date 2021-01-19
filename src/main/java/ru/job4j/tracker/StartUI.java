@@ -3,10 +3,10 @@ package ru.job4j.tracker;
 import java.time.format.DateTimeFormatter;
 
 public class StartUI {
-    static String nLn = System.lineSeparator();
+    private static final String NL = System.lineSeparator();
 
     private static void showMenu() {
-        System.out.println(nLn + "Menu.");
+        System.out.println(NL + "Menu.");
         System.out.println("0. Add new Item.");
         System.out.println("1. Show all items.");
         System.out.println("2. Edit item.");
@@ -17,7 +17,7 @@ public class StartUI {
     }
 
     public static void createItem(Input input, Tracker tracker) {
-        String name = input.askStr("=== Create a new Item ===" + nLn + "Enter name: ");
+        String name = input.askStr("=== Create a new Item ===" + NL + "Enter name: ");
         Item item = new Item(name);
         tracker.add(item);
         System.out.println("Created a new " + item);
@@ -25,7 +25,7 @@ public class StartUI {
 
     public static void showAllItems(Tracker tracker) {
         Item[] resultFindAll = tracker.findAll();
-        System.out.println(nLn + "Total items: " + resultFindAll.length);
+        System.out.println(NL + "Total items: " + resultFindAll.length);
         for (Item item : resultFindAll) {
             System.out.println(item);
         }
@@ -92,7 +92,7 @@ public class StartUI {
             } else if (select == 6) {
                 run = false;
             } else {
-                System.out.println(nLn + "Select number between 0 and 6");
+                System.out.println(NL + "Select number between 0 and 6");
             }
         }
     }
