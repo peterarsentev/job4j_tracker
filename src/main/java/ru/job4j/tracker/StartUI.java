@@ -3,9 +3,10 @@ package ru.job4j.tracker;
 import java.time.format.DateTimeFormatter;
 
 public class StartUI {
+    static String nLn = System.lineSeparator();
 
     private static void showMenu() {
-        System.out.println("\nMenu.");
+        System.out.println(nLn + "Menu.");
         System.out.println("0. Add new Item.");
         System.out.println("1. Show all items.");
         System.out.println("2. Edit item.");
@@ -16,7 +17,7 @@ public class StartUI {
     }
 
     public static void createItem(Input input, Tracker tracker) {
-        String name = input.askStr("=== Create a new Item ===" + "\nEnter name: ");
+        String name = input.askStr("=== Create a new Item ===" + nLn + "Enter name: ");
         Item item = new Item(name);
         tracker.add(item);
         System.out.println("Created a new " + item);
@@ -24,7 +25,7 @@ public class StartUI {
 
     public static void showAllItems(Tracker tracker) {
         Item[] resultFindAll = tracker.findAll();
-        System.out.println("\nTotal items: " + resultFindAll.length);
+        System.out.println(nLn + "Total items: " + resultFindAll.length);
         for (Item item : resultFindAll) {
             System.out.println(item);
         }
@@ -52,7 +53,7 @@ public class StartUI {
     public static void findById(Input input, Tracker tracker) {
         int id = Integer.parseInt(input.askStr("Enter id for find item: "));
         Item resultFind = tracker.findById(id);
-        if (tracker.findById(id) != null) {
+        if (resultFind != null) {
             System.out.println("Result find by id: " + resultFind);
         } else {
             System.out.println("Error. Not found id: " + id);
@@ -91,7 +92,7 @@ public class StartUI {
             } else if (select == 6) {
                 run = false;
             } else {
-                System.out.println("\nSelect number between 0 and 6");
+                System.out.println(nLn + "Select number between 0 and 6");
             }
         }
     }
