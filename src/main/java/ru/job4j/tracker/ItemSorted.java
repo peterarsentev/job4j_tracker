@@ -7,15 +7,17 @@ import java.util.List;
 public class ItemSorted {
     public static void main(String[] args) {
         List<Item> items = Arrays.asList(
-                new Item("one"),
-                new Item("two"),
-                new Item("five")
+                new Item("b"),
+                new Item("a"),
+                new Item("d"),
+                new Item("c")
         );
         System.out.println(items);
         Collections.sort(items, new AscendingItem());
         System.out.println(items);
-
-//        Collections.sort(items, new DiscendingItem());
+        System.out.println();
+        Collections.sort(items, new DiscendingItem());
+        System.out.println(items);
     }
 
 }

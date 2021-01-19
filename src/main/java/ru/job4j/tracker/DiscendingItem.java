@@ -1,9 +1,14 @@
 package ru.job4j.tracker;
 
-public class DiscendingItem implements Comparable<Item> {
+import java.util.Collections;
+import java.util.Comparator;
+
+public class DiscendingItem implements Comparator<Item> {
+
 
     @Override
-    public int compareTo(Item another) {
-        return 0;
+    public int compare(Item first, Item second) {
+
+        return second.getName().compareTo(first.getName());
     }
 }
