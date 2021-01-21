@@ -15,8 +15,6 @@ public class StringCompare implements Comparator<String> {
             } else if (left.charAt(i) < right.charAt(i)) {
                 rsl = -1;
                 break;
-            } else {
-                rsl = 0;
             }
         }
         if (rsl == 0) {
