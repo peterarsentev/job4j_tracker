@@ -23,7 +23,5 @@ public class JobSorter {
         Comparator<Job> combNameByDesc = new JobDescByName();
         Collections.sort(jobs, combNameByDesc);
         System.out.println(jobs);
-
-
     }
 }

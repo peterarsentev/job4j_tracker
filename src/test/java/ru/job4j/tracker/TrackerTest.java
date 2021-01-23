@@ -97,7 +97,6 @@ public class TrackerTest {
         actions.add(new Exit());
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. Exit" + System.lineSeparator()));
-
     }
 
     @Test
@@ -122,7 +121,7 @@ public class TrackerTest {
                 "ID: " + item2.getId() + System.lineSeparator() +
                 "Name: " + item2.getName() + System.lineSeparator() +
                 "Date of creation: " + item2.getCreated() + System.lineSeparator() + "Menu." + System.lineSeparator() +
-                "0. " +  actions.get(0).name() + System.lineSeparator() + "1. Exit" + System.lineSeparator()));
+                "0. " + actions.get(0).name() + System.lineSeparator() + "1. Exit" + System.lineSeparator()));
     }
 
     @Test
@@ -170,7 +169,7 @@ public class TrackerTest {
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"8", "0"}
+                new String[]{"8", "0"}
         );
         Tracker tracker = new Tracker();
         List<UserAction> actions = new ArrayList<>();

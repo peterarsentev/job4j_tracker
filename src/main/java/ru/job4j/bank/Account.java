@@ -3,7 +3,7 @@ package ru.job4j.bank;
 import java.util.Objects;
 
 public class Account {
-    private String requisite;
+    private final String requisite;
     private double balance;
 
     public Account(String requisite, double balance) {
@@ -13,10 +13,6 @@ public class Account {
 
     public String getRequisite() {
         return requisite;
-    }
-
-    public void setRequisite(String requisite) {
-        this.requisite = requisite;
     }
 
     public double getBalance() {

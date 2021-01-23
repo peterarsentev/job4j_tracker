@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PassportOffice {
-    private Map<String, Citizen> citizens = new HashMap<>();
+    private final Map<String, Citizen> citizens = new HashMap<>();
 
     public boolean add(Citizen citizen) {
         boolean rsl = false;
@@ -17,7 +17,6 @@ public class PassportOffice {
 
 
     public Citizen get(String passport) {
-        Citizen citizen = citizens.get(passport);
-        return citizen;
+        return citizens.get(passport);
     }
 }

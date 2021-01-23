@@ -3,9 +3,9 @@ package ru.job4j.collection;
 import java.util.Objects;
 
 public class Account {
-    private String passport;
-    private String username;
-    private String deposit;
+    private final String passport;
+    private final String username;
+    private final String deposit;
 
     public Account(String passport, String username, String deposit) {
         this.passport = passport;
