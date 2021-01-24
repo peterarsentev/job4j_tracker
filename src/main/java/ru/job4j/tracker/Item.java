@@ -21,11 +21,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", created=" + created +
-                '}';
+        return "Item{" + "id=" + id + ", name='" + name + '\'' + ", created=" + created + '}';
     }
 
     public String getName() {
