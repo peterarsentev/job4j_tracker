@@ -45,7 +45,7 @@ public class Tracker {
                 result.add(item);
             }
         }
-        return items;
+        return result;
     }
 
     public List<Item> findAll() {
