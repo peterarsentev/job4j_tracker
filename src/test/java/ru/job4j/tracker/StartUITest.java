@@ -97,7 +97,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenExit() {
+    public void whenExitProgram() {
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[] {"0"}
@@ -112,4 +112,56 @@ public class StartUITest {
                         "0. Exit Program." + System.lineSeparator()
         ));
 }
+
+    @Test
+    public void whenShowAllItems() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        String showAllItems = "ShowAllItems item";
+        Item item = tracker.add(new Item(showAllItems));
+        Input in = new StubInput(
+                new String[] {"0", "1"}
+        );
+        UserAction[] actions = {
+                new ShowAllItems(),
+                new ExitProgram()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId()).getName(), is(showAllItems));
+    }
+
+    @Test
+    public void whenFindByName() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        String findByName = "Find";
+        Item item = tracker.add(new Item(findByName));
+        tracker.add(new Item(findByName));
+        Input in = new StubInput(
+                new String[] {"0", findByName, "1"}
+        );
+        UserAction[] actions = {
+                new FindByName(),
+                new ExitProgram()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId()).getName(), is(findByName));
+    }
+
+    @Test
+    public void whenFindById() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        String findById = "FindId";
+        Item item = tracker.add(new Item(findById));
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(item.getId()), "1"}
+        );
+        UserAction[] actions = {
+                new FindById(),
+                new ExitProgram()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(item.getId(), is(1));
+    }
 }
