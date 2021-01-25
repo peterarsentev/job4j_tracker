@@ -70,31 +70,6 @@ public class StartUI {
         }
     }
 
-//    public void init(Input input, Tracker tracker) {
-//        boolean run = true;
-//        while (run) {
-//            StartUI.showMenu();
-//            int select = Integer.parseInt(input.askStr("Select: "));
-//            if (select == 0) {
-//                StartUI.createItem(input, tracker);
-//            } else if (select == 1) {
-//                StartUI.showAllItems(tracker);
-//            } else if (select == 2) {
-//                StartUI.replaceItem(input, tracker);
-//            } else if (select == 3) {
-//                StartUI.deleteItem(input, tracker);
-//            } else if (select == 4) {
-//                StartUI.findById(input, tracker);
-//            } else if (select == 5) {
-//                StartUI.findByName(input, tracker);
-//            } else if (select == 6) {
-//                run = false;
-//            } else {
-//                System.out.println(NL + "Select number between 0 and 6");
-//            }
-//        }
-//    }
-
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
@@ -126,26 +101,4 @@ public class StartUI {
         };
         new StartUI().init(input, tracker, actions);
     }
-
-//    public static void main(String[] args) {
-//        Item time = new Item();
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
-//        String currentDateTimeFormat = time.getCreated().format(formatter);
-//        System.out.println("Текущие дата и время после форматирования: "
-//                + currentDateTimeFormat);
-//        Tracker track = new Tracker();
-//        Item item = new Item();
-//        Item findItem = track.add(item);
-//        int temp = 5;
-//        Item findId = track.findById(temp);
-//        System.out.println(findId);
-//        Item user = new Item(1, "Gordon");
-//        System.out.println("Item: "
-//                        + user.getId() + " "
-//                        + user.getName() + " ");
-//        //выше другие задания
-//        Input input = new ConsoleInput();
-//        Tracker tracker = new Tracker();
-//        new StartUI().init(input, tracker);
-//    }
 }
