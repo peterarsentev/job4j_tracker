@@ -17,10 +17,7 @@ public class Departments {
             }
             res = "";
         }
-        for (String d : departments) {
-            rsl.add(d);
-        }
-        return rsl;
+        return new ArrayList<>(departments);
     }
 
     public static void sortAsc(List<String> orgs) {

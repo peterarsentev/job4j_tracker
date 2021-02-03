@@ -8,10 +8,10 @@ public class DepDescComp implements Comparator<String> {
         String[] obj1 = o1.split("/");
         String[] obj2 = o2.split("/");
 
-        if (obj1[0].equals(obj2[0])) {
+        int rsl = obj2[0].compareTo(obj1[0]);
+        if (rsl == 0) {
             return o1.compareTo(o2);
         }
-        return o2.compareTo(o1);
-
+        return rsl;
     }
 }
