@@ -3,7 +3,6 @@ package ru.job4j.collection;
 import java.util.*;
 
 public class SimpleArray<T> implements Iterable<T> {
-
     private T[] list;
     private int count;
     private int modcount;
@@ -35,6 +34,11 @@ public class SimpleArray<T> implements Iterable<T> {
             return true;
         }
         return false;
+    }
+
+    public boolean search(T value) {
+        return Arrays.stream(list)
+                .anyMatch(e -> e == value);
     }
 
     public boolean remove(int index) {

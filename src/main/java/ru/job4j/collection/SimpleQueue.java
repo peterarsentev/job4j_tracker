@@ -5,12 +5,12 @@ public class SimpleQueue<T> {
     private final SimpleStack<T> out = new SimpleStack<>();
 
     public T poll() {
-        in.pop2();
+
         return out.pop();
     }
 
     public void push(T value) {
         in.push(value);
-        out.pushDown(value);
+
     }
 }

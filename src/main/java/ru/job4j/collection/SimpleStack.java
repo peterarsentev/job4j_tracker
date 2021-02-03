@@ -9,16 +9,8 @@ public class SimpleStack<T> implements Iterable<T> {
         return linked.deleteLast();
     }
 
-    public void pop2() {
-        linked.deleteFirst();
-    }
-
     public void push(T value) {
         linked.add(value);
-    }
-
-    public void pushDown(T value) {
-        linked.add2(value);
     }
 
     @Override
