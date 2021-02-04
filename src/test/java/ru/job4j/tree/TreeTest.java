@@ -5,7 +5,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 
-public class TreeTest {
+public class TreeTest { //класс тестов для дерева
     @Test
     public void when6ElFindLastThen6() {
         Tree<Integer> tree = new Tree<>(1);

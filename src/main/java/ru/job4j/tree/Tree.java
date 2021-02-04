@@ -23,7 +23,7 @@ class Tree<E> implements SimpleTree<E> {
         return up.get().children.add(childNode);
     }
 
-    public boolean isBinary() {
+    public boolean isBinary() { //бинарен
         return findByPredicate(e -> (long) e.children.size() > 2).isEmpty();
     }
 
