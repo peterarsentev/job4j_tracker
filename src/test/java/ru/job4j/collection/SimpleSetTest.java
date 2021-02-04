@@ -15,7 +15,12 @@ public class SimpleSetTest {
         set.add(2);
         set.add(1);
         set.add(3);
-
         set.forEach(System.out::println);
+    }
+
+    @Test
+    public void testNullInSet() {
+        SimpleSet<Integer> set = new SimpleSet<Integer>();
+        assertFalse(set.add(null));
     }
 }

@@ -1,22 +1,31 @@
 package ru.job4j.collection;
 
 import java.util.Iterator;
+import java.util.Objects;
 
-public class SimpleSet<T> extends SimpleArray<T> implements Iterable<T> {
-    public SimpleSet() {
-        super();
+public class SimpleSet<T> implements Iterable<T> {
+    private SimpleArray<T> baseArray = new SimpleArray<>();
+
+    public boolean add(T model) {
+        if (check(model) || Objects.isNull(model)) {
+            return false;
+        }
+        baseArray.add(model);
+        return true;
     }
 
-    @Override
-    public void add(T model) {
-//        if (!search(model)) {
-//            super.add(model);
-//        }
+    private boolean check(T model) {
+        for (T t : baseArray) {
+            if (t.equals(model)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public Iterator<T> iterator() {
-        return super.iterator();
+        return baseArray.iterator();
     }
 
     public static void main(String[] args) {
