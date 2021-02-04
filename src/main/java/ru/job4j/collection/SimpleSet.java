@@ -9,9 +9,9 @@ public class SimpleSet<T> extends SimpleArray<T> implements Iterable<T> {
 
     @Override
     public void add(T model) {
-        if (!search(model)) {
-            super.add(model);
-        }
+//        if (!search(model)) {
+//            super.add(model);
+//        }
     }
 
     @Override
