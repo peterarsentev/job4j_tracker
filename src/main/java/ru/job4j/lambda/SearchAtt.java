@@ -2,45 +2,38 @@ package ru.job4j.lambda;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class SearchAtt {
 
-    private static List<Attachment> loop(List<Attachment> list, Function<Attachment, Attachment> func) {
+    private static List<Attachment> loop(List<Attachment> list, Predicate<Attachment> predicate) {
         List<Attachment> rsl = new ArrayList<>();
         for (Attachment att : list) {
-            Attachment res = func.apply(att);
-            if (res != null) {
-                rsl.add(res);
+            if (predicate.test(att)) {
+                rsl.add(att);
             }
         }
         return rsl;
     }
 
     public static List<Attachment> filterSize(List<Attachment> list) {
-        Function<Attachment, Attachment> func = new Function<Attachment, Attachment>() {
+        Predicate<Attachment> predicate = new Predicate<Attachment>() {
             @Override
-            public Attachment apply(Attachment attachment) {
-                if (attachment.getSize() > 100) {
-                    return attachment;
-                }
-                return null;
+            public boolean test(Attachment attachment) {
+                return attachment.getSize() > 100;
             }
         };
-
-        return loop(list, func);
+        return loop(list, predicate);
     }
 
     public static List<Attachment> filterName(List<Attachment> list) {
-       Function <Attachment, Attachment> func = new Function<Attachment, Attachment>() {
-           @Override
-           public Attachment apply(Attachment attachment) {
-               if (attachment.getName().contains("bug")) {
-                   return attachment;
-               }
-               return null;
-           }
-       };
-        return loop(list, func);
+        Predicate<Attachment> predicate = new Predicate<Attachment>() {
+            @Override
+            public boolean test(Attachment attachment) {
+                return attachment.getName().contains("bug");
+            }
+        };
+        return loop(list, predicate);
     }
 }
+
