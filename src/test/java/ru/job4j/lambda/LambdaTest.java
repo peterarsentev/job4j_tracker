@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
 
 import static org.junit.Assert.assertThat;
 
@@ -19,15 +18,15 @@ public class LambdaTest {
 
     @Test
     public void whenQuarterFunctionThenQuarterResult() {
-        List<Double> result = Lambda.calculate(5, 8, x -> (-2 * -2) - 4 * x * 3);
-        List<Double> expected = Arrays.asList(-56D, -68D, -80D);
+        List<Double> result = Lambda.calculate(5, 8, x -> (Math.pow(x, 2)) - 4 * 3 * 3);
+        List<Double> expected = Arrays.asList(-11D, 0D, 13D);
         assertThat(result, Is.is(expected));
     }
 
     @Test
     public void whenPokazatelnayaFunctionThenPokazatelniyResult() {
-        List<Double> result = Lambda.calculate(5, 8, Math::exp);
-        List<Double> expected = Arrays.asList(148.4131591025766, 403.4287934927351, 1096.6331584284585);
+        List<Double> result = Lambda.calculate(5, 8, x -> Math.floor(Math.pow(2.7182818284, x)));
+        List<Double> expected = Arrays.asList(148D, 403D, 1096D);
         assertThat(result, Is.is(expected));
     }
 }
