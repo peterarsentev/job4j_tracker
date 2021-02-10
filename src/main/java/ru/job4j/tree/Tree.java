@@ -44,6 +44,6 @@ class Tree<E> implements SimpleTree<E> {
 
     @Override
     public Optional<Node<E>> findBy(E value) {
-        return findByPredicate(e -> e.value == value);
+        return findByPredicate(e -> Objects.equals(e.value, value));
     }
 }
