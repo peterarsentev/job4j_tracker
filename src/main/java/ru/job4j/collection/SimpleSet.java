@@ -7,7 +7,7 @@ public class SimpleSet<T> implements Iterable<T> {
     private SimpleArray<T> baseArray = new SimpleArray<>();
 
     public boolean add(T model) {
-        if (check(model) || Objects.isNull(model)) {
+        if (check(model)) {
             return false;
         }
         baseArray.add(model);
@@ -16,7 +16,7 @@ public class SimpleSet<T> implements Iterable<T> {
 
     private boolean check(T model) {
         for (T t : baseArray) {
-            if (t.equals(model)) {
+            if (Objects.equals(t, model)) {
                 return true;
             }
         }
