@@ -15,15 +15,7 @@ import static org.junit.Assert.*;
 public class MatrixTest {
     @Test
     public void collect() {
-        List<List<Integer>> matrix = new ArrayList<>();
-        List<Integer> list1 = new ArrayList<>();
-        List<Integer> list2 = new ArrayList<>();
-        list1.add(1);
-        list1.add(2);
-        list2.add(3);
-        list2.add(4);
-        matrix.add(list1);
-        matrix.add(list2);
+        Integer[][] matrix = new Integer[][] {{1, 2}, {3, 4}};
         Matrix m = new Matrix();
         List<Integer> expected = new ArrayList<>();
         expected.add(1);
