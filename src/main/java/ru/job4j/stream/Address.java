@@ -8,12 +8,15 @@ public class Address {
     private int home;
     private int apartment;
 
-    public String getCity() {
-        return city;
+
+
+    public Address(String city) {
+        this.city = city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+
+    public String getCity() {
+        return city;
     }
 
     public String getStreet() {
