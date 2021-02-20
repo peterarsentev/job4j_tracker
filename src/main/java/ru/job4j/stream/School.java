@@ -12,10 +12,6 @@ public class School {
     }
 
     public Map<String, Student> mapCollect(List<Student> students) {
-        return students.stream().collect(Collectors.toMap((a) -> a.getSurname(), (a) -> a, (a, b) -> {
-            if (a.getSurname().equals(b))
-        return a;
-            return a;
-        }));
+        return students.stream().collect(Collectors.toMap((a) -> a.getSurname(), (a) -> a, (a, b) -> a));
     }
 }
