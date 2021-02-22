@@ -5,76 +5,37 @@ import ru.job4j.collection.JobDescByName;
 import ru.job4j.collection.JobDescByPriority;
 
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static java.util.List.of;
 
 public class Tester {
-
-    public static class User implements Comparable<User> {
-
-        private String name;
-        private int age;
-
-        public User(String name, int age) {
-            this.name = name;
-            this.age = age;
+    public static int get(int[] data, int el) {
+        Optional<Integer> optional = indexOf(data, el);
+        if (optional.isEmpty()) {
+            return -1;
         }
-
-        public String getName() {
-            return name;
-        }
-
-        public int getAge() {
-            return age;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) {
-                return true;
-            }
-            if (o == null || getClass() != o.getClass()) {
-                return false;
-            }
-            User user = (User) o;
-            return age == user.age && Objects.equals(name, user.name);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(name, age);
-        }
-
-        @Override
-        public int compareTo(User o) {
-            return 0;
-        }
+        return optional.get();
     }
 
-    public static Comparator<User> thenComparing() {
-        Comparator<User> comparator = ascByName().thenComparing(descByAge());
-        return comparator;
+    private static Optional<Integer> indexOf(int[] data, int el) {
+        Optional<Integer> optional = Optional.empty();
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] == el) {
+                optional = Optional.of(i);
+                break;
+            }
+        }
+        return optional;
     }
 
-    public static Comparator<User> ascByName() {
-        Comparator<User> comparator = new Comparator<User>() {
-            @Override
-            public int compare(User o1, User o2) {
-                return o1.getName().compareTo(o2.getName());
-            }
-        };
-         return comparator;
-    }
+    public static void main(String[] args) {
+        int[] array = new int[]{1, 2, 3, 4, 5};
+        System.out.println(get(array, 1));
 
-    public static Comparator<User> descByAge() {
-        Comparator<User> comparator = new Comparator<User>() {
-            @Override
-            public int compare(User o1, User o2) {
-                return Integer.compare(o2.getAge(), o1.getAge());
-            }
-        };
-         return comparator;
+
     }
 }
 
