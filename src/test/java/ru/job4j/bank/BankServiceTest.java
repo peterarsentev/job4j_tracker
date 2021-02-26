@@ -25,7 +25,7 @@ public class BankServiceTest {
         bank.addAccount(user.getPassport(), new Account("5546", 150D));
         Optional<Account> expected = Optional.empty();
 
-        assertThat(expected, bank.findByRequisite("34", "5546"));
+        assertThat(bank.findByRequisite("34", "5546"), is(expected));
     }
 
 
