@@ -7,6 +7,5 @@ public class StartUI {
         item.setName("Bug");
         tracker.add(item);
         System.out.println(item);
-
     }
 }
