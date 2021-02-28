@@ -1,4 +1,4 @@
-package ru.job4j;
+package ru.job4j.inheritance;
 
 public class Item {
     private String name;
