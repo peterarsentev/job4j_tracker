@@ -14,7 +14,6 @@ public class Bus implements Transport {
 
     @Override
     public double load(double amount) {
-        double price = 0;
-        return price;
+        return 0;
     }
 }
