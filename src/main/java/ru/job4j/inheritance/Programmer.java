@@ -7,15 +7,12 @@ public class Programmer extends Engineer {
     private Computer computer;
     private Frameworks frameworks;
 
-    public Programmer(String name, String surname, String education, Date birthday, Project project, String task, BD bd,
-                      Computer computer, Frameworks frameworks) {
-        super(name, surname, education, birthday, project, task);
-        this.bd = bd;
+    public Programmer(String name, String surname, String education, Date birthday, Project project, Computer computer) {
+        super(name, surname, education, birthday, project);
         this.computer = computer;
-        this.frameworks = frameworks;
     }
 
-    public BD creatBD(String task, BD oldBd) {
+    public BD creatBD(String task, BD oldBd, Frameworks frameworks) {
         return bd;
     }
 }
