@@ -116,4 +116,26 @@ public class StartUITest {
                 + System.lineSeparator() + item + System.lineSeparator() + "Меню." + System.lineSeparator()
                 + "0. Найти заявку по Id" + System.lineSeparator() + "1. Выход" + System.lineSeparator()));
     }
+
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[]{"6","0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                String.format(
+                        "Меню.%n"
+                                + "0. Выход%n"
+                                + "Неправильный ввод вы должны ввести число от 0 до 0%n"
+                                + "Меню.%n"
+                                + "0. Выход%n"
+                )
+        ));
+    }
 }
