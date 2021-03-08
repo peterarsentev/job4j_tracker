@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.nullValue;
@@ -106,11 +105,11 @@ public class StartUITest {
     @Test
     public void whenFindByIdAction() {
         Output output = new StubOutput();
-        Input input = new StubInput(new String[]{"0", "1", "1"});
         Tracker tracker = new Tracker();
         Item item = new Item("FindById");
-        tracker.add(item);
+        Item add = tracker.add(item);
         UserAction[] actions = {new SearchItemIdAction(output), new Exit()};
+        Input input = new StubInput(new String[]{"0", String.valueOf(add.getId()), "1"});
         new StartUI(output).init(input, tracker, actions);
         assertThat(output.toString(), is("Меню." + System.lineSeparator() + "0. Найти заявку по Id"
                 + System.lineSeparator() + "1. Выход" + System.lineSeparator() + "==Найти заявку по Id=="
