@@ -5,7 +5,7 @@ public class UserStore {
         User user = null;
         for (int index = 0; index < users.length; index++) {
             if (users[index].getUsername().equals(login)) {
-                user = new User(users[index].getUsername(), users[index].isValid());
+                user = users[index];
                 break;
             }
         }
