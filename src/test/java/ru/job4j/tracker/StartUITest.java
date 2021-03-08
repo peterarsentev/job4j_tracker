@@ -78,18 +78,14 @@ public class StartUITest {
         Output output = new StubOutput();
         Input input = new StubInput(new String[]{"0", "1"});
         Tracker tracker = new Tracker();
-        tracker.add(new Item("findAll"));
+        Item item = new Item("findAll");
+        tracker.add(item);
         UserAction[] actions = {new FindAllAction(output), new Exit()};
         new StartUI(output).init(input, tracker, actions);
         assertThat(output.toString(), is("Меню." + System.lineSeparator() + "0. Посмотреть все заявки" +
                 System.lineSeparator() + "1. Выход" + System.lineSeparator()
-                + "==Список всех заявок==" + System.lineSeparator() + "Item{id=1, name='findAll'}" + System.lineSeparator()
+                + "==Список всех заявок==" + System.lineSeparator() + item + System.lineSeparator()
                 + "Меню." + System.lineSeparator() + "0. Посмотреть все заявки" + System.lineSeparator() + "1. Выход" + System.lineSeparator()));
-
-/*                "Меню.n0. Посмотреть все заявки\n1. Выход\\n==Список всех заявок==\\" +
-                        "nItem{id=1, name='findAll'}\\nМеню.\\n0. Посмотреть все заявки\\n1." +
-                        " Выход\\n"*/
-
     }
 
     @Test
@@ -97,13 +93,14 @@ public class StartUITest {
         Output output = new StubOutput();
         Input input = new StubInput(new String[]{"0", "FindByName", "1"});
         Tracker tracker = new Tracker();
-        tracker.add(new Item("FindByName"));
+        Item item = new Item("FindByName");
+        tracker.add(item);
         UserAction[] actions = {new SearchItemNameAction(output), new Exit()};
         new StartUI(output).init(input, tracker, actions);
         assertThat(output.toString(), is("Меню." + System.lineSeparator() + "0. Найти заявки по имени"
-                + System.lineSeparator() + "1. Выход" + System.lineSeparator() + "==Найти заявки по имени==" + System.lineSeparator() + "Item{id=1, name='FindByName'}"
-                + System.lineSeparator() + "Меню." + System.lineSeparator() + "0. Найти заявки по имени" + System.lineSeparator()
-                + "1. Выход" + System.lineSeparator()));
+                + System.lineSeparator() + "1. Выход" + System.lineSeparator() + "==Найти заявки по имени=="
+                + System.lineSeparator() + item + System.lineSeparator() + "Меню." + System.lineSeparator()
+                + "0. Найти заявки по имени" + System.lineSeparator() + "1. Выход" + System.lineSeparator()));
     }
 
     @Test
@@ -111,13 +108,13 @@ public class StartUITest {
         Output output = new StubOutput();
         Input input = new StubInput(new String[]{"0", "1", "1"});
         Tracker tracker = new Tracker();
-        tracker.add(new Item("FindByName"));
+        Item item = new Item("FindById");
+        tracker.add(item);
         UserAction[] actions = {new SearchItemIdAction(output), new Exit()};
         new StartUI(output).init(input, tracker, actions);
         assertThat(output.toString(), is("Меню." + System.lineSeparator() + "0. Найти заявку по Id"
-                + System.lineSeparator() + "1. Выход" + System.lineSeparator() + "==Найти заявку по Id==" + System.lineSeparator() + "Item{id=1, name='FindByName'}"
-                + System.lineSeparator() + "Меню." + System.lineSeparator() + "0. Найти заявку по Id" + System.lineSeparator()
-                + "1. Выход" + System.lineSeparator()));
+                + System.lineSeparator() + "1. Выход" + System.lineSeparator() + "==Найти заявку по Id=="
+                + System.lineSeparator() + item + System.lineSeparator() + "Меню." + System.lineSeparator()
+                + "0. Найти заявку по Id" + System.lineSeparator() + "1. Выход" + System.lineSeparator()));
     }
-
 }
