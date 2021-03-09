@@ -34,8 +34,8 @@ public class ValidateInputTest {
         Output out = new StubOutput();
         String[] str = {"2", "2", "2"};
         Input in = new StubInput(str);
+        ValidateInput input = new ValidateInput(out, in);
         for (int i = 0; i < str.length; i++) {
-            ValidateInput input = new ValidateInput(out, in);
             int selected = input.askInt("Enter menu:");
             assertThat(selected, is(2));
         }
