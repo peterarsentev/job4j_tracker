@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StartUI {
     private final Output out;
 
@@ -7,25 +10,25 @@ public class StartUI {
         this.out = out;
     }
 
-    public void init(Input input, Tracker tracker, UserAction[] actions) {
+    public void init(Input input, Tracker tracker, List<UserAction> actions) {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
             int select = input.askInt("Выберете: ");
-            if (select < 0 || select >= actions.length) {
-                out.println("Неправильный ввод вы должны ввести число от 0 до " + (actions.length - 1));
+            if (select < 0 || select >= actions.size()) {
+                out.println("Неправильный ввод вы должны ввести число от 0 до " + (actions.size() - 1));
                 continue;
             }
-            UserAction action = actions[select];
+            UserAction action = actions.get(select);
             run = action.execute(input, tracker);
         }
     }
 
-    private void showMenu(UserAction[] actions) {
+    private void showMenu(List<UserAction> actions) {
 
         out.println("Меню.");
-        for (int index = 0; index < actions.length; index++) {
-            out.println(index + ". " + actions[index].name());
+        for (int index = 0; index < actions.size(); index++) {
+            out.println(index + ". " + actions.get(index).name());
         }
     }
 
@@ -33,8 +36,16 @@ public class StartUI {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
         Tracker tracker = new Tracker();
-        UserAction[] actions = {new CreateAction(output), new FindAllAction(output), new ReplaceAction(output),
-                new DeleteItemAction(output), new SearchItemIdAction(output), new SearchItemNameAction(output), new Exit()};
+        List<UserAction> actions = new ArrayList<>();
+        actions.add(new CreateAction(output));
+        actions.add(new FindAllAction(output));
+        actions.add(new ReplaceAction(output));
+        actions.add(new DeleteItemAction(output));
+        actions.add(new SearchItemIdAction(output));
+        actions.add(new SearchItemIdAction(output));
+        actions.add(new SearchItemNameAction(output));
+        actions.add(new Exit());
         new StartUI(output).init(input, tracker, actions);
     }
 }
+
