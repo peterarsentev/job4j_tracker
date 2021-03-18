@@ -13,14 +13,13 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                List<Account> accounts = users.get(user);
-                if (!accounts.contains(account)) {
-                    accounts.add(account);
-                }
-                users.putIfAbsent(user, accounts);
+        User user = findByPassport(passport);
+        if (user != null) {
+            List<Account> accounts = users.get(user);
+            if (!accounts.contains(account)) {
+                accounts.add(account);
             }
+            users.putIfAbsent(user, accounts);
         }
     }
 
@@ -34,13 +33,12 @@ public class BankService {
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                List<Account> accounts = users.get(user);
-                for (Account account : accounts) {
-                    if (account.getRequisite().equals(requisite)) {
-                        return account;
-                    }
+        User user = findByPassport(passport);
+        if (user != null) {
+            List<Account> accounts = users.get(user);
+            for (Account account : accounts) {
+                if (account.getRequisite().equals(requisite)) {
+                    return account;
                 }
             }
         }
@@ -50,32 +48,11 @@ public class BankService {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
-        Account srcAccount = null;
-        Account destAccount = null;
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(srcPassport)) {
-                List<Account> accounts = users.get(user);
-                for (Account account : accounts) {
-                    if (account.getRequisite().equals(srcRequisite)) {
-                        srcAccount = account;
-                    }
-                }
-            }
-            if (user.getPassport().equals(destPassport)) {
-                List<Account> accounts = users.get(user);
-                for (Account account : accounts) {
-                    if (account.getRequisite().equals(destRequisite)) {
-                        destAccount = account;
-                    }
-                }
-            }
-        }
-        boolean transferMoney = srcAccount.getBalance() >= amount;
-        if (transferMoney) {
+        Account srcAccount = findByRequisite(srcPassport, srcRequisite);
+        Account destAccount = findByRequisite(destPassport, destRequisite);
+        if (srcAccount != null && destAccount != null && srcAccount.getBalance() >= amount) {
             srcAccount.setBalance(srcAccount.getBalance() - amount);
             destAccount.setBalance(destAccount.getBalance() + amount);
-        }
-        if (srcAccount != null && destAccount != null && transferMoney) {
             addAccount(srcPassport, srcAccount);
             addAccount(destPassport, destAccount);
             rsl = true;
