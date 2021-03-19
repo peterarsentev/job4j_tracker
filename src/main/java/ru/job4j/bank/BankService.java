@@ -19,7 +19,6 @@ public class BankService {
             if (!accounts.contains(account)) {
                 accounts.add(account);
             }
-            users.putIfAbsent(user, accounts);
         }
     }
 
@@ -53,8 +52,6 @@ public class BankService {
         if (srcAccount != null && destAccount != null && srcAccount.getBalance() >= amount) {
             srcAccount.setBalance(srcAccount.getBalance() - amount);
             destAccount.setBalance(destAccount.getBalance() + amount);
-            addAccount(srcPassport, srcAccount);
-            addAccount(destPassport, destAccount);
             rsl = true;
         }
         return rsl;
