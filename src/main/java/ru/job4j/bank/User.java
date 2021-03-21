@@ -2,7 +2,16 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Модель данных пользователя
+ * @author Polyanskiy Dmitriy
+ * @version 1.0
+ */
 public class User {
+    /**
+     *passport номер пасспорта пользователя
+     * username имя пользователя
+     */
     private String passport;
     private String username;
 

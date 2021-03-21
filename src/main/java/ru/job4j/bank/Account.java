@@ -2,7 +2,16 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Модель данных аккаунтов
+ * @author Polyanskiy Dmitriy
+ * @version 1.0
+ */
 public class Account {
+    /**
+     * requisite реквизиты счета
+     * balance баланс счета
+     */
     private String requisite;
     private double balance;
 
