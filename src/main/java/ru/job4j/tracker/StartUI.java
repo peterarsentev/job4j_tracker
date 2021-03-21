@@ -16,7 +16,8 @@ public class StartUI {
             this.showMenu(actions);
             int select = input.askInt("Выберете: ");
             if (select < 0 || select >= actions.size()) {
-                out.println("Неправильный ввод вы должны ввести число от 0 до " + (actions.size() - 1));
+                out.println("Неправильный ввод вы должны ввести число от 0 до "
+                       + (actions.size() - 1));
                 continue;
             }
             UserAction action = actions.get(select);

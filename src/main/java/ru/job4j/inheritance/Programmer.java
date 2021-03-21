@@ -7,7 +7,8 @@ public class Programmer extends Engineer {
     private Computer computer;
     private Frameworks frameworks;
 
-    public Programmer(String name, String surname, String education, Date birthday, Project project, Computer computer) {
+    public Programmer(String name, String surname, String education, Date birthday,
+                      Project project, Computer computer) {
         super(name, surname, education, birthday, project);
         this.computer = computer;
     }

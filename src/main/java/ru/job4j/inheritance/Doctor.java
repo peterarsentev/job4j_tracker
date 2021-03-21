@@ -7,7 +7,8 @@ public class Doctor extends Profession {
     private String diagnos;
     private Tool tool;
 
-    public Doctor(String name, String surname, String education, Date birthday, Pacient pacient, String diagnos) {
+    public Doctor(String name, String surname, String education, Date birthday,
+                  Pacient pacient, String diagnos) {
         super(name, surname, education, birthday);
         this.pacient = pacient;
         this.diagnos = diagnos;
@@ -20,6 +21,4 @@ public class Doctor extends Profession {
     public void healing(Pacient pacient) {
 
     }
-
-
 }
