@@ -8,7 +8,7 @@ public class StringCompare implements Comparator<String> {
     public int compare(String o1, String o2) {
         for (int i = 0; i < o1.length() && i < o2.length(); i++) {
             if (o1.charAt(i) != o2.charAt(i)) {
-                return Character.compare(o1.charAt(i), o2.charAt(i));
+                return o1.charAt(i) - o2.charAt(i);
             }
         }
         return Integer.compare(o1.length(), o2.length());
