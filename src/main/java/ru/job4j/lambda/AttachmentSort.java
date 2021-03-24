@@ -21,7 +21,6 @@ public class AttachmentSort {
         };
         attachments.sort(comparator);
         System.out.println(attachments);
-        // Здесь создайте компаратор на основании анонимного класса.
         Comparator comparName = new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
