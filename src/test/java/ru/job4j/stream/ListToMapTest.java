@@ -11,7 +11,7 @@ public class ListToMapTest {
     @Test
     public void whenListToMap() {
         List<Student> students = List.of(new Student(10, "Ivanov"), new Student(50, "Petrov"),
-                new Student(70, "Smirnov"));
+                new Student(70, "Smirnov"),new Student(70, "Smirnov"));
         ListToMap lst = new ListToMap();
         Map<String, Student> rsl = lst.convert(students);
         Map<String, Student> expected = Map.of("Ivanov", new Student(10, "Ivanov"),
