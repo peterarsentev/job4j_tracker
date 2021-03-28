@@ -12,6 +12,5 @@ public class ListToMap {
                         e -> e,
                         (s, s1) -> s
                 ));
-
     }
 }
