@@ -17,7 +17,7 @@ public class SortDecreaseTest {
         List<Item> items = Arrays.asList(new Item("Reboot server"), new Item("Fix bugs"),
                 new Item("Impl task"));
         Collections.sort(items, new SortDecrease());
-        List<Item> excepted = Arrays.asList(new Item("Reboot server"),
+        List<Item> excepted = List.of(new Item("Reboot server"),
                 new Item("Impl task"), new Item("Fix bugs"));
         assertThat(items, is(excepted));
     }

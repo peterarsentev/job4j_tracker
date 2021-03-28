@@ -18,7 +18,7 @@ public class SortIncrementTest {
                 new Item("Impl task")
         );
         Collections.sort(items, new SortIncrement());
-        List<Item> excepted = Arrays.asList(new Item("Fix bugs"),
+        List<Item> excepted = List.of(new Item("Fix bugs"),
                 new Item("Impl task"), new Item("Reboot server"));
         assertThat(items, is(excepted));
     }
