@@ -18,6 +18,7 @@ env:
 # Отправлять уведомление на почтуyouremail@smtp.ru(Изменить на свою) если сборка упала
 notifications:
   email:
+
     recipients:
       -demonick82@gmail.com
     on_success: never # default: change
