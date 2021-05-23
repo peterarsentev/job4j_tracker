@@ -6,11 +6,11 @@ import java.util.Set;
 
 public class Article {
     public static boolean generateBy(String origin, String line) {
-        String[] originStr = origin.replaceAll(",|!|;|\\.", "").split("\\s");
-        String[] compareStr = line.replaceAll(",|!|;|\\.", "").split("\\s");
+        String[] originStr = origin.replaceAll("\\p{P}", "").split("\\s");
+        String[] compareStr = line.replaceAll("\\p{P}", "").split("\\s");
         Set<String> set = new HashSet<>(Arrays.asList(originStr));
-        for (int i = 0; i < compareStr.length; i++) {
-            if (set.add(compareStr[i])) {
+        for (String s : compareStr) {
+            if (!set.contains(s)) {
                 return false;
             }
         }
