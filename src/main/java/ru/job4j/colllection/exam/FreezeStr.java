@@ -6,15 +6,21 @@ public class FreezeStr {
     public static boolean eq(String left, String right) {
         char[] first = left.toCharArray();
         char[] second = right.toCharArray();
-        HashMap<Character, Integer> leftMap = createMap(first);
-        HashMap<Character, Integer> rightMap = createMap(second);
+        HashMap<Character, Integer> map = createMap(first);
         if (left.length() != right.length()) {
             return false;
         }
-        if (leftMap.equals(rightMap)) {
-            return true;
+        for (char c : second) {
+            if (!map.containsKey(c)) {
+                return false;
+            }
+            if (map.get(c) == 1) {
+                map.remove(c);
+            } else if (map.get(c) > 1) {
+                map.put(c, map.get(c) - 1);
+            }
         }
-        return false;
+        return map.size() == 0;
     }
 
     private static HashMap<Character, Integer> createMap(char[] chars) {
@@ -23,7 +29,7 @@ public class FreezeStr {
             if (!map.containsKey(ch)) {
                 map.put(ch, 1);
             } else {
-                map.put(ch, 2);
+                map.put(ch, map.get(ch) + 1);
             }
         }
         return map;
