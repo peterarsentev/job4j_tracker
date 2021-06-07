@@ -13,7 +13,7 @@ public class ReplaceAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Store tracker) {
         out.println("==Редактировать заявку==");
         int id = input.askInt("Введите id: ");
         String name = input.askStr("Введите имя: ");

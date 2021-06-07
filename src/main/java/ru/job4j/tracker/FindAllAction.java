@@ -13,7 +13,7 @@ public class FindAllAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Store tracker) {
         out.println("==Список всех заявок==");
         for (Item item : tracker.findAll()) {
             out.println(item);
