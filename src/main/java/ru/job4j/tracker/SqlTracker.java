@@ -36,10 +36,16 @@ public class SqlTracker implements Store {
                      cn.prepareStatement("insert into items(name) values (?)")) {
             statement.setString(1, item.getName());
             statement.execute();
-            try (ResultSet resultSet = statement.getGeneratedKeys()) {
-                if (resultSet.next()) {
-                    item.setId(resultSet.getInt("id"));
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
+        try (PreparedStatement statement =
+                     cn.prepareStatement("select * from items where name=?")) {
+            statement.setString(1, item.getName());
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    item.setId(resultSet.getInt("id"));
                 }
             }
         } catch (SQLException throwables) {
@@ -117,7 +123,7 @@ public class SqlTracker implements Store {
         try (PreparedStatement statement = cn.prepareStatement("select * from items where id=?")) {
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
-                if (resultSet.next()) {
+                while (resultSet.next()) {
                     item = new Item(resultSet.getString("name"));
                     item.setId(resultSet.getInt("id"));
                 }
