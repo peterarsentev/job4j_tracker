@@ -10,6 +10,18 @@
     <packaging>jar</packaging>
     <profiles>
         <profile>
+            <id>travis</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <db.url>jdbc:postgresql://localhost/tracker</db.url>
+                <db.username>postgres</db.username>
+                <db.password></db.password>
+                <db.driver>org.postgresql.Driver</db.driver>
+            </properties>
+        </profile>
+        <profile>
             <id>test</id>
             <properties>
                 <db.url>jdbc:postgresql://127.0.0.1:5432/tracker</db.url>
