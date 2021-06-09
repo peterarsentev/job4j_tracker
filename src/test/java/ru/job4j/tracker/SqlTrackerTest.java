@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.List;
 import java.util.Properties;
 
 import static org.hamcrest.Matchers.nullValue;
@@ -35,13 +36,43 @@ public class SqlTrackerTest {
             assertThat(tracker.findByName("name").size(), is(1));
         }
     }
+
     @Test
-    public void deleteItem() throws Exception {
+    public void replaceItem() throws Exception {
         try (SqlTracker tracker = new SqlTracker(ConnectionRollback.create(this.init()))) {
-            tracker.add(new Item("name"));
-            tracker.delete(62);
-            assertThat(tracker.findByName("name"), is(nullValue()));
+            Item item = new Item("name");
+            tracker.add(item);
+            tracker.replace(item.getId(), new Item("replaced"));
+            assertThat(tracker.findById(item.getId()).getName(), is("replaced"));
         }
     }
 
+    @Test
+    public void deleteItem() throws Exception {
+        try (SqlTracker tracker = new SqlTracker(ConnectionRollback.create(this.init()))) {
+            Item item = new Item("delete");
+            tracker.add(item);
+            tracker.delete(item.getId());
+            assertThat(tracker.findById(item.getId()), is(nullValue()));
+        }
+    }
+
+    @Test
+    public void findByNameItems() throws Exception {
+        try (SqlTracker tracker = new SqlTracker(ConnectionRollback.create(this.init()))) {
+            Item item = new Item("name1");
+            tracker.add(item);
+            List<Item> result = tracker.findByName("name1");
+            assertThat(result, is(List.of(item)));
+        }
+    }
+
+    @Test
+    public void findByIdItems() throws Exception {
+        try (SqlTracker tracker = new SqlTracker(ConnectionRollback.create(this.init()))) {
+            Item item = new Item("name");
+            tracker.add(item);
+            assertThat(tracker.findById(item.getId()), is(item));
+        }
+    }
 }
