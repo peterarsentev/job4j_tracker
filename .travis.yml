@@ -10,11 +10,11 @@ sudo: false
 # Здесь используется сторонний сервис https://codecov.io/
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  -
+  
 env:
   global:
     - CODECOV_TOKEN="6e598dd8-c945-4203-9b70-bf63780e4320"
-    -
+
 notifications:
   email:
 
