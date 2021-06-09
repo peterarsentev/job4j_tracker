@@ -34,13 +34,13 @@ public class SqlTracker implements Store {
     @Override
     public Item add(Item item) {
         try (PreparedStatement statement =
-                     cn.prepareStatement("insert into items(name) values (?)")) {
+                     cn.prepareStatement("insert into items(name) values (?)",
+                             Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, item.getName());
             statement.execute();
             try (ResultSet resultSet = statement.getGeneratedKeys()) {
                 if (resultSet.next()) {
                     item.setId(resultSet.getInt("id"));
-
                 }
             }
         } catch (SQLException throwables) {
