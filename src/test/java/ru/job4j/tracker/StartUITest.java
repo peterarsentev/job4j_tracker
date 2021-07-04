@@ -22,6 +22,8 @@ public class StartUITest {
         actions.add(new Exit());
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findAll().get(0).getName(), is("Item name"));
+
+File demonick82/job4j_tracker:.travis.yml not found on RemoteVcs
     }
 
     @Test
