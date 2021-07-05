@@ -2,7 +2,7 @@ package ru.job4j.oop;
 
 public class Max {
     public static int max(int a, int b) {
-        return Math.max(a, b);
+        return a > b ? a : b;
     }
 
     public static int max(int a, int b, int c) {
@@ -10,6 +10,6 @@ public class Max {
     }
 
     public static int max(int a, int b, int c, int d) {
-        return max(a, max(b, max(c, d)));
+        return max(a, max(b, c, d));
     }
 }
