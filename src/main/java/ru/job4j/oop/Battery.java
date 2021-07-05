@@ -1,4 +1,4 @@
-package ru.job4j.oop.ru.job4j.oop;
+package ru.job4j.oop;
 
 public class Battery {
     private int load;
