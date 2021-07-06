@@ -17,7 +17,7 @@ public class Library {
 
         System.out.println("Shown only book with name: Clean code");
         for (Book book: books) {
-            if (book.getName().equalsIgnoreCase("Clean code")) {
+            if ("Clean code".equals(book.getName())) {
                 System.out.println(book.getName());
             }
         }
