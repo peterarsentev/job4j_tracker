@@ -2,11 +2,6 @@ package ru.job4j.oop.pojo;
 
 public class ShopDrop {
     public static Product[] delete(Product[] products, int index) {
-        if (index < 0 || index >= products.length) {
-            System.out.println("index out of range !!!");
-            return products;
-        }
-        products[index] = null;
         for (int i = index; i < products.length - 1; i++) {
             products[i] = products[i + 1];
         }

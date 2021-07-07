@@ -56,21 +56,4 @@ public class ShopDropTest {
         assertThat(rsl[3].getName(), is("Fruit"));
         assertThat(rsl[products.length - 1], is(nullValue()));
     }
-
-    @Test
-    public void whenWrongIndexOutsideOfArrayElements() {
-        Product[] products = new Product[5];
-        products[0] = new Product("Bread", 4);
-        products[1] = new Product("Egg", 10);
-        products[2] = new Product("Milk", 2);
-        products[3] = new Product("Fish", 3);
-        products[4] = new Product("Fruit", 8);
-        int index = -1;
-        Product[] rsl = ShopDrop.delete(products, index);
-        assertArrayEquals(rsl, products);
-        index = products.length;
-        rsl = ShopDrop.delete(products, index);
-        assertArrayEquals(rsl, products);
-
-    }
 }
