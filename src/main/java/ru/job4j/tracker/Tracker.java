@@ -36,17 +36,13 @@ public class Tracker {
     }
 
     public boolean replace(int id, Item item) {
-        if (indexOf(id) == -1) {
-            return false;
-        }
         boolean result = false;
-        for (int i = 0; i < size; i++) {
-            if (findById(id) != null) {
-                int currentID = items[i].getId();
-                items[i] = item;
-                items[i].setId(currentID);
-                result = true;
-            }
+        Item itemReplace = findById(id);
+        if (itemReplace != null) {
+            int currentID = itemReplace.getId();
+            item.setId(currentID);
+            items[indexOf(id)] = item;
+            result = true;
         }
         return result;
     }
