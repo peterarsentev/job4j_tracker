@@ -36,6 +36,9 @@ public class Tracker {
     }
 
     public boolean replace(int id, Item item) {
+        if (indexOf(id) == -1) {
+            return false;
+        }
         boolean result = false;
         for (int i = 0; i < size; i++) {
             if (findById(id) != null) {
@@ -49,7 +52,7 @@ public class Tracker {
     }
 
     public boolean delete(int id) {
-        if (findById(id) == null) {
+        if (indexOf(id) == -1) {
             return false;
         }
         boolean result = false;
