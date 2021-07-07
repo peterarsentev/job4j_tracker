@@ -49,21 +49,16 @@ public class Tracker {
 
     public boolean delete(int id) {
         boolean result = false;
-        Item itemDelete = findById(id);
-        if (itemDelete != null) {
-            int index = indexOf(itemDelete.getId());
-            System.arraycopy(
-                    items,
-                    index + 1,
-                    items,
-                    index,
-                    size - index
-            );
+        int itemDelete = indexOf(id);
+        if (itemDelete != -1) {
+            System.arraycopy(items, itemDelete + 1, items, itemDelete, size - itemDelete - 1);
+            items[size - 1] = null;
             size--;
-            result = true;
+            return true;
         }
         return result;
     }
+
     //получение списка всех заявок
      public Item[] findAll() {
          ArrayList<Item> itemsList = new ArrayList<>();
