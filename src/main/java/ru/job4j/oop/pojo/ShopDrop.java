@@ -6,19 +6,11 @@ public class ShopDrop {
             System.out.println("index out of range !!!");
             return products;
         }
-        deleteProductInIndex(products, index);
-        shiftElementsFromIndex(products, index);
-        return products;
-    }
-
-    private static void shiftElementsFromIndex(Product[] products, int index) {
-        for (; index < products.length - 1; index++) {
-            products[index] = products[index + 1];
-        }
-        products[products.length - 1] = null;
-    }
-
-    private static void deleteProductInIndex(Product[] products, int index) {
         products[index] = null;
+        for (int i = index; i < products.length - 1; i++) {
+            products[i] = products[i + 1];
+        }
+        products[products.length -1] = null;
+        return products;
     }
 }
