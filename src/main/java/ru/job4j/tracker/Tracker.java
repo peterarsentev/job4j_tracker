@@ -48,6 +48,21 @@ public class Tracker {
         return result;
     }
 
+    public boolean delete(int id) {
+        if (findById(id) == null) {
+            return false;
+        }
+        boolean result = false;
+        for (int i = 0; i < size; i++) {
+            if (id == items[i].getId()) {
+                System.arraycopy(this.items, i + 1, items, i, size - i);
+                size--;
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
     //получение списка всех заявок
      public Item[] findAll() {
          ArrayList<Item> itemsList = new ArrayList<>();
