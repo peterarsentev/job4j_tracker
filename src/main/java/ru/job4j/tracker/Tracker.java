@@ -47,15 +47,14 @@ public class Tracker {
     }
 
     public boolean delete(int id) {
-        boolean result = false;
-        int itemDelete = indexOf(id);
-        if (itemDelete != -1) {
-            System.arraycopy(items, itemDelete + 1, items, itemDelete, size - itemDelete - 1);
+        int index = indexOf(id);
+        if (index != -1) {
+            System.arraycopy(items, index + 1, items, index, size - index - 1);
             items[size - 1] = null;
             size--;
             return true;
         }
-        return result;
+        return false;
     }
 
     //получение списка всех заявок
