@@ -2,28 +2,36 @@ package ru.job4j.tracker;
 
 
 public class StartUI {
-    public void init(Input input, Tracker tracker) {
+    public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
-            showMenu();
+            this.showMenu(actions);
             int select = input.askInt("Select: ");
-            if (select == 0) {
-                createItem(input, tracker);
-            } else if (select == 1) {
-                findAll(tracker);
-            } else if (select == 2) {
-                replaceItem(input, tracker);
-            } else if (select == 3) {
-                deleteItem(input, tracker);
-            } else if (select == 4) {
-                findById(input, tracker);
-            } else if (select == 5) {
-                findByName(input, tracker);
-            }
-            else if (select == 6) {
-                run = false;
-            }
+            UserAction action = actions[Math.min(select, actions.length - 1)];
+            run = action.execute(input, tracker);
         }
+    }
+
+    private void showMenu(UserAction[] actions) {
+        System.out.println("Menu.");
+        for (int index = 0; index < actions.length; index++) {
+            System.out.println(index + ". " + actions[index].name());
+        }
+    }
+
+    public static void main(String[] args) {
+        Input input = new ConsoleInput();
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new CreateAction(),
+                new ShowAllAction(),
+                new EditItemAction(),
+                new DeleteItemAction(),
+                new FindByIdAction(),
+                new FindByNameAction(),
+                new ExitAction()
+        };
+        new StartUI().init(input, tracker, actions);
     }
 
     public static void findAll(Tracker tracker) {
@@ -90,23 +98,5 @@ public class StartUI {
         Item item = new Item(name);
         tracker.add(item);
         System.out.println("Добавленная заявка: " + item);
-    }
-
-    private void showMenu() {
-        String[] menu = {
-                "Add new Item", "Show all items", "Edit item",
-                "Delete item", "Find item by id", "Find items by name",
-                "Exit Program"
-        };
-        System.out.println("Menu:");
-        for (int i = 0; i < menu.length; i++) {
-            System.out.println(i + ". " + menu[i]);
-        }
-    }
-
-    public static void main(String[] args) {
-        Input input = new ConsoleInput();
-        Tracker tracker = new Tracker();
-        new StartUI().init(input, tracker);
     }
 }
