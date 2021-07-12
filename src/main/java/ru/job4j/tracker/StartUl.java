@@ -31,7 +31,7 @@ public class StartUl {
                 System.out.println("=== Edit item ====");
                 System.out.print("Enter id: ");
                 int id = Integer.parseInt(scanner.nextLine());
-                System.out.println("Enter name: ");
+                System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 Item item = new Item(name);
                 if (tracker.replace(id, item)) {
@@ -50,13 +50,25 @@ public class StartUl {
                 }
             } else if (select == 4) {
                 System.out.println("=== Find item by id ====");
-                System.out.println("Enter id: ");
+                System.out.print("Enter id: ");
                 int id = Integer.parseInt(scanner.nextLine());
                 Item item = tracker.findById(id);
                 if (item != null) {
                     System.out.println(item);
                 } else {
                     System.out.println("Заявка с введеным id: " + id + " не найдена.");
+                }
+            } else if (select == 5) {
+                System.out.println("=== Find items by name ====");
+                System.out.print("Enter name: ");
+                String name = scanner.nextLine();
+                Item[] items = tracker.findByName(name);
+                if (items.length > 0) {
+                    for (Item item : items) {
+                        System.out.println(item);
+                    }
+                } else {
+                    System.out.println("Заявки с именем: " + name + " не найдены.");
                 }
             } else if (select == 6) {
                 run = false;
