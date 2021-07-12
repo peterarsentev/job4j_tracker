@@ -77,6 +77,7 @@ public class StartUl {
     }
 
     private void showMenu() {
+        System.out.println("Menu.");
         String[] menu = {"Add new Item", "Show all items", "Edit item",
             "Delete item", "Find item by id", "Find items by name",
             "Exit Program"};
