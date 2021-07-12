@@ -12,13 +12,12 @@ public class Matches {
             String player = turn ? "Первый игрок" : "Второй игрок";
             System.out.println(player + " Введите число от 1 до 3: ");
             int matches = Integer.parseInt(input.nextLine());
-            turn = !turn;
             if (matches > 0 && matches < 4) {
+                turn = !turn;
                 count = count - matches;
                 System.out.println(count + " - Осталось спичек на столе");
             } else {
                 System.out.println("Неправильное количество спичек!");
-                turn = !turn;
             }
         }
         if (!turn) {
