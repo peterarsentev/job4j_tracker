@@ -18,8 +18,4 @@ public class Square implements Shape {
         }
         return square.toString();
     }
-
-    public static void main(String[] args) {
-        System.out.println(new Triangle().draw());
-    }
 }
