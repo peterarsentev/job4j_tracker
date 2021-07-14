@@ -4,13 +4,18 @@ package ru.job4j.tracker;
 import ru.job4j.tracker.actions.*;
 
 public class StartUI {
+    private final Output output;
+
+    public StartUI(Output out) {
+        this.output = out;
+    }
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
             int select = input.askInt("Select: ");
             if (select < 0 || select > actions.length - 1) {
-                System.out.println(System.lineSeparator()
+                output.println(System.lineSeparator()
                         + "No such menu exists, please try again."
                         + System.lineSeparator());
                 continue;
@@ -21,17 +26,18 @@ public class StartUI {
     }
 
     private void showMenu(UserAction[] actions) {
-        System.out.println("Menu.");
+        output.println("Menu.");
         for (int index = 0; index < actions.length; index++) {
-            System.out.println(index + ". " + actions[index].name());
+            output.println(index + ". " + actions[index].name());
         }
     }
 
     public static void main(String[] args) {
         Input input = new ConsoleInput();
+        Output output = new ConsoleOutput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(),
+                new CreateAction(output),
                 new ShowAllAction(),
                 new EditAction(),
                 new DeleteAction(),
@@ -39,6 +45,6 @@ public class StartUI {
                 new FindByNameAction(),
                 new ExitAction()
         };
-        new StartUI().init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, actions);
     }
 }
