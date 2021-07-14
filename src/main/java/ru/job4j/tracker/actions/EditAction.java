@@ -5,7 +5,7 @@ import ru.job4j.tracker.Item;
 import ru.job4j.tracker.Tracker;
 import ru.job4j.tracker.UserAction;
 
-public class EditItemAction implements UserAction {
+public class EditAction implements UserAction {
     @Override
     public String name() {
         return "Edit item";

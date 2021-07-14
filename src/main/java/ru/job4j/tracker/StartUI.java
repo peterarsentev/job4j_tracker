@@ -33,8 +33,8 @@ public class StartUI {
         UserAction[] actions = {
                 new CreateAction(),
                 new ShowAllAction(),
-                new EditItemAction(),
-                new DeleteItemAction(),
+                new EditAction(),
+                new DeleteAction(),
                 new FindByIdAction(),
                 new FindByNameAction(),
                 new ExitAction()
