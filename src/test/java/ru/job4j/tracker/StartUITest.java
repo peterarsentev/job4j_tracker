@@ -1,9 +1,6 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
-import ru.job4j.tracker.actions.CreateAction;
-import ru.job4j.tracker.actions.DeleteAction;
-import ru.job4j.tracker.actions.EditAction;
 import ru.job4j.tracker.actions.ExitAction;
 
 import static org.hamcrest.Matchers.is;
@@ -64,7 +61,7 @@ public class StartUITest {
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new ExitAction()
+                new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
