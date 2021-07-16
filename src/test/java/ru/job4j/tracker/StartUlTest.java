@@ -35,7 +35,7 @@ public class StartUlTest {
     @Test
     public void whenDeleteItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item();
+        Item item = new Item(1,"test");
         tracker.add(item);
         String[] answers = {
                 String.valueOf(item.getId())
