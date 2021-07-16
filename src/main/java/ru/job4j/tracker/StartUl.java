@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 public class StartUl {
-
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
