@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import org.junit.Before;
 import org.junit.Test;
 import ru.job4j.tracker.actions.CreateAction;
 import ru.job4j.tracker.actions.DeleteAction;
@@ -60,7 +59,24 @@ public class StartUITest {
 
     @Test
     public void FindAllAction() {
-
+        Input in = new StubInput(
+                new String[] {
+                        "0", "Item name",
+                        "0", "Item name 2",
+                        "0", "Item name",
+                        "0", "Item name 1",
+                        "0", "Item name"
+                }
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new CreateAction(out),
+                new CreateAction(out),
+                new CreateAction(out),
+                new CreateAction(out),
+                new CreateAction(out),
+                new ExitAction(out)
+        };
     }
 
     @Test
