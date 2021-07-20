@@ -1,10 +1,7 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
-import ru.job4j.tracker.actions.CreateAction;
-import ru.job4j.tracker.actions.DeleteAction;
-import ru.job4j.tracker.actions.EditAction;
-import ru.job4j.tracker.actions.ExitAction;
+import ru.job4j.tracker.actions.*;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -63,20 +60,53 @@ public class StartUITest {
                 new String[] {
                         "0", "Item name",
                         "0", "Item name 2",
-                        "0", "Item name",
-                        "0", "Item name 1",
-                        "0", "Item name"
+                        "0", "Item name 3",
+                        "1",
+                        "2"
                 }
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(out),
-                new CreateAction(out),
-                new CreateAction(out),
-                new CreateAction(out),
-                new CreateAction(out),
+                new ShowAllAction(out),
                 new ExitAction(out)
         };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator() +
+                        "0. Add new Item" + System.lineSeparator() +
+                        "1. Exit" + System.lineSeparator()
+        ));
+        /*
+       Menu.
+0. Add new Item
+1. Show all items
+2. Exit
+=== Create a new Item ====
+Menu.
+0. Add new Item
+1. Show all items
+2. Exit
+=== Create a new Item ====
+Menu.
+0. Add new Item
+1. Show all items
+2. Exit
+=== Create a new Item ====
+Menu.
+0. Add new Item
+1. Show all items
+2. Exit
+=== Show all items ====
+Item id: 1, Name: Item name, created: 20-July-Tuesday-2021 06:35:03
+Item id: 2, Name: Item name 2, created: 20-July-Tuesday-2021 06:35:03
+Item id: 3, Name: Item name 3, created: 20-July-Tuesday-2021 06:35:03
+Menu.
+0. Add new Item
+1. Show all items
+2. Exit
+
+         */
     }
 
     @Test
