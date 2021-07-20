@@ -3,6 +3,10 @@ package ru.job4j.tracker;
 import org.junit.Test;
 import ru.job4j.tracker.actions.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.*;
@@ -56,11 +60,14 @@ public class StartUITest {
 
     @Test
     public void FindAllAction() {
+        StringBuilder menuOut = new StringBuilder(
+                        "Menu." + System.lineSeparator() +
+                        "0. Add new Item" + System.lineSeparator() +
+                        "1. Show all items" + System.lineSeparator() +
+                        "2. Exit" + System.lineSeparator());
         Input in = new StubInput(
                 new String[] {
                         "0", "Item name",
-                        "0", "Item name 2",
-                        "0", "Item name 3",
                         "1",
                         "2"
                 }
@@ -72,11 +79,18 @@ public class StartUITest {
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Add new Item" + System.lineSeparator() +
-                        "1. Exit" + System.lineSeparator()
-        ));
+        StringBuilder result = new StringBuilder(
+                menuOut +
+                "=== Create a new Item ====" + System.lineSeparator() +
+                menuOut +
+                "=== Show all items ====" + System.lineSeparator()
+        );
+        Item[] items = tracker.findAll();
+        for (Item item: items) {
+            result.append(item.toString());
+        }
+        result.append(System.lineSeparator() + menuOut);
+        assertThat(out.toString(), is(result));
         /*
        Menu.
 0. Add new Item
@@ -87,24 +101,31 @@ Menu.
 0. Add new Item
 1. Show all items
 2. Exit
-=== Create a new Item ====
-Menu.
-0. Add new Item
-1. Show all items
-2. Exit
-=== Create a new Item ====
-Menu.
-0. Add new Item
-1. Show all items
-2. Exit
 === Show all items ====
 Item id: 1, Name: Item name, created: 20-July-Tuesday-2021 06:35:03
-Item id: 2, Name: Item name 2, created: 20-July-Tuesday-2021 06:35:03
-Item id: 3, Name: Item name 3, created: 20-July-Tuesday-2021 06:35:03
 Menu.
 0. Add new Item
 1. Show all items
 2. Exit
+
+         */
+        /*
+Menu.
+0. Add new Item
+1. Show all items
+=== Create a new Item ====
+Menu.
+0. Add new Item
+1. Show all items
+=== Show all items ====
+[Lru.job4j.tracker.Item;@3fb6a447Menu.
+0. Add new Item
+1. Show all items
+=== Show all items ====
+1. Exit
+Item id: 1, Name: Item name, created: 20-июля-вторник-2021 09:38:01Menu.
+0. Add new Item
+1. Show all items
 
          */
     }
