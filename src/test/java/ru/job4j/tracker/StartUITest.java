@@ -46,6 +46,36 @@ public class StartUITest {
     @Test
     public void whenDeleteAction() {
         Tracker tracker = new Tracker();
+        StringBuilder menuOut = new StringBuilder(
+                "Menu." + System.lineSeparator() +
+                        "0. Add new Item" + System.lineSeparator() +
+                        "1. Delete item" + System.lineSeparator() +
+                        "2. Exit" + System.lineSeparator());
+        UserAction[] actions = {
+                new CreateAction(out),
+                new DeleteAction(out),
+                new ExitAction(out)
+        };
+        new StartUI(out).init(new StubInput(
+                        new String[]{
+                                "0", "Item name",
+                                "1",
+                                String.valueOf(tracker.findAll()[0].getId()),
+                                "2"
+                        })
+                , tracker, actions);
+        StringBuilder result = new StringBuilder(
+                menuOut +
+                        "=== Create a new Item ====" + System.lineSeparator() +
+                        menuOut +
+                        "=== Delete item ====" + System.lineSeparator()
+        );
+
+        result.append(System.lineSeparator()).append(menuOut);
+
+        System.out.println();
+        /*
+        Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
         Input in = new StubInput(
                 new String[] {"0", String.valueOf(item.getId()), "1"}
@@ -56,6 +86,7 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
+         */
     }
 
     @Test
