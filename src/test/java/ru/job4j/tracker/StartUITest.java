@@ -89,45 +89,8 @@ public class StartUITest {
         for (Item item: items) {
             result.append(item.toString());
         }
-        result.append(System.lineSeparator() + menuOut);
-        assertThat(out.toString(), is(result));
-        /*
-       Menu.
-0. Add new Item
-1. Show all items
-2. Exit
-=== Create a new Item ====
-Menu.
-0. Add new Item
-1. Show all items
-2. Exit
-=== Show all items ====
-Item id: 1, Name: Item name, created: 20-July-Tuesday-2021 06:35:03
-Menu.
-0. Add new Item
-1. Show all items
-2. Exit
-
-         */
-        /*
-Menu.
-0. Add new Item
-1. Show all items
-=== Create a new Item ====
-Menu.
-0. Add new Item
-1. Show all items
-=== Show all items ====
-[Lru.job4j.tracker.Item;@3fb6a447Menu.
-0. Add new Item
-1. Show all items
-=== Show all items ====
-1. Exit
-Item id: 1, Name: Item name, created: 20-июля-вторник-2021 09:38:01Menu.
-0. Add new Item
-1. Show all items
-
-         */
+        result.append(System.lineSeparator()).append(menuOut);
+        assertThat(out.toString(), is(result.toString()));
     }
 
     @Test
