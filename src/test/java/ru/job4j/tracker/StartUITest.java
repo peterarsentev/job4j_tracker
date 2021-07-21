@@ -16,17 +16,30 @@ public class StartUITest {
 
     @Test
     public void whenCreateAction() {
-        Input in = new StubInput(
-                new String[] {"0", "Item name", "1"}
-        );
         Tracker tracker = new Tracker();
+        String itemName = "New Item";
+        StringBuilder menuOut = new StringBuilder(
+                "Menu." + System.lineSeparator() +
+                        "0. Add new Item" + System.lineSeparator() +
+                        "1. Exit" + System.lineSeparator());
         UserAction[] actions = {
                 new CreateAction(out),
                 new ExitAction(out)
         };
-        new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0].getName(), is("Item name"));
+        new StartUI(out).init(new StubInput(
+                        new String[]{
+                                "0",
+                                itemName,
+                                "1"
+                        })
+                , tracker, actions);
+        String result = menuOut +
+                "=== Create a new Item ====" + System.lineSeparator() +
+                menuOut;
+        assertThat(out.toString(), is(result));
+        assertThat(tracker.findAll()[0].getName(), is(itemName));
     }
+
     @Test
     public void whenReplaceAction() {
         Tracker tracker = new Tracker();
