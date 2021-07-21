@@ -32,22 +32,32 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
-        Input in = new StubInput(
-                new String[] {"0", String.valueOf(item.getId()), replacedName, "1"}
-        );
+        StringBuilder menuOut = new StringBuilder(
+                "Menu." + System.lineSeparator() +
+                        "0. Edit item" + System.lineSeparator() +
+                        "1. Exit" + System.lineSeparator());
         UserAction[] actions = {
                 new EditAction(out),
                 new ExitAction(out)
         };
-        new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
+        new StartUI(out).init(new StubInput(
+                        new String[]{
+                                "0",
+                                String.valueOf(item.getId()),
+                                replacedName,
+                                "1"
+                        })
+                , tracker, actions);
+        String result = menuOut +
+                "=== Edit item ====" + System.lineSeparator() +
+                "Заявка изменена успешно." + System.lineSeparator() + menuOut;
+        assertThat(out.toString(), is(result));
     }
 
     @Test
     public void whenDeleteAction() {
         Tracker tracker = new Tracker();
-        Item item = new Item("new item");
-        tracker.add(item);
+        Item item = tracker.add(new Item("new item"));
         StringBuilder menuOut = new StringBuilder(
                 "Menu." + System.lineSeparator() +
                         "0. Delete item" + System.lineSeparator() +
@@ -59,19 +69,14 @@ public class StartUITest {
         new StartUI(out).init(new StubInput(
                         new String[]{
                                 "0",
-                                String.valueOf(tracker.findAll()[0].getId()),
+                                String.valueOf(item.getId()),
                                 "1"
                         })
                 , tracker, actions);
-        StringBuilder result = new StringBuilder(
-                menuOut +
-                        "=== Delete item ====" + System.lineSeparator() +
-                        "Заявка удалена успешно."
-        );
-
-        result.append(System.lineSeparator()).append(menuOut);
-        assertThat(out.toString(), is(result.toString()));
-
+        String result = menuOut +
+                "=== Delete item ====" + System.lineSeparator() +
+                "Заявка удалена успешно." + System.lineSeparator() + menuOut;
+        assertThat(out.toString(), is(result));
     }
 
     @Test
