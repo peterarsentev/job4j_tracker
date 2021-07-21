@@ -159,7 +159,30 @@ public class StartUITest {
 
     @Test
     public void whenFindByIdAction() {
-
+        Tracker tracker = new Tracker();
+        Item item1 = tracker.add(new Item("new item1"));
+        tracker.add(new Item("new item2"));
+        tracker.add(new Item("new item1"));
+        StringBuilder menuOut = new StringBuilder(
+                "Menu." + System.lineSeparator() +
+                        "0. Find item by id" + System.lineSeparator() +
+                        "1. Exit" + System.lineSeparator());
+        UserAction[] actions = {
+                new FindByIdAction(out),
+                new ExitAction(out)
+        };
+        new StartUI(out).init(new StubInput(
+                        new String[]{
+                                "0",
+                                String.valueOf(item1.getId()),
+                                "1"
+                        })
+                , tracker, actions);
+        String result = menuOut +
+                "=== Find item by id ====" + System.lineSeparator() +
+                item1.toString() + System.lineSeparator() +
+                menuOut;
+        assertThat(out.toString(), is(result));
     }
 
     @Test
