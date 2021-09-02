@@ -29,4 +29,28 @@ public class PointTest {
         double dist = a.distance(b);
         assertThat(dist, closeTo(1.414, 0.001));
     }
+
+    @Test
+    public void whenA456B123ThenDist5196() {
+        Point a = new Point(4, 5, 6);
+        Point b = new Point(1, 2, 3);
+        double dist = a.distance3d(b);
+        assertThat(dist, closeTo(5.196, 0.001));
+    }
+
+    @Test
+    public void whenA300B003ThenDist4242() {
+        Point a = new Point(3, 0, 0);
+        Point b = new Point(0, 0, 3);
+        double dist = a.distance3d(b);
+        assertThat(dist, closeTo(4.242, 0.001));
+    }
+
+    @Test
+    public void whenA050B000ThenDist5() {
+        Point a = new Point(0, 5, 0);
+        Point b = new Point(0, 0, 0);
+        double dist = a.distance3d(b);
+        assertThat(dist, closeTo(5, 0.001));
+    }
 }
