@@ -10,26 +10,25 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class StartUITest {
- /*   @Test
+  @Test
     public void whenCreateItem() {
         Output output = new StubOutput();
         Input in = new StubInput(
                 new String[]{"0", "Item name", "1"}
         );
-        Store tracker = new SqlTracker();
+        Store tracker = new MemTracker();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new CreateAction(output));
         actions.add(new Exit());
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findAll().get(0).getName(), is("Item name"));
 
-File demonick82/job4j_tracker:.travis.yml not found on RemoteVcs
     }
 
     @Test
     public void whenReplaceItem() {
         Output output = new StubOutput();
-        Store tracker = new SqlTracker();
+        Store tracker = new MemTracker();
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
         Input in = new StubInput(
@@ -45,7 +44,7 @@ File demonick82/job4j_tracker:.travis.yml not found on RemoteVcs
     @Test
     public void whenDeleteItem() {
         Output output = new StubOutput();
-        Store tracker = new SqlTracker();
+        Store tracker = new MemTracker();
         Item item = tracker.add(new Item("Deleted item"));
         Input in = new StubInput(
                 new String[]{"0", String.valueOf(item.getId()), "1"}
@@ -63,7 +62,7 @@ File demonick82/job4j_tracker:.travis.yml not found on RemoteVcs
         Input in = new StubInput(
                 new String[]{"0"}
         );
-        Store tracker = new SqlTracker();
+        Store tracker = new MemTracker();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new Exit());
 
@@ -78,7 +77,7 @@ File demonick82/job4j_tracker:.travis.yml not found on RemoteVcs
     public void whenFindAllAction() {
         Output output = new StubOutput();
         Input input = new StubInput(new String[]{"0", "1"});
-        Store tracker = new SqlTracker();
+        Store tracker = new MemTracker();
         Item item = new Item("findAll");
         tracker.add(item);
         List<UserAction> actions = new ArrayList<>();
@@ -97,7 +96,7 @@ File demonick82/job4j_tracker:.travis.yml not found on RemoteVcs
     public void whenFindByNameAction() {
         Output output = new StubOutput();
         Input input = new StubInput(new String[]{"0", "FindByName", "1"});
-        Store tracker = new SqlTracker();
+        Store tracker = new MemTracker();
         Item item = new Item("FindByName");
         tracker.add(item);
         List<UserAction> actions = new ArrayList<>();
@@ -115,7 +114,7 @@ File demonick82/job4j_tracker:.travis.yml not found on RemoteVcs
     @Test
     public void whenFindByIdAction() {
         Output output = new StubOutput();
-        Store tracker = new SqlTracker();
+        Store tracker = new MemTracker();
         Item item = new Item("FindById");
         Item add = tracker.add(item);
         List<UserAction> actions = new ArrayList<>();
@@ -137,7 +136,7 @@ File demonick82/job4j_tracker:.travis.yml not found on RemoteVcs
         Input in = new StubInput(
                 new String[]{"6", "0"}
         );
-        Store tracker = new SqlTracker();
+        Store tracker = new MemTracker();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new Exit());
         new StartUI(out).init(in, tracker, actions);
@@ -151,5 +150,6 @@ File demonick82/job4j_tracker:.travis.yml not found on RemoteVcs
                                 + "0. Выход%n"
                 )
         ));
-    }*/
+    }
+
 }
