@@ -7,12 +7,10 @@ import java.util.List;
 
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.mockito.ArgumentMatchers.any;
-
 
 public class StartUITest {
     @Test
@@ -100,7 +98,8 @@ public class StartUITest {
     @Test
     public void whenFindByNameAction() {
         Output output = new StubOutput();
-        Input input = new StubInput(new String[]{"0", "FindByName", "1"});
+        Input input =
+                new StubInput(new String[]{"0", "FindByName", "1"});
         Store tracker = new MemTracker();
         Item item = new Item("FindByName");
         tracker.add(item);
@@ -171,7 +170,8 @@ public class StartUITest {
         rep.execute(in, tracker);
 
         String ln = System.lineSeparator();
-        assertThat(out.toString(), is("==Редактировать заявку==" + ln + "Заявка отредактировна успешно" + ln));
+        assertThat(out.toString(), is("==Редактировать заявку==" + ln
+                + "Заявка отредактировна успешно" + ln));
         assertThat(tracker.findAll().get(0).getName(), is(replacedName));
     }
 
