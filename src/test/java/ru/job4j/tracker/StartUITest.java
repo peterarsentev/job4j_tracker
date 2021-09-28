@@ -191,7 +191,7 @@ public class StartUITest {
 
         String ln = System.lineSeparator();
         assertThat(output.toString(),
-                is("==Найти заявку по Id==" + ln + "Item{id=1, name='FindById'}" + ln));
+                is("==Найти заявку по Id==" + ln + item + ln));
     }
 
     @Test
@@ -211,7 +211,7 @@ public class StartUITest {
 
         String ln = System.lineSeparator();
         assertThat(output.toString(),
-                is("==Найти заявки по имени==" + ln + "Item{id=1, name='FindByName'}" + ln));
+                is("==Найти заявки по имени==" + ln + item + ln));
     }
 
     @Test
