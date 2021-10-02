@@ -5,3 +5,4 @@ public class Wolf {
         ball.tryRun(false);
     }
 }
+
