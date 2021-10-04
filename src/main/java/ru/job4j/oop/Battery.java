@@ -9,15 +9,15 @@ public class Battery {
 
 
     public void exchange(Battery another) {
-        this.load = this.load + another.load;
-        another.load = 0;
+        another.load = another.load + this.load;
+        this.load = 0;
     }
 
     public static void main(String[] args) {
         Battery bank = new Battery(200);
         Battery smartphone = new Battery(50);
         System.out.println("bank " + bank.load + ". Smartphone " + smartphone.load);
-        smartphone.exchange(bank);
+        bank.exchange(smartphone);
         System.out.println("bank " + bank.load + ". Smartphone " + smartphone.load);
     }
 }
