@@ -3,9 +3,9 @@
 # Tracker
 ### Это учебный проект по изучении ООП
 
-*Задача - Состояние объекта*
+** Задача - Состояние объекта
 ![image of Battery](images/Battery.jpg)
 
 
-
+** Задача - Конструктор
 ![image of Comp](images/Comp.jpg)
