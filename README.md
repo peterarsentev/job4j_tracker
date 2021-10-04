@@ -5,7 +5,7 @@
 
 
 
-![image of Battery](![](images/Battery.jpg))
+![image of Battery](images/Battery.jpg))
 
 
 
