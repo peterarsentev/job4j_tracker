@@ -9,17 +9,13 @@ public class Item {
     }
 
     public Item(String name) {
+
         this.name = name;
     }
 
     public Item(int id, String name) {
         this.id = id;
         this.name = name;
-    }
-
-    public void printItem() {
-        System.out.println(id);
-        System.out.println(name);
     }
 
     public int getId() {
@@ -46,8 +42,5 @@ public class Item {
         Item first = new Item();
         Item second = new Item("Den");
         Item third = new Item(777, "Den");
-        first.printItem();
-        second.printItem();
-        third.printItem();
     }
 }
