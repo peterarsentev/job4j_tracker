@@ -2,7 +2,7 @@ package ru.job4j.ex;
 
 public class Fact {
     public static void main(String[] args) {
-        new Fact().calc(-1);
+        new Fact().calc(3);
     }
 
     public int calc(int n) {
