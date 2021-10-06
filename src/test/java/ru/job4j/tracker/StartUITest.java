@@ -1,17 +1,11 @@
 package ru.job4j.tracker;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern(
-            "dd-MMMM-EEEE-yyyy HH:mm:ss");
-    private LocalDateTime created = LocalDateTime.now();
-
     @Test
     public void whenReplaceItem() {
         Output out = new StubOutput();
@@ -43,7 +37,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         UserAction[] actions = {new ExitAction()};
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator()
+        assertThat(out.toString(), is("Menu:" + System.lineSeparator()
                 + "0. Exit Program" + System.lineSeparator()));
     }
 
@@ -78,8 +72,8 @@ public class StartUITest {
     public void whenFindAllItemsTestOutputIsSuccessfully() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        tracker.add(new Item("test1"));
-        tracker.add(new Item("test2"));
+        Item one = tracker.add(new Item("test1"));
+        Item two = tracker.add(new Item("test2"));
         Input in = new StubInput(new String[] {"0", "1"});
         UserAction[] actions = new UserAction[]{
             new ShowAction(out), new ExitAction()
@@ -91,8 +85,8 @@ public class StartUITest {
                         + "0. Show all items" + ln
                         + "1. Exit Program" + ln
                         + "=== Show all items ===" + ln
-                        + "Item{id=1, name='test1', created=" + created.format(FORMATTER) + "}" + ln
-                        + "Item{id=2, name='test2', created=" + created.format(FORMATTER) + "}" + ln
+                        + one + ln
+                        + two + ln
                         + "Menu:" + ln
                         + "0. Show all items" + ln
                         + "1. Exit Program" + ln
@@ -104,7 +98,7 @@ public class StartUITest {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         tracker.add(new Item("test1"));
-        tracker.add(new Item("test2"));
+        Item two = tracker.add(new Item("test2"));
         tracker.add(new Item("test3"));
         String name = "test2";
         Input in = new StubInput(new String[] {"0", name, "1"});
@@ -118,7 +112,7 @@ public class StartUITest {
                         + "0. Find item by name" + ln
                         + "1. Exit Program" + ln
                         + "=== Find item by name ===" + ln
-                        + "Item{id=2, name='test2', created=" + created.format(FORMATTER) + "}" + ln
+                        + two + ln
                         + "Menu:" + ln
                         + "0. Find item by name" + ln
                         + "1. Exit Program" + ln
@@ -131,7 +125,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         tracker.add(new Item("test1"));
         tracker.add(new Item("test2"));
-        tracker.add(new Item("test3"));
+        Item three = tracker.add(new Item("test3"));
         int id = 3;
         Input in = new StubInput(new String[] {"0", String.valueOf(id), "1"});
         UserAction[] actions = new UserAction[]{
@@ -144,7 +138,7 @@ public class StartUITest {
                         + "0. Find item by id" + ln
                         + "1. Exit Program" + ln
                         + "=== Find item by id ===" + ln
-                        + "Item{id=3, name='test3', created=" + created.format(FORMATTER) + "}" + ln
+                        + three + ln
                         + "Menu:" + ln
                         + "0. Find item by id" + ln
                         + "1. Exit Program" + ln
