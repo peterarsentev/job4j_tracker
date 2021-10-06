@@ -2,15 +2,15 @@ package ru.job4j.ex;
 
 public class FindElement {
     public static int indexOf(String[] value, String key) throws ElementNotFoundException {
-        final int invalidValue = -1;
-        int result = invalidValue;
+        int result = -1;
         for (int index = 0; index < value.length; index++) {
             if (value[index].equals(key)) {
                 result = index;
+                break;
             }
         }
 
-        if (result == invalidValue) {
+        if (result == -1) {
             throw new ElementNotFoundException("Element '" + key + "' not found.");
         }
 
