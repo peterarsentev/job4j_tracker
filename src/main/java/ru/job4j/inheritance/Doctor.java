@@ -1,6 +1,16 @@
 package ru.job4j.inheritance;
 
 public class Doctor extends Profession{
+    private int bodCheck;
+    public Doctor(String name, String surname, String education, int birthday, int bodCheck) {
+        super(name, surname, education, birthday);
+        this.bodCheck = bodCheck;
+    }
+
+    public int getBodCheck() {
+        return bodCheck;
+    }
+
     @Override
     public String getName() {
         return super.getName();
@@ -20,11 +30,4 @@ public class Doctor extends Profession{
     public int getBirthday() {
         return super.getBirthday();
     }
-
-    private int bodCheck;
-
-    public int getBodCheck() {
-        return bodCheck;
-    }
-
 }
