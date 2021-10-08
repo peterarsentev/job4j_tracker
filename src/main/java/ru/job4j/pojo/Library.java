@@ -9,7 +9,7 @@ public class Library {
         Book green = new Book("Green", 44);
         Book cleanCode = new Book("Clean code", 100);
 
-        Book[] books = new Book[4];
+        Book[]  books = new Book[4];
 
         books[0] = red;
         books[1] = cleanCode;
@@ -22,21 +22,17 @@ public class Library {
         }
 
         System.out.println("Переставим местами книги с индексом 0 и 3.");
-        for (int i = 0; i < books.length; i++) {
-            Book bk = books[i];
-            if (i == 0) {
-                bk = books[3];
-            } else if (i == 3) {
-                bk = books[0];
-            }
-            System.out.println(bk.getName() + " - " + bk.getPages());
+        Book temp = books[0];
+        books[0] = books[3];
+        books[3] = temp;
+        for (Book book : books) {
+            System.out.println(book.getName() + " - " + book.getPages());
         }
 
         System.out.println("Цикл с выводом книг с именем \"Clean code\"");
-        for (int i = 0; i < books.length; i++) {
-            Book bk = books[i];
-            if (bk.getName().equals("Clean code"))
-            System.out.println(bk.getName());
+        for (Book book : books) {
+            if ("Clean code".equals(book.getName()))
+            System.out.println(book.getName());
         }
     }
 }
