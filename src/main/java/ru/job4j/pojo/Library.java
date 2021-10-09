@@ -31,8 +31,9 @@ public class Library {
 
         System.out.println("Цикл с выводом книг с именем \"Clean code\"");
         for (Book book : books) {
-            if ("Clean code".equals(book.getName()))
-            System.out.println(book.getName());
+            if ("Clean code".equals(book.getName())) {
+                System.out.println(book.getName());
+            }
         }
     }
 }
