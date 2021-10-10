@@ -16,6 +16,14 @@ public class PointTest  {
     }
 
     @Test
+    public void testDistance11() {
+        Point a = new Point(-2, 0);
+        Point b = new Point(4, 0);
+        double rsl = a.distance(b);
+        assertThat(rsl, closeTo(6, 0.001));
+    }
+
+    @Test
     public void testDistance2() {
         Point a = new Point(0, 0);
         Point b = new Point(4, 0);
