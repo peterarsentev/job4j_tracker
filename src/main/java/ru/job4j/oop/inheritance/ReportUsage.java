@@ -1,4 +1,4 @@
-package ru.job4j.oop.inheritance.profession;
+package ru.job4j.oop.inheritance;
 
 import ru.job4j.oop.inheritance.JSONReport;
 import ru.job4j.oop.inheritance.TextReport;
