@@ -3,14 +3,11 @@ package ru.job4j.oop.inheritance.profession;
 public class Doctor extends Profession{
     private int experience;
 
-    public Doctor(){
-    }
-
     public Doctor(String name, String surname, String education, String birthday, int experience) {
         super(name,surname,education,birthday);
         this.experience = experience;
     }
 
-    public void DiagnosisHeal(Pacient pacient) {
+    public void diagnosisHeal(Pacient pacient) {
     }
 }
