@@ -5,7 +5,11 @@ public class JSONReport extends TextReport{
 
     @Override
     public String generate(String name, String body) {
-        return "name : " + name + "," + System.lineSeparator() + "name : " + body;
+        char dm = (char) 34;
+        return "{" + System.lineSeparator() +
+                "  \"name\" : " + "\"" + name + "\"," + System.lineSeparator() +
+                "  \"body\" : " + "\"" + body + "\"" + System.lineSeparator() +
+                "}";
     }
 
 }
