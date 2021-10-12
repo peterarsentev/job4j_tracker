@@ -11,16 +11,15 @@ public class Matches {
         while (count > 0) {
             String player = turn ? "Первый игрок" : "Второй игрок";
             System.out.println(player + " введите число от 1 до 3:");
-            int matches = 0;
-            boolean rsl = true;
-            while (rsl) {
+            int matches;
+            while (true) {
                 matches = Integer.parseInt(input.nextLine());
                 if (matches > 3 || matches < 1) {
                     System.out.println("Вы ввели число не от 1 до 3");
                 } else if ((count - matches) < 0) {
                     System.out.println("На столе осталось " + count + " спичек, введите число поменьше!");
                 } else {
-                    rsl = false;
+                    break;
                 }
             }
             turn = !turn;
