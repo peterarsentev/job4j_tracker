@@ -18,8 +18,7 @@ public class Library {
             System.out.println(pr.getName() + " - " + pr.getPages());
         }
         System.out.println("-----Replace 0 and 3");
-        Book zap = new Book("stop",0);
-        zap = books[0];
+        Book zap = books[0];
         books[0] = books[3];
         books[3] = zap;
         for (int index = 0; index < books.length; index++) {
@@ -29,7 +28,7 @@ public class Library {
         System.out.println("-------Print only \"Clean code\"");
         for (int index = 0; index < books.length; index++) {
             Book pr = books[index];
-            if (pr.getName().equals("Clean code"))
+            if ("Clean code".equals(pr.getName()))
             System.out.println(pr.getName() + " - " + pr.getPages());
         }
     }
