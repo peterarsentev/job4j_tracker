@@ -50,10 +50,4 @@ public class Item {
                 ", created=" + created.format(FORMATTER) +
                 '}';
     }
-
-    public static void main(String[] args) {
-        Item one = new Item("второй");
-        System.out.println(one);
-        System.out.println(one.getCreated());
-    }
 }
