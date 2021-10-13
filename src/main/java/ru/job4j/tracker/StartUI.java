@@ -21,7 +21,7 @@ public class StartUI {
         }
     }
 
-    public static void deteleItem (Input input, Tracker tracker) {
+    public static void deleteItem (Input input, Tracker tracker) {
         System.out.println("=== Delete item ====");
         int id = Integer.parseInt(input.askSTR("Enter id: "));
         if (tracker.delete(id)) {
@@ -79,7 +79,7 @@ public class StartUI {
             } else if (select == 2) {
                 replaceItem(input, tracker);
             } else if (select == 3) {
-                deteleItem(input, tracker);
+                deleteItem(input, tracker);
             } else if (select == 4) {
                 findItemId(input, tracker);
             } else if (select == 5) {
