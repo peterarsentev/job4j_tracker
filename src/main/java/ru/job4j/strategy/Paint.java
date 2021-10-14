@@ -11,3 +11,4 @@ public class Paint {
         context.draw(new Square());
     }
 }
+
