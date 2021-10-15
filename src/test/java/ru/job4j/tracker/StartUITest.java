@@ -58,8 +58,7 @@ public class StartUITest {
                         + "0. Show all Item" + ln
                         + "1. Exit Program" + ln
                         + "=== Show all items ===" + ln
-                        + "Item{created=" + one.getCreated().format(FORMATTER) + ", id=" + one.getId()
-                        + ", name=" + "'" + one.getName() + "'}" + ln
+                        + one + ln
                         + "Menu:" + ln
                         + "0. Show all Item" + ln
                         + "1. Exit Program" + ln
@@ -86,8 +85,7 @@ public class StartUITest {
                         + "0. Find Item by Name" + ln
                         + "1. Exit Program" + ln
                         + "=== Find items by name ===" + ln
-                        + "Item{created=" + one.getCreated().format(FORMATTER) + ", id=" + one.getId()
-                        + ", name=" + "'" + one.getName() + "'}" + ln
+                        + one + ln
                         + "Menu:" + ln
                         + "0. Find Item by Name" + ln
                         + "1. Exit Program" + ln
@@ -114,8 +112,7 @@ public class StartUITest {
                         + "0. Find Item by id" + ln
                         + "1. Exit Program" + ln
                         + "=== Find item by id ===" + ln
-                        + "Item{created=" + one.getCreated().format(FORMATTER) + ", id=" + one.getId()
-                        + ", name=" + "'" + one.getName() + "'}" + ln
+                        + one + ln
                         + "Menu:" + ln
                         + "0. Find Item by id" + ln
                         + "1. Exit Program" + ln
