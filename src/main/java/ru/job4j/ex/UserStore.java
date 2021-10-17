@@ -3,20 +3,21 @@ package ru.job4j.ex;
 public class UserStore {
 
     public static User findUser(User[] users, String login) throws UserNotFoundException {
-        int rsl = -1;
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].getUsername().equals(login)) {
-                rsl = i;
+        User rsl = null;
+        for (User index : users) {
+            if (index.getUsername().equals(login)) {
+                rsl =index;
+                break;
             }
         }
-        if (rsl == -1) {
+        if (rsl == null) {
             throw new UserNotFoundException("User is not listed.");
         }
-        return users[rsl];
+        return rsl;
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        if (user.getUsername().length() < 3 || user.isValid()) {
+        if (user.getUsername().length() < 3 || !user.isValid()) {
             throw new UserInvalidException("Username less than 3 letters or invalid user.");
         }
         return true;

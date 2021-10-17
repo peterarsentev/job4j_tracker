@@ -12,17 +12,16 @@ public class FindEl {
         if (rsl == -1) {
             throw new ElementNotFoundException("item not found");
         }
+
         return rsl;
     }
 
     public static void main(String[] args) {
-        String[] value = new String[] {"Dima", "Dasha", "Sasha", "Misha"};
+        String[] value = new String[] {"Dima", "Dasha"};
         try {
-            int index = indexOf(value, "Mish");
+            int index = indexOf(value, "Dim" );
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }
     }
-
-
 }
