@@ -8,6 +8,7 @@ public class Item {
     private LocalDateTime created = LocalDateTime.now();
     private int id;
     private String name;
+
     private static final DateTimeFormatter FORMATTER
             = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
 
@@ -18,8 +19,12 @@ public class Item {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Item item = (Item) o;
         return id == item.id && Objects.equals(created, item.created)
                 && Objects.equals(name, item.name);
@@ -59,10 +64,10 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "created=" + created.format(FORMATTER) +
-                ", id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Item{"
+                + "created=" + created.format(FORMATTER)
+                + ", id=" + id
+                + ", name='" + name + '\''
+                + '}';
     }
 }

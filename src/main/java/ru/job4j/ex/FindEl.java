@@ -19,7 +19,7 @@ public class FindEl {
     public static void main(String[] args) {
         String[] value = new String[] {"Dima", "Dasha"};
         try {
-            int index = indexOf(value, "Dim" );
+            int index = indexOf(value, "Dim");
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }

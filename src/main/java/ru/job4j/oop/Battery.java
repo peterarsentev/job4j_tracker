@@ -7,7 +7,6 @@ public class Battery {
         this.load = capacity;
     }
 
-
     public void exchange(Battery another) {
         another.load = another.load + this.load;
         this.load = 0;

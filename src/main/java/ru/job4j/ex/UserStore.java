@@ -6,7 +6,7 @@ public class UserStore {
         User rsl = null;
         for (User index : users) {
             if (index.getUsername().equals(login)) {
-                rsl =index;
+                rsl = index;
                 break;
             }
         }
@@ -36,9 +36,6 @@ public class UserStore {
             in.printStackTrace();
         } catch (UserNotFoundException fo) {
             fo.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-
     }
 }

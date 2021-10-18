@@ -1,7 +1,8 @@
 package ru.job4j.inheritance;
 
-public class Doctor extends Profession{
+public class Doctor extends Profession {
     private int bodCheck;
+
     public Doctor(String name, String surname, String education, int birthday, int bodCheck) {
         super(name, surname, education, birthday);
         this.bodCheck = bodCheck;

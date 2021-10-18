@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class DelAction implements UserAction{
+public class DelAction implements UserAction {
     private final Output out;
 
     public DelAction(Output out) {

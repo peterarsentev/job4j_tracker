@@ -1,7 +1,7 @@
 package ru.job4j.ex;
 
 public class JdbcConfig {
-    public static void load (String url) throws UserInputException{
+    public static void load(String url) throws UserInputException {
         if (url == null) {
             throw  new UserInputException("Url could not be null");
         }

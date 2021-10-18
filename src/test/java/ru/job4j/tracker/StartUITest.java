@@ -9,7 +9,8 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
+    private static final DateTimeFormatter FORMATTER =
+            DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
 
     @Test
     public void whenReplaceItemTestOutputIsSuccessfully() {

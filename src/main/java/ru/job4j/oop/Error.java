@@ -5,19 +5,18 @@ public class Error {
     private int status;
     private String message;
 
-
     public  Error(boolean active, int status, String message) {
         this.active = active;
         this.status = status;
         this.message = message;
     }
 
-    public Error () {
+    public Error() {
 
     }
 
-    public void printdata () {
-        System.out.println("Online " + active );
+    public void printdata() {
+        System.out.println("Online " + active);
         System.out.println("Number " + status);
         System.out.println("Mail " + message);
     }

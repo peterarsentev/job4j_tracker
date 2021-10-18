@@ -1,6 +1,6 @@
 package ru.job4j.poly;
 
-public class Autobus implements Vehicle{
+public class Autobus implements Vehicle {
     @Override
     public void move() {
         System.out.println("Автобус едет по трассе.");
@@ -10,7 +10,4 @@ public class Autobus implements Vehicle{
     public void speed() {
         System.out.println("Скорость 100 км/ч");
     }
-
-
-
 }

@@ -16,8 +16,8 @@ public class Matches {
             if (matches > 3 || matches < 1) {
                     System.out.println("Вы ввели число не от 1 до 3");
             } else if ((count - matches) < 0) {
-                System.out.println("На столе осталось " + count + " спичек, " +
-                            "введите число поменьше!");
+                System.out.println("На столе осталось " + count + " спичек, "
+                            + "введите число поменьше!");
             } else {
                 turn = !turn;
                 count -= matches;

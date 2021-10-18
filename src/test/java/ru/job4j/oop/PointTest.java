@@ -5,7 +5,6 @@ import org.junit.Test;
 
 public class PointTest {
 
-
     @Test
     public void when000to020then2() {
         double expected = 2;

@@ -3,11 +3,11 @@ package ru.job4j.tracker;
 public class User {
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return "User{"
+                + "id=" + id
+                + ", username='" + username + '\''
+                + ", password='" + password + '\''
+                + '}';
     }
 
     private int id;
