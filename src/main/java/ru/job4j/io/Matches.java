@@ -16,8 +16,9 @@ public class Matches {
                 System.out.println("на столе осталось " + (count - matches) + " спичек");
                 turn = !turn;
                 count = count - matches;
-            } else System.out.println("число введено не верно");
-
+            } else {
+                System.out.println("число введено не верно");
+            }
         }
         if (!turn) {
             System.out.println("Выиграл первый игрок");
