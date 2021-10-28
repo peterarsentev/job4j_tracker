@@ -3,7 +3,7 @@ package ru.job4j.oop;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
-public class Point{
+public class Point {
     private int x;
     private int y;
     private int z;

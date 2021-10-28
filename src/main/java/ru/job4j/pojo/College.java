@@ -10,7 +10,7 @@ public class College {
         student.setGroup("13G");
         student.setAdmissionDate(LocalDate.of(2021, 07, 28));
 
-        System.out.println(student.getName() + " study in the group number " + student.getGroup() +
-                " since " + student.getAdmissionDate());
+        System.out.println(student.getName() + " study in the group number " + student.getGroup()
+                + " since " + student.getAdmissionDate());
     }
 }
