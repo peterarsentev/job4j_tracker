@@ -5,17 +5,21 @@ import java.util.HashSet;
 
 public class UniqueText {
     public static boolean isEquals(String originText, String duplicateText) {
+        boolean rsl = false;
         String[] origin = originText.split(" ");
         String[] text = duplicateText.split(" ");
         HashSet<String> check = new HashSet<>();
         for (String i : origin) {
             check.add(i);
         }
-        System.out.println(check);
-        HashSet<String> check1 = new HashSet<>();
         for (String j : text) {
-            check1.add(j);
+            if (check.contains(j)) {
+                rsl = true;
+            } else {
+                rsl = false;
+                break;
+            }
         }
-        return check.equals(check1);
+        return rsl;
     }
 }
