@@ -19,19 +19,4 @@ public class PassportOffice {
     public Citizen get(String passport) {
         return citizens.get(passport);
     }
-
-    public static void main(String[] args) {
-        Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
-        Citizen citizen1 = new Citizen("2f44a", "Petr Arsentev");
-        Citizen citizen2 = new Citizen("2f44", "Petr Arsentev");
-        Citizen citizen3 = new Citizen("2f44", "Petr Arsentev");
-
-        PassportOffice office = new PassportOffice();
-        System.out.println(office.add(citizen));
-        System.out.println(office.add(citizen1));
-        System.out.println(office.add(citizen));
-        System.out.println(office.add(citizen2));
-        System.out.println(office.add(citizen3));
-
-    }
 }
