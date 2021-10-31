@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+import ru.job4j.tracker.model.Item;
 
 import java.util.ArrayList;
 import java.util.List;
