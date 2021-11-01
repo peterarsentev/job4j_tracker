@@ -1,12 +1,11 @@
 package ru.job4j.tracker.model;
 
-import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.StringJoiner;
 
 @Entity
 @Table(name = "items")
@@ -15,10 +14,9 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String description;
 
     @UpdateTimestamp
-    private Timestamp created;
+    private LocalDateTime created;
 
     public Item() {
 
@@ -26,11 +24,6 @@ public class Item {
 
     public Item(String name) {
         this.name = name;
-    }
-
-    public Item(String name, String description) {
-        this.name = name;
-        this.description = description;
     }
 
     public int getId() {
@@ -49,22 +42,6 @@ public class Item {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Timestamp getCreated() {
-        return created;
-    }
-
-    public void setCreated(Timestamp created) {
-        this.created = created;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -74,19 +51,22 @@ public class Item {
             return false;
         }
         Item item = (Item) o;
-        return id == item.id && Objects.equals(name, item.name);
+        return id == item.id
+                && Objects.equals(name, item.name)
+                && Objects.equals(created, item.created);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, name, created);
     }
 
     @Override
     public String toString() {
-        return "Item{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + '}';
+        return new StringJoiner(", ", Item.class.getSimpleName() + "[", "]")
+                .add("id=" + id)
+                .add("name='" + name + "'")
+                .add("created=" + created)
+                .toString();
     }
 }
