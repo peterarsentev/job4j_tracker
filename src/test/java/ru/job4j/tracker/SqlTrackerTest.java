@@ -21,11 +21,12 @@ import static org.hamcrest.core.Is.is;
 
 public class SqlTrackerTest {
 
-    static Connection connection;
+    private static Connection connection;
 
     @BeforeClass
     public static void initConnection() {
-        try (InputStream in = SqlTrackerTest.class.getClassLoader().getResourceAsStream("test.properties")) {
+        try (InputStream in = SqlTrackerTest.class.getClassLoader().
+                getResourceAsStream("test.properties")) {
             Properties config = new Properties();
             config.load(in);
             Class.forName(config.getProperty("driver-class-name"));
@@ -51,13 +52,11 @@ public class SqlTrackerTest {
         }
     }
 
-
     @Test
     public void createItem() {
         SqlTracker tracker = new SqlTracker(connection);
         tracker.add(new Item("name"));
         assertThat(tracker.findByName("name").size(), is(1));
-
     }
 
     @Test
@@ -67,7 +66,6 @@ public class SqlTrackerTest {
         tracker.add(item);
         tracker.replace(item.getId(), new Item("replaced"));
         assertThat(tracker.findById(item.getId()).getName(), is("replaced"));
-
     }
 
     @Test
@@ -77,7 +75,6 @@ public class SqlTrackerTest {
         tracker.add(item);
         tracker.delete(item.getId());
         assertThat(tracker.findById(item.getId()), is(nullValue()));
-
     }
 
     @Test
@@ -87,7 +84,6 @@ public class SqlTrackerTest {
         tracker.add(item);
         List<Item> result = tracker.findByName("name1");
         assertThat(result, is(List.of(item)));
-
     }
 
     @Test
@@ -96,6 +92,5 @@ public class SqlTrackerTest {
         Item item = new Item("name");
         tracker.add(item);
         assertThat(tracker.findById(item.getId()), is(item));
-
     }
 }
