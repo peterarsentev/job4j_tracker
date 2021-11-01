@@ -9,18 +9,6 @@
     <version>1.0</version>
     <packaging>jar</packaging>
     <profiles>
-        <profile>
-            <id>travis</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <db.url>jdbc:postgresql://localhost/tracker</db.url>
-                <db.username>postgres</db.username>
-                <db.password>demonick</db.password>
-                <db.driver>org.postgresql.Driver</db.driver>
-            </properties>
-        </profile>
             <profile>
                 <id>test</id>
                 <properties>
