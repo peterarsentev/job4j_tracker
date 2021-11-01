@@ -10,18 +10,6 @@
     <packaging>jar</packaging>
     <profiles>
         <profile>
-            <id>travis</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <db.url>jdbc:postgresql://localhost/tracker</db.url>
-                <db.username>postgres</db.username>
-                <db.password>demonick</db.password>
-                <db.driver>org.postgresql.Driver</db.driver>
-            </properties>
-        </profile>
-        <profile>
             <id>test</id>
             <properties>
                 <db.url>jdbc:h2:${basedir}/testdb;MODE=PostgreSQL;CASE_INSENSITIVE_IDENTIFIERS=TRUE;</db.url>
@@ -60,7 +48,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.1</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
