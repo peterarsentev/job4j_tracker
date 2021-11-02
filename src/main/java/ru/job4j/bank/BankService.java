@@ -10,7 +10,8 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        List<Account> accounts = users.get(findByPassport(passport));
+        User pass = findByPassport(passport);
+        List<Account> accounts = users.get(pass);
         if (!accounts.contains(account)) {
             accounts.add(account);
         }
@@ -48,13 +49,11 @@ public class BankService {
         boolean rsl = false;
         Account source = findByRequisite(srcPassport, srcRequisite);
         Account dest = findByRequisite(destPassport, destRequisite);
-        if (source != null && dest != null) {
-            if (source.getBalance() >= amount) {
+        if (source != null && dest != null && source.getBalance() >= amount) {
                 source.setBalance(source.getBalance() - amount);
                 dest.setBalance(dest.getBalance() + amount);
                 rsl = true;
             }
-        }
         return rsl;
     }
 }
