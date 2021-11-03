@@ -4,13 +4,7 @@ import java.util.Comparator;
 
 public class Descending implements Comparator<Item> {
     @Override
-    public int compare(Item o1, Item o2) {
-        if (o1.getId() > o2.getId()) {
-            return -1;
-        } else if (o1.getId() < o2.getId()) {
-            return 1;
-        } else {
-            return 0;
-        }
+    public int compare(Item first, Item second) {
+        return Integer.compare(second.getId(), first.getId());
     }
 }
