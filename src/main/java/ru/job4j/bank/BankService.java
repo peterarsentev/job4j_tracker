@@ -17,7 +17,6 @@ public class BankService {
                 accounts.add(account);
             }
         }
-
     }
 
     public User findByPassport(String passport) {
