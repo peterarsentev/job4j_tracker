@@ -3,15 +3,15 @@ import org.junit.Test;
 import java.util.*;
 import static org.junit.Assert.assertEquals;
 
-public class SortTest {
+public class ItemTest {
     @Test
     public void sort() {
         List<Item> items = Arrays.asList(
                 new Item(6, "Tom"),
+                new Item(4, "Don"),
                 new Item(2, "Ben"),
                 new Item(1, "Mike"),
                 new Item(3, "Bob"),
-                new Item(4, "Don"),
                 new Item(5, "Raf"));
 
         List<Item> expected = Arrays.asList(

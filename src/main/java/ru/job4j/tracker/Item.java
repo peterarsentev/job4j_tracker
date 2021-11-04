@@ -62,17 +62,16 @@ public class Item implements Comparable<Item> {
             return false;
         }
         Item item = (Item) o;
-        return id == item.id && Objects.equals(created, item.created)
-                && Objects.equals(name, item.name);
+        return id == item.id && Objects.equals(name, item.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(created, id, name);
+        return Objects.hash(id, name);
     }
 
     @Override
-    public int compareTo(Item another) {
-        return Integer.compare(id, another.id);
+    public int compareTo(Item o) {
+        return Integer.compare(id, o.id);
     }
 }
