@@ -5,18 +5,13 @@
 
 <module name="Checker">
 
-    <property name="charset" value="UTF-8"/>
-
+    <!--Расширение файла должно быть java, properties, xml-->
     <property name="fileExtensions" value="java, properties, xml"/>
 
     <!-- Checks for Size Violations.                    -->
     <!-- See http://checkstyle.sf.net/config_sizes.html -->
     <module name="FileLength"/>
 
-    <module name="LineLength">
-        <property name="fileExtensions" value="java"/>
-        <property name="max" value="100"/>
-    </module>
     <!-- Checks for Headers                                -->
     <!-- See http://checkstyle.sf.net/config_header.html   -->
     <!-- <module name="Header"> -->
@@ -26,9 +21,7 @@
 
     <module name="TreeWalker">
 
-        <module name="DeclarationOrder"/>
-
-        <module name="EmptyLineSeparator">
+        <module name="EmptyLineSeparator"> <!-- Java Style Guide: Source file structure -->
             <property name="tokens" value="
             CLASS_DEF, ENUM_DEF, INTERFACE_DEF, CTOR_DEF, STATIC_INIT, INSTANCE_INIT, VARIABLE_DEF, METHOD_DEF"/>
             <property name="allowNoEmptyLineBetweenFields" value="true"/>
@@ -36,7 +29,6 @@
             <property name="allowMultipleEmptyLinesInsideClassMembers" value="false"/>
         </module>
 
-        <module name="VisibilityModifier"/>
         <!-- Checks for Naming Conventions.                  -->
         <!-- See http://checkstyle.sf.net/config_naming.html -->
         <module name="ConstantName"/>
@@ -54,7 +46,10 @@
         <!-- Checks for Size Violations.                    -->
         <!-- See http://checkstyle.sf.net/config_sizes.html -->
         <!--<module name="LineLength"/>-->
-        <module name="MethodLength"/>
+        <module name="MethodLength">
+            <property name="tokens" value="METHOD_DEF"/>
+            <property name="max" value="20"/>
+        </module>
         <module name="ParameterNumber"/>
 
         <!-- Checks for whitespace                               -->
@@ -76,7 +71,6 @@
         <!-- Checks for blocks. You know, those {}'s         -->
         <!-- See http://checkstyle.sf.net/config_blocks.html -->
         <module name="AvoidNestedBlocks"/>
-        <module name="EmptyBlock"/>
         <module name="LeftCurly"/>
         <module name="NeedBraces"/>
         <module name="RightCurly"/>
@@ -107,7 +101,10 @@
         <!--<module name="FinalParameters"/>-->
         <module name="TodoComment"/>
         <module name="UpperEll"/>
-
+        <module name="EmptyBlock"/>
+        <module name="EmptyBlock">
+            <property name="tokens" value="LITERAL_CATCH"/>
+        </module>
     </module>
 
 </module>
