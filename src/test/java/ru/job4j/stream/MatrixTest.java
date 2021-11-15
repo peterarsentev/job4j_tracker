@@ -2,7 +2,6 @@ package ru.job4j.stream;
 
 import org.junit.Test;
 import java.util.List;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
