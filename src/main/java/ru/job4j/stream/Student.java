@@ -3,7 +3,6 @@ package ru.job4j.stream;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Student {
@@ -22,6 +21,14 @@ public class Student {
 
     public String getSurname() {
         return surname;
+    }
+
+    public Map<String, Student> collect(List<Student> studentList) {
+        return studentList.stream()
+                .collect(Collectors.toMap(
+                        Student::getSurname,
+                        s -> s,
+                        (s1, s2) -> s1));
     }
 
     @Override
@@ -49,11 +56,4 @@ public class Student {
                + ", surname='" + surname + '\''
                + '}';
     }
-
-    public Map<String, Student> collect(List<Student> studentList) {
-        return studentList.stream()
-                .distinct()
-                .collect(Collectors.toMap(Student::getSurname, s -> s));
-    }
-
 }
