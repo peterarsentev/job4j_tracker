@@ -6,13 +6,17 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Student {
-    private String surname;
 
     private int score;
+    private String surname;
 
-    public Student(int score, String surname) {
-        this.surname = surname;
+    public Student(String surname, int score) {
         this.score = score;
+        this.surname = surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public int getScore() {
@@ -41,7 +45,7 @@ public class Student {
         }
         Student student = (Student) o;
         return score == student.score
-                && Objects.equals(surname, student.surname);
+                && surname.equals(student.surname);
     }
 
     @Override

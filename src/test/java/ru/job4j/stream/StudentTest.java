@@ -12,17 +12,17 @@ public class StudentTest {
     @Test
     public void whenCollectStudent() {
         List<Student> studentList = List.of(
-                new Student(30, "Nikolaev"),
-                new Student(60, "Sidorov"),
-                new Student(80, "Petrov"),
-                new Student(80, "Petrov")
+                new Student("Nikolaev", 30),
+                new Student("Sidorov", 60),
+                new Student("Petrov", 80),
+                new Student("Petrov", 80)
         );
-       Student student = new Student(100, "Voronov");
+       Student student = new Student("Voronov", 100);
         Map<String, Student> rsl = student.collect(studentList);
         Map<String, Student> extended = new HashMap<>();
-        extended.put("Petrov", new Student(80, "Petrov"));
-        extended.put("Nikolaev", new Student(30, "Nikolaev"));
-        extended.put("Sidorov", new Student(60, "Sidorov"));
+        extended.put("Petrov", new Student("Petrov", 80));
+        extended.put("Nikolaev", new Student("Nikolaev", 30));
+        extended.put("Sidorov", new Student("Sidorov", 60));
 
         assertThat(rsl, is(extended));
     }
