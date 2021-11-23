@@ -7,4 +7,5 @@ public interface Transport {
 
     float refuel(float amount_of_fuel);
 
+
 }
