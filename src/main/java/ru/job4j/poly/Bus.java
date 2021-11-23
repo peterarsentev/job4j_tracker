@@ -2,22 +2,11 @@ package ru.job4j.poly;
 
 import java.util.Scanner;
 
-public class Bus implements Transport{
+public class Bus implements Vehicle {
 
     @Override
-    public void run() {
-        System.out.println("Поехали");
+    public void move() {
+        System.out.println(getClass().getSimpleName() + " двигается по скоростным трассам");
     }
-
-    @Override
-    public void passengers(int number_passengers) {
-        System.out.println("Число пассажиров");
-    }
-
-    @Override
-    public float refuel(float amount_of_fuel) {
-        return amount_of_fuel * 50;
-    }
-
 }
 
