@@ -8,7 +8,7 @@ import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.*;
 
 
-public class StartUITest extends TestCase {
+public class StartUITest {
 
     @Test
     public void testCreateItem() {
