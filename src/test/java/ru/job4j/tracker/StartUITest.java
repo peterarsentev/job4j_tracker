@@ -28,9 +28,7 @@ public class StartUITest {
     public void whenEditItem() {
         Output output = new ConsoleOutput();
         Tracker tracker = new Tracker();
-
         Item item = tracker.add(new Item("Replaced item"));
-
         String replacedName = "New item name";
         Input in = new StubInput(
                 new String[] {"0", String.valueOf(item.getId()), replacedName, "1"}
@@ -56,7 +54,7 @@ public class StartUITest {
                 new ExitProgram(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()), is(nullValue()));
+        assertThat(item.getId(), is(nullValue()));
     }
 
     @Test
