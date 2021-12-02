@@ -11,6 +11,7 @@ public class StartUITest {
 
     @Test
     public void whenCreateItem() {
+
         Output output = new ConsoleOutput();
         Input in = new StubInput(
                 new String[] {"0", "Item name", "1"}
@@ -26,6 +27,7 @@ public class StartUITest {
 
     @Test
     public void whenEditItem() {
+
         Output output = new ConsoleOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Replaced item"));
@@ -43,6 +45,7 @@ public class StartUITest {
 
     @Test
     public void whenDeleteItem() {
+
         Output output = new ConsoleOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
