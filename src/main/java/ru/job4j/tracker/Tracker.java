@@ -38,6 +38,7 @@ public class Tracker {
             Item item = items.get(index);
             if (item.getId() == id) {
                 result = index;
+                break;
             }
         }
         return result;
