@@ -85,10 +85,10 @@ public class JobTest {
         Comparator<Job> cmpNamePriority = new JobDescByName()
                 .thenComparing(new JobDescByPriority());
         int result = cmpNamePriority.compare(
-                new Job("Impl task", 0),
+                new Job("Fix bug", 0),
                 new Job("Fix bug", 1)
         );
-        assertThat(result, lessThan(0));
+        assertThat(result, greaterThan(0));
     }
 
     @Test
