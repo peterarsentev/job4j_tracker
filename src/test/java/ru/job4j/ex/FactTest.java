@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
 public class FactTest{
 
     @Test(expected = IllegalArgumentException.class)
-    public void whenNumberIsNagative() {
+    public void whenNumberIsNegative() {
         Fact.calc(-10);
     }
 
@@ -19,7 +19,7 @@ public class FactTest{
     }
 
     @Test
-    public void whenNumberIsZiro() {
+    public void whenNumberIsZero() {
         int rsl = Fact.calc(0);;
         assertThat(rsl, is(1));
     }
