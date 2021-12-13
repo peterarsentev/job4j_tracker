@@ -28,7 +28,7 @@ public class HbmTrackerTest {
         Item item2 = new Item("replace item");
         store.add(item);
         store.replace(1, item2);
-        assertThat(store.findById(1).getName(),is("replace item"));
+        assertThat(store.findById(1).getName(), is("replace item"));
     }
 
 
@@ -39,7 +39,7 @@ public class HbmTrackerTest {
         item.setId(1);
         store.add(item);
         store.delete(1);
-        assertThat(store.findAll().size(),is(0));
+        assertThat(store.findAll().size(), is(0));
     }
 
 
