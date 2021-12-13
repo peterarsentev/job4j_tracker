@@ -40,7 +40,6 @@ public class HbmTrackerTest {
         store.delete(1);
         assertThat(store.findAll().size(), is(0));
     }
-
     @Test
     public void whenFindAll() {
         Store store = new HbmTracker();
