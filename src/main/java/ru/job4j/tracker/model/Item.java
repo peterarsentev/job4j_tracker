@@ -52,13 +52,12 @@ public class Item {
         }
         Item item = (Item) o;
         return id == item.id
-                && Objects.equals(name, item.name)
-                && Objects.equals(created, item.created);
+                && Objects.equals(name, item.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, created);
+        return Objects.hash(id, name);
     }
 
     @Override
@@ -66,7 +65,6 @@ public class Item {
         return new StringJoiner(", ", Item.class.getSimpleName() + "[", "]")
                 .add("id=" + id)
                 .add("name='" + name + "'")
-                .add("created=" + created)
                 .toString();
     }
 }
