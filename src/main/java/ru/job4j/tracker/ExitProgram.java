@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class ExitProgram implements UserAction{
+public class ExitProgram implements UserAction {
     private final Output out;
 
     public ExitProgram(Output out) {

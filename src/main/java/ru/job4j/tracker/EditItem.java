@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class EditItem implements UserAction{
+public class EditItem implements UserAction {
     private final Output out;
 
     public EditItem(Output out) {

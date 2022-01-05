@@ -31,11 +31,10 @@ public class PointTest  {
         assertThat(rsl, closeTo(4, 0.001));
     }
 
-
     @Test
     public void testDistance3() {
-        Point a = new Point(0, 0,0);
-        Point b = new Point(4, 0,0);
+        Point a = new Point(0, 0, 0);
+        Point b = new Point(4, 0, 0);
         double rsl = b.distance(a);
         assertThat(rsl, closeTo(4, 0.001));
     }

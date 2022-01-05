@@ -8,6 +8,7 @@ public class College {
         student.setFio("Василий Пупкин");
         student.setGroup("ММ12");
         student.setAdmission(new Date());
-        System.out.println(student.getFio() + " has a group - " + student.getGroup() + " : " + student.getAdmission());
+        System.out.println(student.getFio() + " has a group - " + student.getGroup()
+                + " : " + student.getAdmission());
     }
 }

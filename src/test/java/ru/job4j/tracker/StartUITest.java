@@ -6,7 +6,6 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.*;
 
-
 public class StartUITest {
 
     @Test
@@ -84,7 +83,7 @@ public class StartUITest {
                         + "Menu:" + ln
                         + "0. Edit item" + ln
                         + "1. Exit Program" + ln
-                        + "=== Exit Program ==="+ ln
+                        + "=== Exit Program ===" + ln
         ));
     }
 
@@ -111,7 +110,7 @@ public class StartUITest {
                         + "Menu:" + ln
                         + "0. Show all items" + ln
                         + "1. Exit Program" + ln
-                        + "=== Exit Program ==="+ ln
+                        + "=== Exit Program ===" + ln
         ));
     }
 
@@ -138,7 +137,7 @@ public class StartUITest {
                         + "Menu:" + ln
                         + "0. Find items by name" + ln
                         + "1. Exit Program" + ln
-                        + "=== Exit Program ==="+ ln
+                        + "=== Exit Program ===" + ln
         ));
     }
 
@@ -165,7 +164,7 @@ public class StartUITest {
                         + "Menu:" + ln
                         + "0. Find item by id" + ln
                         + "1. Exit Program" + ln
-                        + "=== Exit Program ==="+ ln
+                        + "=== Exit Program ===" + ln
         ));
     }
 }

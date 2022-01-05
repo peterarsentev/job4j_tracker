@@ -9,7 +9,8 @@ import java.util.Scanner;
  * пользовательских действий;
  * Метод showMenu() - выводит на экран меню доступных пользовательских действий;
  * main() просто запускает наше приложение. В методе main() создается объект Scanner,
- * который позволит получать данные с консоли от пользователя, Tracker будет служить хранилищем заявок.
+ * который позволит получать данные с консоли от пользователя,
+ * Tracker будет служить хранилищем заявок.
  */
 
 public class StartUI {
@@ -25,7 +26,7 @@ public class StartUI {
             this.showMenu(actions);
             int select = input.askInt("Введите пункт меню ");
             UserAction action = actions[select];
-            run = action.execute(input,tracker);
+            run = action.execute(input, tracker);
         }
     }
 
