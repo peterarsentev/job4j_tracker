@@ -2,11 +2,11 @@ package ru.job4j.tracker;
 
 public class ValidateInput implements Input {
 
-    private final Output out;
+    private final Output output;
     private final Input in;
 
     public ValidateInput(Output out, Input input) {
-        this.out = out;
+        this.output = out;
         this.in = input;
     }
 
@@ -24,7 +24,7 @@ public class ValidateInput implements Input {
                 value = in.askInt(question);
                 invalid = false;
             } catch (NumberFormatException nfe) {
-                System.out.println("Please enter validate data again.");
+                output.println("Please enter validate data again.");
             }
         } while (invalid);
         return value;
