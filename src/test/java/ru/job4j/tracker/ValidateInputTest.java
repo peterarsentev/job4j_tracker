@@ -30,6 +30,21 @@ public class ValidateInputTest {
     }
 
     @Test
+    public void whenOneValidInput102() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"1", "0", "2"}
+        );
+        ValidateInput input = new ValidateInput(out, in);
+        int selected = input.askInt("Enter menu:");
+        assertThat(selected, is(1));
+        selected = input.askInt("Enter menu:");
+        assertThat(selected, is(0));
+        selected = input.askInt("Enter menu:");
+        assertThat(selected, is(2));
+    }
+
+    @Test
     public void whenNegativValidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
