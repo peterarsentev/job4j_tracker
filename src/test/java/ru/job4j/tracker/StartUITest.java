@@ -190,4 +190,26 @@ public class StartUITest {
                 )
         );
     }
+
+    @Test
+    public void whenInvalidInput() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Input input = new ValidateInput(output, new StubInput(
+                new String[] {"Exit", "Выход", "0"}
+        ));
+        UserAction[] actions = new UserAction[]{
+                new ExitProgram(output)
+        };
+        new StartUI(output).init(input, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(output.toString(), is(
+                        "Menu:" + ln
+                                + "0. Exit Program" + ln
+                                + "Please enter validate data again." + ln
+                                + "Please enter validate data again." + ln
+                                + "=== Exit Program ===" + ln
+                )
+        );
+    }
 }
