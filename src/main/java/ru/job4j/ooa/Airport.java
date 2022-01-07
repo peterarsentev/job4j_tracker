@@ -9,5 +9,6 @@ public class Airport {
 
         airbus.setName("A380");
         System.out.println(airbus);
+        airbus.printModel();
     }
 }
