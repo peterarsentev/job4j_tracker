@@ -11,13 +11,12 @@ public final class Airbus extends Aircraft {
         this.howCountEngine();
     }
 
-    private int howCountEngine() {
+    private void howCountEngine() {
         if (name.equals("A380")) {
             countEngine = 4;
         } else {
             countEngine = COUNT_ENGINE;
         }
-        return countEngine;
     }
 
     public String getName() {
