@@ -1,16 +1,9 @@
-package ru.job4j.tracker;
+package ru.job4j.search;
 
 import org.hamcrest.core.Is;
 import org.junit.Assert;
 import org.junit.Test;
-import ru.job4j.search.Person;
-import ru.job4j.search.PhoneDictionary;
-
 import java.util.ArrayList;
-
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsNull.nullValue;
-import static org.junit.Assert.*;
 
 public class PhoneDictionaryTest {
 
@@ -52,5 +45,15 @@ public class PhoneDictionaryTest {
         );
         ArrayList<Person> persons = phones.find("ansk");
         Assert.assertThat(persons.get(0).getSurname(), Is.is("Arsentev"));
+    }
+
+    @Test
+    public void whenFindNoResult() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("Petr", "Arsentev", "534872", "Bryansk")
+        );
+        ArrayList<Person> persons = phones.find("Kate");
+        Assert.assertTrue(persons.isEmpty());
     }
 }
