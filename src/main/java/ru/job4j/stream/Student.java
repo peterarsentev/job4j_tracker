@@ -11,6 +11,10 @@ public class Student {
         this.surname = surname;
     }
 
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
     public int getScore() {
         return score;
     }
