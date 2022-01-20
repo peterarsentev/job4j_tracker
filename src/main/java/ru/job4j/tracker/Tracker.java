@@ -21,15 +21,11 @@ public class Tracker {
 
     public List<Item> findByName(String key) {
         List<Item> newMass = new ArrayList<>();
-        //int count = 0;
         for (int index = 0; index < items.size(); index++) {
             if (key.equals(items.get(index).getName())) {
                 newMass.add(items.get(index));
-                //count++;
             }
         }
-
-        //return Arrays.copyOf(newMass, count);
         return List.copyOf(newMass);
     }
 
@@ -64,9 +60,6 @@ public class Tracker {
         int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
-            /*System.arraycopy(items, index + 1, items, index, size - index - 1);
-            items[size - 1] = null;
-            size--;*/
             items.remove(id - 1);
         }
         return rsl;
