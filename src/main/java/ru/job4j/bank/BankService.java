@@ -6,25 +6,31 @@ import java.util.List;
 import java.util.Map;
 
 /**
- Это поле private final Map<User, List<Account>> users = new HashMap<>();
- содержит всех пользователей системы с привязанными к ним счетами
-
- addUser - добавляет пользователя в систему
- addAccount - добавляет новый счет к пользователю
- findByPassport - ищет пользователя по номеру паспорта
- findByRequisite - ищет счет пользователя по реквизитам
- transferMoney - предназначен для перечисления денег с одного счёта на другой счёт
-
-
-*/
-
+ * Класс описывает простейшую модель взаимодействия с пользователями
+ * банковской системы и с привязанными к ним счетами
+ */
 public class BankService {
+    /**
+     * Хранение всех пользователей осуществляется в коллекции типа Map
+     */
     private final Map<User, List<Account>> users = new HashMap<>();
 
+    /**
+     * Метод принимает на вход пользователя
+     * По умолчанию к нему добавляется пустой список его счетов new ArrayList<Account>()
+     * В методе есть проверка, что такого пользователя еще нет в системе.
+     * Если он есть, то новый не добавляется.
+     * @param user пользователь который добавляется в систему
+     */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<Account>());
     }
 
+    /**
+     * Метод добавляет новый счет к пользователю
+     * @param passport по паспорту ищется уникальный пользователь
+     * @param account описнаие добавляемого счета
+     */
     public void addAccount(String passport, Account account) {
         User user = this.findByPassport(passport);
         if (user != null) {
@@ -35,13 +41,11 @@ public class BankService {
         }
     }
 
-    public void updateAccount(String passport, Account account) {
-        User user = this.findByPassport(passport);
-        ArrayList<Account> userAccounts = (ArrayList<Account>) users.get(user);
-        userAccounts.set(userAccounts.indexOf(account), account);
-        users.put(user, userAccounts);
-    }
-
+    /**
+     * Метод ищет пользователя по номеру паспорта
+     * @param passport - является уникальным в системе
+     * @return возвращает пользователя или null если пользователь не найден
+     */
     public User findByPassport(String passport) {
         for (User user: users.keySet()) {
             if (user.getPassport().equals(passport)) {
@@ -51,6 +55,12 @@ public class BankService {
         return null;
     }
 
+    /**
+     * Метод ищет счет пользователя по реквизитам
+     * @param passport - паспорт пользоватлея
+     * @param requisite - реквизиты счета
+     * @return возвращает пользователя или null если пользователь не найден
+     */
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -64,6 +74,16 @@ public class BankService {
         return null;
     }
 
+    /**
+     * Метод предназначен для перечисления денег с одного счёта на другой счёт
+     * @param srcPassport  - паспорт отправителя
+     * @param srcRequisite - счет отправителя
+     * @param destPassport - паспорт получателя
+     * @param destRequisite - счет получаетля
+     * @param amount - сумма перевода
+     * @return в случае успешного перевода возвращает true,
+     * если счёт не найден или не хватает денег на счёте отправителя, то метод возвращает false
+     */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         Account srcAccount = findByRequisite(srcPassport, srcRequisite);
