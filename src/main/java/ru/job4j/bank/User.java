@@ -10,23 +10,41 @@ public class User {
     private String passport;
     private String username;
 
+    /**
+     * @param passport - паспорт пользователя
+     * @param username - имя пользоватлея
+     */
     public User(String passport, String username) {
         this.passport = passport;
         this.username = username;
     }
 
+    /**
+     * Метод возвращает
+     * @return паспорт пользователя
+     */
     public String getPassport() {
         return passport;
     }
 
+    /** Метод устанавливает новое значение
+     * паспорт пользователя
+     */
     public void setPassport(String passport) {
         this.passport = passport;
     }
 
+    /**
+     * Метод возвращает
+     * @return имя пользователя
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * Метод устанавливает новое значение имени пользователя
+     */
     public void setUsername(String username) {
         this.username = username;
     }

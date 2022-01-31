@@ -10,23 +10,43 @@ public class Account {
     private String requisite;
     private double balance;
 
+    /**
+     * @param requisite - реквезиты счета
+     * @param balance - баланс счета
+     */
     public Account(String requisite, double balance) {
         this.requisite = requisite;
         this.balance = balance;
     }
 
+    /**
+     * метод возвращает
+     * @return реквизиты счета
+     */
     public String getRequisite() {
         return requisite;
     }
 
+    /**
+     * метод записыывает новые
+     * @param requisite - реквизиты счета
+     */
     public void setRequisite(String requisite) {
         this.requisite = requisite;
     }
 
+    /**
+     * метод возвращает
+     * @return баланс счета
+     */
     public double getBalance() {
         return balance;
     }
 
+    /**
+     * метод записыывает новое значение
+     * @param balance баланса счета
+     */
     public void setBalance(double balance) {
         this.balance = balance;
     }
