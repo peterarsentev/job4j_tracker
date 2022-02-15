@@ -6,10 +6,10 @@ import java.util.Comparator;
 
 public class FI {
     public static void main(String[] args) {
-        String[] atts = {"imageAA", "imageM"};
+        String[] atts = {"imageA", "imageMN"};
         Comparator<String> cmpText = (left, right) -> left.compareTo(right);
         Comparator<String> cmpDescSize = (left, right) ->
-                Integer.compare(left.length(), right.length());
+                Integer.compare(right.length(), left.length());
         Arrays.sort(atts, cmpText);
         for (String i: atts) {
             System.out.println(i);
