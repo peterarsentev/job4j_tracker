@@ -15,8 +15,8 @@ public class Profiles {
 
         return profiles.stream()
                 .sorted(Comparator.comparing(profile -> profile.getAddress().getCity()))
-                .map(Profile::getAddress)
                 .distinct()
+                .map(Profile::getAddress)
                 .collect(Collectors.toList());
     }
 }
