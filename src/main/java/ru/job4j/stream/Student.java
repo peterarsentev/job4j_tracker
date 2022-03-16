@@ -12,12 +12,21 @@ public class Student {
         this.surname = surname;
     }
 
+    public Student(String surname, int score) {
+        this.score = score;
+        this.surname = surname;
+    }
+
     public int getScore() {
         return score;
     }
 
     public String getSurname() {
         return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     @Override
