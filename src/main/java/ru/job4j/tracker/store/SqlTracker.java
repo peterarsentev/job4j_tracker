@@ -1,6 +1,7 @@
 package ru.job4j.tracker.store;
 
 import ru.job4j.tracker.model.Item;
+import ru.job4j.tracker.react.Observe;
 
 import java.io.InputStream;
 import java.sql.*;
@@ -97,6 +98,20 @@ public class SqlTracker implements Store {
             throwables.printStackTrace();
         }
         return items;
+    }
+
+    public void findAllByReact(Observe<Item> observe) {
+        try (PreparedStatement statement = cn.prepareStatement("select * from items")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Item item = new Item(resultSet.getString("name"));
+                    item.setId(resultSet.getInt("id"));
+                    observe.receive(item);
+                }
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     @Override

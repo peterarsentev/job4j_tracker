@@ -84,7 +84,7 @@ public class StartUITest {
         ));
     }
 
-    @Test
+/*    @Test
     public void whenFindAllAction() {
         Output output = new StubOutput();
         Input input = new StubInput(new String[]{"0", "1"});
@@ -101,7 +101,7 @@ public class StartUITest {
                 + System.lineSeparator() + "Меню." + System.lineSeparator()
                 + "0. Посмотреть все заявки" + System.lineSeparator() + "1. Выход"
                 + System.lineSeparator()));
-    }
+    }*/
 
     @Test
     public void whenFindByNameAction() {
