@@ -1,9 +1,7 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class TrackerTest {
     @Test
@@ -13,6 +11,6 @@ public class TrackerTest {
         item.setName("test1");
         tracker.add(item);
         Item result = tracker.findById(item.getId());
-        assertThat(result.getName(), is(item.getName()));
+        assertThat(result.getName()).isEqualTo(item.getName());
     }
 }
