@@ -15,8 +15,6 @@ public class User {
 
     private String gender;
 
-
-
     public static void main(String[] args) {
         User user = new Builder().buildName("name")
                 .buildSurname("surname")

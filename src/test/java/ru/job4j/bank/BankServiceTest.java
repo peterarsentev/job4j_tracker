@@ -28,7 +28,6 @@ public class BankServiceTest {
         assertThat(bank.findByRequisite("34", "5546"), is(expected));
     }
 
-
     @Test
     public void addAccount() {
         User user = new User("3434");
