@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 public class EditActionTest {
     
     @Test
-    public static void edit() {
+    public void edit() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         tracker.add(new Item("Edite item"));
